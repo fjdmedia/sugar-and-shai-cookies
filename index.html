@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sugar & Shai Cookies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka+One&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XQXMER6DS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8XQXMER6DS');
+  </script>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --cream:    #FDF6EE;
+      --blush:    #F2C4CE;
+      --rose:     #D4849A;
+      --dusty:    #C97B8B;
+      --mocha:    #8B5E52;
+      --chocolate:#5C3D35;
+      --olive:    #4A5E2A;
+      --olive-dark:#3A4A20;
+      --olive-light:#6B7D45;
+      --sage:     #B5C4B1;
+      --text:     #3D2B27;
+      --text-light:#7A5C56;
+      --white:    #FFFFFF;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--blush); border-radius: 3px; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(253, 246, 238, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--blush);
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo img {
+      height: 52px;
+      width: 52px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--blush);
+      transition: transform 0.3s;
+    }
+    .nav-logo img:hover { transform: rotate(6deg) scale(1.05); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--dusty); }
+
+    .nav-cta {
+      background: var(--olive);
+      color: var(--white) !important;
+      padding: 0.45rem 1.2rem;
+      border-radius: 50px;
+      transition: background 0.25s !important;
+    }
+    .nav-cta:hover { background: var(--olive-dark) !important; color: var(--white) !important; }
+
+    /* hamburger */
+    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--mocha); border-radius: 2px; transition: 0.3s; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      padding-top: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(160deg, var(--cream) 45%, #EAF0E0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* decorative circles */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(74,94,42,0.12) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(242,196,206,0.3) 0%, transparent 70%);
+      bottom: 60px; left: -80px;
+      border-radius: 50%;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 700px; padding: 2rem; }
+
+    .hero-logo {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--white);
+      box-shadow: 0 12px 40px rgba(74,94,42,0.25), 0 0 0 8px rgba(74,94,42,0.08);
+      margin: 0 auto 2rem;
+      display: block;
+      animation: heroLogoFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes heroLogoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--blush);
+      color: var(--mocha);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--chocolate);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em {
+      font-family: 'Pacifico', cursive;
+      font-style: normal;
+      color: var(--dusty);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--olive);
+      color: var(--white);
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background 0.25s, transform 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary:hover { background: var(--olive-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--mocha);
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 2px solid var(--blush);
+      transition: border-color 0.25s, color 0.25s, transform 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-outline:hover { border-color: var(--dusty); color: var(--dusty); transform: translateY(-2px); }
+
+    /* cookie emoji floaters */
+    .floaters { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+    .floater {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.18;
+      animation: float 6s ease-in-out infinite;
+    }
+    .floater:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+    .floater:nth-child(2) { top: 25%; right: 10%; animation-delay: 1.5s; font-size: 1.6rem; }
+    .floater:nth-child(3) { bottom: 30%; left: 5%; animation-delay: 3s; font-size: 1.4rem; }
+    .floater:nth-child(4) { bottom: 20%; right: 8%; animation-delay: 0.8s; }
+    .floater:nth-child(5) { top: 60%; left: 15%; animation-delay: 2.2s; font-size: 1.2rem; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(8deg); }
+    }
+
+    /* ── Section base ── */
+    section { padding: 6rem 2rem; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dusty);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--chocolate);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      font-weight: 300;
+      max-width: 540px;
+    }
+
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* ── About ── */
+    #about {
+      background: var(--white);
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-slideshow {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.6s ease-in-out;
+    }
+    .about-slide.active { opacity: 1; }
+    .about-slide.fading { opacity: 0; }
+
+    .about-slide img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-img-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--olive);
+      color: var(--white);
+      border-radius: 50%;
+      width: 110px; height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+      line-height: 1.2;
+      font-size: 0.8rem;
+      font-weight: 600;
+      box-shadow: 0 8px 30px rgba(74,94,42,0.35);
+    }
+    .about-img-badge strong { font-size: 1.6rem; display: block; }
+
+    .about-text .section-subtitle { margin-bottom: 2rem; }
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .about-feature-icon {
+      width: 40px; height: 40px;
+      background: var(--cream);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Specialties ── */
+    #specialties {
+      background: var(--cream);
+    }
+
+    .specialties-inner { max-width: 1100px; margin: 0 auto; }
+
+    .specialties-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .specialties-header .section-subtitle { margin: 0 auto; }
+
+    .specialties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .specialty-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 0;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(242,196,206,0.4);
+      overflow: hidden;
+    }
+    .specialty-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(139,94,82,0.15); }
+
+    .specialty-img-wrap {
+      width: 100%;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: #f5f0eb;
+    }
+    .specialty-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .specialty-card:hover .specialty-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .specialty-card-body {
+      padding: 1.4rem 1.5rem 1.8rem;
+    }
+    .specialty-card h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.15rem;
+      color: var(--chocolate);
+      margin-bottom: 0.5rem;
+    }
+    .specialty-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; }
+
+    .flavors-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+    .flavors-note a {
+      color: var(--olive);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .flavors-note a:hover { text-decoration: underline; }
+
+    .pricing-banner {
+      margin-top: 3rem;
+      background: var(--olive);
+      border-radius: 20px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .pricing-banner-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .pricing-banner-qty {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .pricing-banner-price {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .pricing-banner-divider {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .pricing-banner-note {
+      width: 100%;
+      text-align: center;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.06em;
+      margin-top: -0.5rem;
+    }
+
+    /* ── Gallery ── */
+    #gallery {
+      background: #FBF0F2;
+      overflow: hidden;
+    }
+
+    .gallery-inner { max-width: 100%; }
+    .gallery-header { text-align: center; margin-bottom: 2.5rem; max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 2rem; }
+    .gallery-header .section-subtitle { margin: 0 auto; }
+
+    .marquee-row {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-row.reverse {
+      animation: marquee-reverse 35s linear infinite;
+    }
+    .marquee-row:hover,
+    .marquee-row.reverse:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marquee-reverse {
+      0%   { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    .gallery-item {
+      border-radius: 14px;
+      overflow: hidden;
+      width: 260px;
+      height: 260px;
+      flex-shrink: 0;
+      background: var(--cream);
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item img,
+    .gallery-item video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-play {
+      position: absolute;
+      inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.15);
+      pointer-events: none;
+    }
+    .gallery-item.playing .gallery-play { display: none; }
+    .gallery-play svg { width: 44px; height: 44px; fill: rgba(255,255,255,0.9); filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35)); }
+
+    .gallery-cta {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-item { width: 160px; height: 160px; }
+      .marquee-row { gap: 0.5rem; }
+    }
+
+    /* ── How to Order ── */
+    #order {
+      background: var(--white);
+    }
+
+    .order-inner { max-width: 1100px; margin: 0 auto; }
+    .order-header { text-align: center; margin-bottom: 4rem; }
+    .order-header .section-subtitle { margin: 0 auto; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      position: relative;
+    }
+
+    .step {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+    }
+
+    .step-number {
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, var(--olive-light), var(--olive));
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 8px 24px rgba(74,94,42,0.3);
+    }
+
+    .step h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.2rem;
+      color: var(--chocolate);
+      margin-bottom: 0.6rem;
+    }
+    .step p { font-size: 0.9rem; color: var(--text-light); }
+    .step p a { color: var(--olive); font-weight: 700; text-decoration: none; }
+    .step p a:hover { text-decoration: underline; }
+
+    /* ── Reviews ── */
+    #testimonials {
+      background: var(--white);
+    }
+    .reviews-inner { max-width: 1100px; margin: 0 auto; }
+    .reviews-header { text-align: center; margin-bottom: 3rem; }
+
+    .reviews-carousel-wrap {
+      position: relative;
+    }
+
+    .reviews-carousel {
+      display: flex;
+      gap: 1.2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 1rem 0.5rem 1.5rem;
+      scrollbar-width: none;
+    }
+    .reviews-carousel::-webkit-scrollbar { display: none; }
+
+    .review-item {
+      flex: 0 0 220px;
+      scroll-snap-align: start;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 9/16;
+      position: relative;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .review-item:hover { transform: translateY(-6px) scale(1.02); }
+
+    .review-item img,
+    .review-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .review-item video {
+      cursor: pointer;
+    }
+
+    .review-play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.2);
+      transition: background 0.25s;
+      cursor: pointer;
+      pointer-events: none;
+    }
+    .review-item.playing .review-play-btn { display: none; }
+    .review-play-btn svg {
+      width: 52px; height: 52px;
+      fill: rgba(255,255,255,0.9);
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 42px; height: 42px;
+      background: var(--white);
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: var(--chocolate);
+      z-index: 2;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .carousel-btn:hover { background: var(--cream); transform: translateY(-50%) scale(1.1); }
+    .carousel-btn.prev { left: -20px; }
+    .carousel-btn.next { right: -20px; }
+
+
+    /* ── Order Form ── */
+    #order-form {
+      background: var(--cream);
+    }
+
+    .order-form-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .order-form-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .order-form {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2.5rem 2.5rem;
+      box-shadow: 0 8px 40px rgba(74,94,42,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--olive);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--blush);
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--olive);
+      box-shadow: 0 0 0 3px rgba(74,94,42,0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-flavours-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 0.6rem;
+    }
+
+    .flavour-checkboxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .flavour-check {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--cream);
+      border: 1.5px solid var(--blush);
+      border-radius: 10px;
+      padding: 0.65rem 0.9rem;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      font-size: 0.9rem;
+      color: var(--text);
+      user-select: none;
+    }
+    .flavour-check:has(input:checked) {
+      border-color: var(--olive);
+      background: #f0f4ea;
+    }
+
+    .flavour-check input[type="checkbox"] {
+      accent-color: var(--olive);
+      width: 16px; height: 16px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--blush);
+      margin: 0.4rem 0;
+    }
+
+    .form-submit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .form-submit .btn-primary {
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+      justify-content: center;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      border: none;
+    }
+
+    .form-submit-note {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: 0 8px 40px rgba(74,94,42,0.08);
+    }
+    .form-success.visible { display: block; }
+    .form-success-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .form-success h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      color: var(--olive);
+      margin-bottom: 0.75rem;
+    }
+    .form-success p { color: var(--text-light); font-size: 0.95rem; }
+
+    /* ── Contact ── */
+    #contact {
+      background: linear-gradient(160deg, var(--olive-dark) 0%, var(--olive) 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .contact-inner { max-width: 700px; margin: 0 auto; }
+    #contact .section-label { color: var(--blush); }
+    #contact .section-title { color: var(--white); }
+
+    #contact .section-subtitle {
+      color: rgba(255,255,255,0.75);
+      margin: 0 auto 3rem;
+    }
+
+    .contact-methods {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .contact-method {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      text-decoration: none;
+      color: var(--white);
+      transition: background 0.25s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 160px;
+      cursor: pointer;
+    }
+    .contact-method:hover { background: rgba(255,255,255,0.18); transform: translateY(-4px); }
+
+    .contact-method-icon { font-size: 2rem; }
+    .contact-method-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; }
+    .contact-method-value { font-size: 0.95rem; font-weight: 400; }
+
+    .contact-note {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--olive-dark);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-logo img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.2);
+      margin-bottom: 0.75rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--blush); }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+
+      /* ── Global ── */
+      section { padding: 3.5rem 1.25rem; }
+
+      /* ── Nav ── */
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 70px; left: 0; right: 0;
+        background: var(--cream);
+        padding: 1.5rem 1.25rem;
+        gap: 1.2rem;
+        border-bottom: 1px solid var(--blush);
+        z-index: 99;
+      }
+      .nav-links.open a { font-size: 1rem; }
+
+      /* ── Hero ── */
+      .hero-logo { width: 110px; height: 110px; margin-bottom: 1.2rem; }
+      .hero h1 { font-size: 2.6rem; }
+      .hero p { font-size: 0.95rem; }
+      .hero-btns { flex-direction: column; align-items: center; gap: 0.75rem; }
+      .hero-btns a { width: 100%; max-width: 280px; justify-content: center; }
+      .hero-badge { font-size: 0.68rem; }
+
+      /* ── About ── */
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-image-wrap { max-width: 280px; margin: 0 auto; }
+      .about-img-badge { width: 90px; height: 90px; font-size: 0.72rem; right: -0.5rem; bottom: -0.5rem; }
+      .about-img-badge strong { font-size: 1.3rem; }
+      .section-title { font-size: 1.9rem; }
+
+      /* ── Flavours ── */
+      .specialties-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .specialty-card h3 { font-size: 0.95rem; }
+      .specialty-card p { font-size: 0.8rem; }
+      .pricing-banner { padding: 1.5rem 1.25rem; gap: 1rem; }
+      .pricing-banner-price { font-size: 1.8rem; }
+
+      /* ── Reviews ── */
+      .carousel-btn { display: none; }
+      .review-item { flex: 0 0 155px; }
+
+      /* ── How to Order ── */
+      .steps { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .step { padding: 1.25rem 1rem; }
+      .step-number { width: 48px; height: 48px; font-size: 1.2rem; }
+      .step h3 { font-size: 1rem; }
+      .step p { font-size: 0.82rem; }
+
+      /* ── Order Form ── */
+      .order-form { padding: 1.5rem 1.25rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .flavour-checkboxes { grid-template-columns: 1fr; }
+
+      /* ── Contact ── */
+      .contact-methods { flex-direction: column; align-items: center; gap: 0.75rem; }
+      .contact-method { width: 100%; max-width: 300px; padding: 1.2rem 1rem; flex-direction: row; gap: 1rem; text-align: left; }
+      .contact-method-icon { font-size: 1.5rem; }
+      .contact-note { font-size: 0.78rem; line-height: 1.8; }
+      #contact .section-subtitle { font-size: 0.95rem; }
+
+      /* ── Footer ── */
+      .footer-links { gap: 1rem; }
+      .footer-links a { font-size: 0.78rem; }
+      .footer-tagline { font-size: 0.8rem; }
+      .footer-copy { font-size: 0.72rem; }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 400px) {
+      .hero h1 { font-size: 2rem; }
+      .specialties-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .contact-method { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a class="nav-logo" href="#"><img src="Logo.jpg" alt="Sugar & Shai Cookies" /></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#specialties">Flavours</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#order">How to Order</a></li>
+      <li><a href="#order-form" class="nav-cta" onclick="gtag('event','order_button_click',{button:'nav_order_now'})">Order Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="home">
+    <div class="floaters" aria-hidden="true">
+      <span class="floater">🍪</span>
+      <span class="floater">🌸</span>
+      <span class="floater">✨</span>
+      <span class="floater">🍪</span>
+      <span class="floater">🌷</span>
+    </div>
+    <div class="hero-content">
+      <img src="Logo.jpg" alt="Sugar & Shai Cookies" class="hero-logo" />
+      <div class="hero-badge">✦ Handcrafted with love ✦</div>
+      <h1>Sweet Cookies,<br /><em>Beautiful</em> Designs</h1>
+      <p>Custom decorated sugar cookies for every occasion — birthdays, weddings, baby showers, holidays & more.</p>
+      <div class="hero-btns">
+        <a href="#order-form" class="btn-primary" onclick="gtag('event','order_button_click',{button:'hero_place_an_order'})">🍪 Place an Order</a>
+        <a href="#gallery" class="btn-outline">View Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-image-wrap">
+        <div class="about-slideshow" id="aboutSlideshow">
+          <div class="about-slide active"><img src="Gallery/Main/Cookies.jpg" alt="Cookies" /></div>
+          <div class="about-slide"><img src="Gallery/Main/Cookies_1.jpg" alt="Cookies" /></div>
+          <div class="about-slide"><img src="Gallery/Main/Cookies_3.jpg" alt="Cookies" /></div>
+          <div class="about-slide"><img src="Gallery/Main/Cookies_4.jpg" alt="Cookies" /></div>
+          <div class="about-slide"><img src="Gallery/Main/Cookies_5.jpg" alt="Cookies" /></div>
+          <div class="about-slide"><img src="Gallery/Main/Cookies_6.jpg" alt="Cookies" /></div>
+        </div>
+        <div class="about-img-badge">
+          <strong>100%</strong>
+          Made with<br />Love
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-label">Our Story</p>
+        <h2 class="section-title">Where Every Cookie is a <em>Work of Art</em></h2>
+        <p class="section-subtitle" style="margin-bottom: 1.5rem;">
+          Hi, I'm Shai! Sugar & Shai is my home-based cookie business where baking meets artistry. Every cookie is hand-decorated with royal icing, made to order, and crafted with serious love and attention to detail.
+        </p>
+        <p class="section-subtitle">
+          Whether you need a dozen for a birthday or a hundred for a wedding — I'm here to make your sweetest moments even sweeter.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">👩‍🍳</div>
+            <span>Home-based bakery</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">🥚</div>
+            <span>Made from scratch with quality ingredients</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">📦</div>
+            <span>Beautifully packaged, ready to gift</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">📍</div>
+            <span>Pickup only — Tyndall area</span>
+          </div>
+        </div>
+        <a href="#order-form" class="btn-primary" onclick="gtag('event','order_button_click',{button:'about_place_an_order'})">Place an Order</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FLAVORS ── -->
+  <section id="specialties">
+    <div class="specialties-inner">
+      <div class="specialties-header">
+        <p class="section-label">Current Menu</p>
+        <h2 class="section-title">Available Flavors</h2>
+        <p class="section-subtitle">Flavors rotate seasonally — DM on Instagram to ask what's available right now!</p>
+      </div>
+      <div class="specialties-grid">
+        <div class="specialty-card">
+          <div class="specialty-img-wrap">
+            <img src="Cookies/Bischoff.png" alt="Biscoff Cookie" />
+          </div>
+          <div class="specialty-card-body">
+            <h3>Biscoff</h3>
+            <p>That iconic caramelized speculoos flavour baked right into every bite.</p>
+          </div>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-img-wrap">
+            <img src="Cookies/Mini Eggs.png" alt="Mini Eggs Cookie" />
+          </div>
+          <div class="specialty-card-body">
+            <h3>Mini Eggs</h3>
+            <p>Crunchy, chocolatey mini eggs folded into a soft, chewy cookie. A seasonal favourite.</p>
+          </div>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-img-wrap">
+            <img src="Cookies/Matcha Chocolate.png" alt="Matcha with White Chocolate Cookie" />
+          </div>
+          <div class="specialty-card-body">
+            <h3>Matcha with White Chocolate</h3>
+            <p>Earthy matcha balanced with creamy white chocolate chips — elegant and delicious.</p>
+          </div>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-img-wrap">
+            <img src="Cookies/Chocolate Chunk.png" alt="Chocolate Chunk with Sea Salt Cookie" />
+          </div>
+          <div class="specialty-card-body">
+            <h3>Chocolate Chunk with Sea Salt</h3>
+            <p>Gooey dark chocolate chunks finished with a sprinkle of flaky sea salt. Pure perfection.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flavors-note">
+        Flavours rotate seasonally — follow
+        <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener">@sugarandshaicookies</a>
+        on Instagram to stay up to date!
+      </div>
+
+      <div class="pricing-banner">
+        <div class="pricing-banner-item">
+          <span class="pricing-banner-qty">12pc</span>
+          <span class="pricing-banner-price">$20.00</span>
+        </div>
+        <div class="pricing-banner-divider">✦</div>
+        <div class="pricing-banner-item">
+          <span class="pricing-banner-qty">24pc</span>
+          <span class="pricing-banner-price">$35.00</span>
+        </div>
+        <div class="pricing-banner-note">Minimum of 5pc per flavour for mixed orders</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery">
+    <div class="gallery-inner">
+      <div class="gallery-header">
+        <p class="section-label">Sweet Creations</p>
+        <h2 class="section-title">Cookie Gallery</h2>
+        <p class="section-subtitle">A peek at our cookies — follow us on Instagram for more!</p>
+      </div>
+
+      <!-- Row 1: Cookies — scrolls left -->
+      <div class="marquee-row">
+        <!-- original set -->
+        <div class="gallery-item"><img src="Gallery/Cookies.jpg" alt="Packaged cookies" /></div>
+        <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="All flavours" /></div>
+        <div class="gallery-item"><img src="Gallery/Cookies_3.jpg" alt="Matcha cookies" /></div>
+        <div class="gallery-item"><img src="Gallery/Cookies_4.jpg" alt="Mini eggs cookies" /></div>
+        <div class="gallery-item"><img src="Gallery/Cookies_5.jpg" alt="Biscoff cookies" /></div>
+        <div class="gallery-item"><img src="Gallery/Cookies_6.jpg" alt="Chocolate chunk cookies" /></div>
+        <div class="gallery-item">
+          <video src="Gallery/Cookies_2.mp4" loop playsinline muted preload="metadata"></video>
+          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <!-- duplicate set for seamless loop -->
+        <div class="gallery-item"><img src="Gallery/Cookies.jpg" alt="Packaged cookies" /></div>
+        <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="All flavours" /></div>
+        <div class="gallery-item"><img src="Gallery/Cookies_3.jpg" alt="Matcha cookies" /></div>
+        <div class="gallery-item"><img src="Gallery/Cookies_4.jpg" alt="Mini eggs cookies" /></div>
+        <div class="gallery-item"><img src="Gallery/Cookies_5.jpg" alt="Biscoff cookies" /></div>
+        <div class="gallery-item"><img src="Gallery/Cookies_6.jpg" alt="Chocolate chunk cookies" /></div>
+        <div class="gallery-item">
+          <video src="Gallery/Cookies_2.mp4" loop playsinline muted preload="metadata"></video>
+          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+
+      <!-- Row 2: BTS — scrolls right (reverse) -->
+      <div class="marquee-row reverse">
+        <!-- original set -->
+        <div class="gallery-item"><img src="Gallery/BTS.jpg" alt="New cookie" /></div>
+        <div class="gallery-item"><img src="Gallery/BTS_2.jpg" alt="Dough prep" /></div>
+        <div class="gallery-item">
+          <video src="Gallery/BTS_1.mp4" loop playsinline muted preload="metadata"></video>
+          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="gallery-item">
+          <video src="Gallery/BTS_3.mp4" loop playsinline muted preload="metadata"></video>
+          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="gallery-item">
+          <video src="Gallery/BTS_4.mp4" loop playsinline muted preload="metadata"></video>
+          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="gallery-item">
+          <video src="Gallery/BTS_5.mp4" loop playsinline muted preload="metadata"></video>
+          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <!-- duplicate set -->
+        <div class="gallery-item"><img src="Gallery/BTS.jpg" alt="New cookie" /></div>
+        <div class="gallery-item"><img src="Gallery/BTS_2.jpg" alt="Dough prep" /></div>
+        <div class="gallery-item">
+          <video src="Gallery/BTS_3.mp4" loop playsinline muted preload="metadata"></video>
+          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="gallery-item">
+          <video src="Gallery/BTS_4.mp4" loop playsinline muted preload="metadata"></video>
+          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="gallery-item">
+          <video src="Gallery/BTS_5.mp4" loop playsinline muted preload="metadata"></video>
+          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="gallery-item">
+          <video src="Gallery/BTS_1.mp4" loop playsinline muted preload="metadata"></video>
+          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+      </div>
+
+      <div class="gallery-cta">
+        <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener" class="btn-primary">
+          📸 See More on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW TO ORDER ── -->
+  <section id="order">
+    <div class="order-inner">
+      <div class="order-header">
+        <p class="section-label">The Process</p>
+        <h2 class="section-title">How to Order</h2>
+        <p class="section-subtitle">Pre-orders only. Pickup available in the <strong>Tyndall area</strong>.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Send a DM</h3>
+          <p>Message <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener">@sugarandshaicookies</a> on Instagram with your order — flavour, quantity, and when you need it.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Spot Confirmation</h3>
+          <p>Shai will confirm whether there is availability for your order. Spots are limited so order early!</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Pay & Lock It In</h3>
+          <p>Once confirmed, payment is made via e-transfer or cash to secure your order.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Pick Up & Enjoy</h3>
+          <p>Collect your freshly made cookies in the Tyndall area and enjoy every bite!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REVIEWS ── -->
+  <section id="testimonials">
+    <div class="reviews-inner">
+      <div class="reviews-header">
+        <p class="section-label">Happy Customers</p>
+        <h2 class="section-title">What People Are Saying</h2>
+      </div>
+      <div class="reviews-carousel-wrap">
+        <button class="carousel-btn prev" onclick="scrollCarousel(-1)">&#8592;</button>
+        <div class="reviews-carousel" id="reviewsCarousel">
+
+          <div class="review-item">
+            <video src="Reviews/Review_1.mp4" loop playsinline preload="metadata"></video>
+            <div class="review-play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <div class="review-item">
+            <img src="Reviews/Review_2.jpg" alt="Customer review" />
+          </div>
+
+          <div class="review-item">
+            <video src="Reviews/Review_3.mp4" loop playsinline preload="metadata"></video>
+            <div class="review-play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <div class="review-item">
+            <img src="Reviews/Review_4.jpg" alt="Customer review" />
+          </div>
+
+          <div class="review-item">
+            <img src="Reviews/Review_5.jpg" alt="Customer review" />
+          </div>
+
+          <div class="review-item">
+            <video src="Reviews/Review_6.mp4" loop playsinline preload="metadata"></video>
+            <div class="review-play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+          <div class="review-item">
+            <video src="Reviews/Review_7.mp4" loop playsinline preload="metadata"></video>
+            <div class="review-play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
+        </div>
+        <button class="carousel-btn next" onclick="scrollCarousel(1)">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ORDER FORM ── -->
+  <section id="order-form">
+    <div class="order-form-inner">
+      <div class="order-form-header">
+        <p class="section-label">Place Your Order</p>
+        <h2 class="section-title">Ready to Order? 🍪</h2>
+        <p class="section-subtitle">Fill out the form below and Shai will get back to you to confirm your spot!</p>
+      </div>
+
+      <form class="order-form" id="orderForm">
+        <input type="hidden" name="access_key" value="05b0163d-2b1f-4da2-870c-c4460c6ef221" />
+        <input type="hidden" name="subject" value="New Cookie Order — Sugar & Shai" />
+        <input type="hidden" name="from_name" value="Sugar & Shai Cookies Website" />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Sarah M." required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone / Instagram</label>
+            <input type="text" id="phone" name="contact" placeholder="Phone # or @handle" />
+          </div>
+          <div class="form-group">
+            <label for="pickup-date">Pickup Date Needed</label>
+            <input type="date" id="pickup-date" name="pickup_date" required />
+          </div>
+        </div>
+
+        <hr class="form-divider" />
+
+        <div>
+          <p class="form-flavours-label">Flavours (select all you want)</p>
+          <div class="flavour-checkboxes">
+            <label class="flavour-check">
+              <input type="checkbox" name="flavours" value="Biscoff" />
+              🍪 Biscoff
+            </label>
+            <label class="flavour-check">
+              <input type="checkbox" name="flavours" value="Mini Eggs" />
+              🥚 Mini Eggs
+            </label>
+            <label class="flavour-check">
+              <input type="checkbox" name="flavours" value="Matcha White Chocolate" />
+              🍵 Matcha White Choco
+            </label>
+            <label class="flavour-check">
+              <input type="checkbox" name="flavours" value="Chocolate Chunk Sea Salt" />
+              🍫 Choco Chunk Sea Salt
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <select id="quantity" name="quantity" required>
+              <option value="" disabled selected>Select quantity</option>
+              <option value="12pc — $20.00">12 pieces — $20.00</option>
+              <option value="24pc — $35.00">24 pieces — $35.00</option>
+              <option value="Custom">Custom amount (mention in notes)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="payment">Preferred Payment</label>
+            <select id="payment" name="payment" required>
+              <option value="" disabled selected>Select payment</option>
+              <option value="E-Transfer">E-Transfer</option>
+              <option value="Cash">Cash</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Special Requests / Occasion</label>
+          <textarea id="notes" name="notes" placeholder="e.g. Birthday party for 20, need nut-free, gift wrapping, etc."></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-primary">🍪 Send My Order</button>
+          <p class="form-submit-note">✦ Pre-orders only &nbsp;·&nbsp; Pickup in Tyndall area &nbsp;·&nbsp; Min. 5pc per flavour for mixed orders ✦</p>
+        </div>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">🍪</div>
+        <h3>Order Received!</h3>
+        <p>Thanks for reaching out! Shai will confirm your spot within 24–48 hours.<br />Check your email for a reply.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="contact-inner">
+      <p class="section-label">Skip the Form</p>
+      <h2 class="section-title">Prefer to Order Your Way?</h2>
+      <p class="section-subtitle">
+        Not a form person? No worries — slide into our DMs or drop us an email and we'll get your order sorted just the same.
+      </p>
+      <div class="contact-methods">
+        <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener" class="contact-method">
+          <span class="contact-method-icon">📩</span>
+          <span class="contact-method-label">DM to Pre-Order</span>
+          <span class="contact-method-value">@sugarandshaicookies</span>
+        </a>
+        <a href="mailto:sugarandshaicookies@gmail.com" class="contact-method">
+          <span class="contact-method-icon">📧</span>
+          <span class="contact-method-label">Email</span>
+          <span class="contact-method-value">sugarandshaicookies@gmail.com</span>
+        </a>
+        <div class="contact-method">
+          <span class="contact-method-icon">📍</span>
+          <span class="contact-method-label">Pickup Only</span>
+          <span class="contact-method-value">Tyndall area</span>
+        </div>
+      </div>
+      <p class="contact-note">
+        ✦ Home-based bakery ✦ Pre-orders only ✦ Pickup in Tyndall area ✦ Please allow 24–48 hrs for a response ✦
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-logo"><img src="Logo.jpg" alt="Sugar & Shai Cookies" /></div>
+    <p class="footer-tagline">Handcrafted with love, one cookie at a time.</p>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#specialties">Flavours</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#order">How to Order</a></li>
+      <li><a href="https://www.instagram.com/sugarandshaicookies/" target="_blank">Instagram</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Sugar & Shai Cookies. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ── Paste your deployed Google Apps Script Web App URL here ──
+    const GAS_URL = 'YOUR_APPS_SCRIPT_URL';
+
+    // Order form — submit via Web3Forms (email) + Google Apps Script (sheet)
+    const orderForm = document.getElementById('orderForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    orderForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = orderForm.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      // Collect checked flavours into one comma-separated string
+      const checked = [...orderForm.querySelectorAll('input[name="flavours"]:checked')].map(cb => cb.value);
+      const flavours = checked.join(', ') || 'None selected';
+
+      const formData = new FormData(orderForm);
+      formData.delete('flavours');
+      formData.append('flavours', flavours);
+
+      // Send to Google Apps Script for sheet logging (fire-and-forget)
+      if (GAS_URL !== 'YOUR_APPS_SCRIPT_URL') {
+        const sheetBody = new URLSearchParams({
+          name:        formData.get('name')        || '',
+          email:       formData.get('email')       || '',
+          contact:     formData.get('contact')     || '',
+          pickup_date: formData.get('pickup_date') || '',
+          flavours:    flavours,
+          quantity:    formData.get('quantity')    || '',
+          payment:     formData.get('payment')     || '',
+          notes:       formData.get('notes')       || ''
+        });
+        fetch(GAS_URL, { method: 'POST', body: sheetBody }).catch(() => {});
+      }
+
+      // Send to Web3Forms for email notification
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          gtag('event', 'order_form_submitted', { method: 'web3forms' });
+          orderForm.style.display = 'none';
+          formSuccess.classList.add('visible');
+        } else {
+          throw new Error(data.message);
+        }
+      })
+      .catch(() => {
+        btn.textContent = '🍪 Send My Order';
+        btn.disabled = false;
+        alert('Something went wrong. Please DM us on Instagram!');
+      });
+    });
+
+    // About section slideshow — fade out current, then fade in next
+    const slides = document.querySelectorAll('#aboutSlideshow .about-slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.add('fading');
+      slides[current].classList.remove('active');
+      setTimeout(() => {
+        slides[current].classList.remove('fading');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 1600);
+    }, 5000);
+
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    // Close nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.specialty-card, .step, .pricing-card, .gallery-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+
+    // Carousel scroll buttons
+    function scrollCarousel(dir) {
+      const carousel = document.getElementById('reviewsCarousel');
+      carousel.scrollBy({ left: dir * 250, behavior: 'smooth' });
+    }
+
+    // Gallery video tap to play/pause
+    document.querySelectorAll('.gallery-item video').forEach(video => {
+      const item = video.parentElement;
+      item.addEventListener('click', () => {
+        if (video.paused) {
+          document.querySelectorAll('.gallery-item video').forEach(v => { v.pause(); v.parentElement.classList.remove('playing'); });
+          video.play();
+          item.classList.add('playing');
+        } else {
+          video.pause();
+          item.classList.remove('playing');
+        }
+      });
+    });
+
+    // Tap/click video to play/pause
+    document.querySelectorAll('.review-item video').forEach(video => {
+      const item = video.parentElement;
+      item.addEventListener('click', () => {
+        if (video.paused) {
+          document.querySelectorAll('.review-item video').forEach(v => { v.pause(); v.parentElement.classList.remove('playing'); });
+          video.play();
+          item.classList.add('playing');
+        } else {
+          video.pause();
+          item.classList.remove('playing');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
