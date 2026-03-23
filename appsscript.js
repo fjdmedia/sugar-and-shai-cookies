@@ -1,5 +1,5 @@
 function doPost(e) {
-  const ss    = SpreadsheetApp.getActiveSpreadsheet();
+  const ss    = SpreadsheetApp.openById('1G2QZ82EUL4XLdLFcLZ7bA_H8Qni9-nwPkrgSjHZExxM');
   const sheet = ss.getSheetByName('Orders') || ss.getActiveSheet();
 
   if (sheet.getLastRow() === 0) {
@@ -23,6 +23,25 @@ function doPost(e) {
   sheet.getRange(lastRow, 1, 1, 9)
     .setBackground(lastRow % 2 === 0 ? '#FDF6EE' : '#FFFFFF');
 
+  // ── Email notification ──
+  const subject = '🍪 New Cookie Order — ' + (p.name || 'Someone');
+  const body = [
+    'A new order was submitted on sugarandshaicookies.com',
+    '',
+    'Name:         ' + (p.name        || '—'),
+    'Email:        ' + (p.email       || '—'),
+    'Phone/IG:     ' + (p.contact     || '—'),
+    'Pickup Date:  ' + (p.pickup_date || '—'),
+    'Flavours:     ' + (p.flavours    || '—'),
+    'Quantity:     ' + (p.quantity    || '—'),
+    'Payment:      ' + (p.payment     || '—'),
+    'Notes:        ' + (p.notes       || '—'),
+    '',
+    'Check your Google Sheet for all orders.'
+  ].join('\n');
+
+  MailApp.sendEmail('sugarandshaicookies@gmail.com', subject, body);
+
   return ContentService
     .createTextOutput(JSON.stringify({ result: 'success' }))
     .setMimeType(ContentService.MimeType.JSON);
@@ -32,7 +51,7 @@ function doPost(e) {
 //  DASHBOARD  — run manually any time to rebuild
 // ─────────────────────────────────────────────────────────────────
 function buildDashboard() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = SpreadsheetApp.openById('1G2QZ82EUL4XLdLFcLZ7bA_H8Qni9-nwPkrgSjHZExxM');
 
   // Find the orders sheet — try by name first, then fall back to any sheet with 9 columns of data
   let ordersSheet = ss.getSheetByName('Orders');

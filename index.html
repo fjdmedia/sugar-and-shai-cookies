@@ -1910,6 +1910,21 @@
       formData.set('flavours', flavourSummary);
       formData.set('quantity', `${total}pc — ${priceStr}`);
 
+      // Send to Google Sheet + email notification
+      const gasData = new URLSearchParams();
+      gasData.append('name',        formData.get('name')        || '');
+      gasData.append('email',       formData.get('email')       || '');
+      gasData.append('contact',     formData.get('contact')     || '');
+      gasData.append('pickup_date', formData.get('pickup_date') || '');
+      gasData.append('flavours',    flavourSummary);
+      gasData.append('quantity',    `${total}pc — ${priceStr}`);
+      gasData.append('payment',     formData.get('payment')     || '');
+      gasData.append('notes',       formData.get('notes')       || '');
+      fetch('https://script.google.com/macros/s/AKfycbyxwDivyFF4zPmyRzhIGhXLniUcF-dRUz80Bl1GVYEsUsd7pemc27bmKQV8JH8yXelH/exec', {
+        method: 'POST',
+        body: gasData
+      }).catch(() => {});
+
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData
