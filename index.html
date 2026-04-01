@@ -1934,8 +1934,7 @@
       .then(data => {
         if (data.success) {
           gtag('event', 'order_form_submitted', { method: 'web3forms' });
-          orderForm.style.display = 'none';
-          formSuccess.classList.add('visible');
+          window.location.href = hasFOTM ? 'thanks_ube.html' : 'thanks.html';
         } else {
           throw new Error(data.message);
         }
