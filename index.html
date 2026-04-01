@@ -801,7 +801,7 @@
 
     /* ── Flavour of the Month ── */
     #fotm {
-      background: linear-gradient(160deg, #f9f0e8 0%, #eaf4e0 100%);
+      background: linear-gradient(160deg, #f9f5fd 0%, #ede5f7 100%);
       padding: 5rem 2rem;
     }
     .fotm-inner { max-width: 1000px; margin: 0 auto; }
@@ -813,8 +813,8 @@
       background: var(--white);
       border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 12px 50px rgba(74,94,42,0.12);
-      border: 1.5px solid rgba(242,196,206,0.5);
+      box-shadow: 0 12px 50px rgba(107,63,160,0.12);
+      border: 1.5px solid rgba(155,114,207,0.4);
     }
     .fotm-media {
       position: relative;
@@ -829,7 +829,7 @@
     .fotm-badge {
       position: absolute;
       top: 16px; left: 16px;
-      background: var(--olive);
+      background: #6b3fa0;
       color: var(--white);
       font-size: 0.7rem;
       font-weight: 800;
@@ -859,13 +859,13 @@
       margin-bottom: 1.8rem;
     }
     .fotm-price-pill {
-      background: #f0f4ea;
-      border: 1.5px solid var(--olive);
+      background: #f0e8f8;
+      border: 1.5px solid #9b72cf;
       border-radius: 50px;
       padding: 0.4rem 1rem;
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--olive);
+      color: #6b3fa0;
     }
     @media (max-width: 768px) {
       .fotm-card { grid-template-columns: 1fr; }
@@ -890,8 +890,8 @@
       transition: border-color 0.2s;
     }
     .flavor-qty-row.active { border-color: var(--olive); background: #f0f4ea; }
-    .flavor-qty-row.fotm-flavor { border-color: var(--rose); background: #fdf0f3; }
-    .flavor-qty-row.fotm-flavor.active { border-color: var(--dusty); background: #f7e4ea; }
+    .flavor-qty-row.fotm-flavor { border-color: #c3a0e0; background: #f9f5fd; }
+    .flavor-qty-row.fotm-flavor.active { border-color: #7952b3; background: #ede5f7; }
     .flavor-qty-name {
       font-size: 0.92rem;
       color: var(--text);
@@ -906,7 +906,7 @@
       font-weight: 800;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      background: var(--rose);
+      background: #7952b3;
       color: var(--white);
       padding: 0.15rem 0.5rem;
       border-radius: 50px;
@@ -1321,13 +1321,13 @@
     <div class="fotm-inner">
       <div class="fotm-card">
         <div class="fotm-media">
-          <video src="Gallery/Cookies_2.mp4" autoplay loop muted playsinline></video>
-          <span class="fotm-badge">March 2026</span>
+          <img src="Cookies/April/Ube.jpg" alt="Ube Bliss Cookie" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <span class="fotm-badge">April 2026</span>
         </div>
         <div class="fotm-body">
           <p class="section-label">Flavour of the Month</p>
-          <h2 class="fotm-name">Pandan Toasted Coconut Cookie</h2>
-          <p class="fotm-desc">A fragrant, tropical twist — soft pandan cookie loaded with golden toasted coconut. Only available this month, so don't miss out!</p>
+          <h2 class="fotm-name">Ube Bliss</h2>
+          <p class="fotm-desc">A little nutty, a little creamy, a whole lot of ube 💜 Made with real ube halaya and finished with toasted coconut + ube cream cheese filling</p>
           <div class="fotm-pricing">
             <span class="fotm-price-pill">12 mixed — $25</span>
             <span class="fotm-price-pill">24 mixed — $45</span>
@@ -1663,12 +1663,12 @@
               </div>
             </div>
 
-            <div class="flavor-qty-row fotm-flavor" id="row-pandan">
-              <span class="flavor-qty-name">🌿 Pandan Toasted Coconut <span class="fotm-inline-tag">Flavour of the Month</span></span>
+            <div class="flavor-qty-row fotm-flavor" id="row-ube">
+              <span class="flavor-qty-name">🍠 Ube Bliss <span class="fotm-inline-tag">Flavour of the Month</span></span>
               <div class="flavor-qty-controls">
-                <button type="button" class="qty-btn" data-target="qty-pandan" data-action="minus">−</button>
-                <input type="number" class="qty-input" id="qty-pandan" name="qty_pandan" value="0" min="0" readonly />
-                <button type="button" class="qty-btn" data-target="qty-pandan" data-action="plus">+</button>
+                <button type="button" class="qty-btn" data-target="qty-ube" data-action="minus">−</button>
+                <input type="number" class="qty-input" id="qty-ube" name="qty_ube" value="0" min="0" readonly />
+                <button type="button" class="qty-btn" data-target="qty-ube" data-action="plus">+</button>
               </div>
             </div>
 
@@ -1700,7 +1700,7 @@
 
         <div class="form-group">
           <label for="notes">Special Requests / Occasion</label>
-          <textarea id="notes" name="notes" placeholder="e.g. Custom combo of 12pcs not in multiples of 3 (e.g. 5 Biscoff + 4 Matcha + 3 Pandan), gift wrapping, nut-free request, birthday occasion, etc."></textarea>
+          <textarea id="notes" name="notes" placeholder="e.g. Custom combo of 12pcs not in multiples of 3 (e.g. 5 Biscoff + 4 Matcha + 3 Ube Bliss), gift wrapping, nut-free request, birthday occasion, etc."></textarea>
         </div>
 
         <div class="form-submit">
@@ -1797,7 +1797,7 @@
       { id: 'qty-matcha',    row: 'row-matcha',   label: 'Matcha White Chocolate',     fotm: false },
       { id: 'qty-choco',     row: 'row-choco',    label: 'Chocolate Chunk Sea Salt',   fotm: false },
       { id: 'qty-minieggs',  row: 'row-minieggs', label: 'Mini Eggs',                  fotm: false },
-      { id: 'qty-pandan',    row: 'row-pandan',   label: 'Pandan Toasted Coconut',     fotm: true  },
+      { id: 'qty-ube',       row: 'row-ube',      label: 'Ube Bliss',               fotm: true  },
     ];
 
     // Pricing
@@ -1855,11 +1855,11 @@
       } else if (priceTable[total]) {
         const p = priceTable[total];
         priceStr = `${total} pcs — $${p}.00`;
-        const pandanQty = getQty('qty-pandan');
+        const ubeQty = getQty('qty-ube');
         noteStr = hasFOTM
           ? 'Mix & match pricing applied (includes Flavour of the Month).'
-          : pandanQty > 0 && pandanQty < 3
-            ? 'Add at least 3 Pandan Toasted Coconut to unlock mix pricing.'
+          : ubeQty > 0 && ubeQty < 3
+            ? 'Add at least 3 Ube Bliss to unlock mix pricing.'
             : 'Regular pricing applied.';
       } else {
         priceStr = `${total} pcs`;
