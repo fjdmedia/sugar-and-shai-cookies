@@ -1963,12 +1963,14 @@
         if (data.success) {
           gtag('event', 'order_form_submitted', { method: 'web3forms' });
           const pickupVal = formData.get('pickup_date') || '';
-          const isWednesday = pickupVal ? new Date(pickupVal + 'T12:00:00').getDay() === 3 : false;
+          const pickupDate = pickupVal ? new Date(pickupVal + 'T12:00:00') : null;
+          const isWednesday = pickupDate ? pickupDate.getDay() === 3 : false;
+          const dateLabel = pickupDate ? pickupDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) : '';
+          const dateParam = dateLabel ? '?date=' + encodeURIComponent(dateLabel) : '';
           if (isWednesday) {
-            window.location.href = hasFOTM ? 'thanks_ube.html' : 'thanks.html';
+            window.location.href = (hasFOTM ? 'thanks_ube.html' : 'thanks.html') + dateParam;
           } else {
-            const dateLabel = pickupVal ? new Date(pickupVal + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) : 'your selected date';
-            window.location.href = 'thanks_pending.html?date=' + encodeURIComponent(dateLabel);
+            window.location.href = 'thanks_pending.html' + dateParam;
           }
         } else {
           throw new Error(data.message);

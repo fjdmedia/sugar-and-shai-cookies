@@ -51,8 +51,17 @@
   <div class="card">
     <div class="icon">🍪</div>
     <h1>Order Received!</h1>
-    <p>Your Wednesday order is locked in! 🎉<br /><br />Shai will reach out <strong>on pickup day</strong> to coordinate a time. Follow along on Instagram for updates!</p>
+    <p id="thankMsg">Your Wednesday order is locked in! 🎉<br /><br />Shai will reach out <strong>on pickup day</strong> to coordinate a time. Follow along on Instagram for updates!</p>
     <a href="index.html">Back to Home</a>
   </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const date = params.get('date');
+    if (date) {
+      document.getElementById('thankMsg').innerHTML =
+        'Your order is locked in for <strong>' + date + '</strong>! 🎉<br /><br />Shai will reach out <strong>on pickup day</strong> to coordinate a time. Follow along on Instagram for updates!';
+    }
+  </script>
 </body>
 </html>
