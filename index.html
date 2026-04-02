@@ -1512,17 +1512,17 @@
         <div class="step">
           <div class="step-number">2</div>
           <h3>Submit Your Order</h3>
-          <p>Fill out the order form with your details, preferred pickup date, and payment method. <strong>Wednesdays</strong> are our regular pickup day — other dates are subject to confirmation.</p>
+          <p>Fill out the order form with your details, preferred pickup date, and payment method. <strong>Wednesdays</strong> are our regular pickup day — order cutoff is <strong>Sunday at 7PM</strong> the week before. Orders after cutoff are automatically moved to the following Wednesday.</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
           <h3>Get Confirmed</h3>
-          <p>Shai will reach out to confirm your order and pickup date. Once confirmed, secure your spot with <strong>e-transfer or cash</strong>. Spots are limited — the sooner the better!</p>
+          <p>Once your order is in, secure your spot with <strong>e-transfer or cash</strong>. Non-Wednesday pickups are subject to Shai's confirmation. Need it sooner? <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" style="color:var(--olive);font-weight:700;">DM Shai on Instagram.</a></p>
         </div>
         <div class="step">
           <div class="step-number">4</div>
           <h3>Pick Up & Enjoy</h3>
-          <p>Pick up your freshly baked cookies in the <strong>Tyndall area</strong> on your confirmed date. That's it — just enjoy!</p>
+          <p>Shai will reach out <strong>on pickup day</strong> to coordinate a time. Pick up your freshly baked cookies in the <strong>Tyndall area</strong> and enjoy!</p>
         </div>
       </div>
     </div>
@@ -1617,7 +1617,7 @@
           <div class="form-group">
             <label for="pickup-date">Pickup Date Needed</label>
             <input type="date" id="pickup-date" name="pickup_date" required />
-            <span id="pickupDateNote" style="font-size:0.78rem;margin-top:0.25rem;color:var(--text-light);">Pickups are on Wednesdays.</span>
+            <span id="pickupDateNote" style="font-size:0.78rem;margin-top:0.25rem;color:var(--text-light);">Wednesdays are our regular pickup day — cutoff is Sunday at 7PM the week before.</span>
           </div>
         </div>
 
@@ -1764,17 +1764,39 @@
   </footer>
 
   <script>
-    // ── Pickup date note ──
+    // ── Pickup date logic ──
     const pickupInput = document.getElementById('pickup-date');
     const pickupNote  = document.getElementById('pickupDateNote');
+
+    // No same-day orders
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    pickupInput.min = tomorrow.toISOString().split('T')[0];
+
     pickupInput.addEventListener('change', function() {
-      const day = new Date(this.value + 'T12:00:00').getDay(); // 3 = Wednesday
-      if (day === 3) {
-        pickupNote.style.color = 'var(--olive)';
-        pickupNote.textContent = 'Wednesday pickup — confirmed available!';
+      let selected = new Date(this.value + 'T12:00:00');
+      const now = new Date();
+      const day = selected.getDay();
+
+      if (day === 3) { // Wednesday
+        const cutoff = new Date(selected);
+        cutoff.setDate(cutoff.getDate() - 3); // Sunday before
+        cutoff.setHours(19, 0, 0, 0);         // 7PM
+
+        if (now > cutoff) {
+          // Auto-advance to the following Wednesday
+          selected.setDate(selected.getDate() + 7);
+          this.value = selected.toISOString().split('T')[0];
+          const nextLabel = selected.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' });
+          pickupNote.style.color = '#c07a2b';
+          pickupNote.textContent = 'Cutoff for this Wednesday has passed — your order will be placed for ' + nextLabel + '.';
+        } else {
+          pickupNote.style.color = 'var(--olive)';
+          pickupNote.textContent = 'Wednesday pickup — order by Sunday at 7PM to lock in your spot.';
+        }
       } else {
         pickupNote.style.color = 'var(--dusty)';
-        pickupNote.textContent = 'Non-Wednesday pickups are subject to confirmation. Shai will let you know if this date works!';
+        pickupNote.textContent = 'Non-Wednesday pickup — Shai will reach out to confirm this date works.';
       }
     });
 
@@ -1934,7 +1956,14 @@
       .then(data => {
         if (data.success) {
           gtag('event', 'order_form_submitted', { method: 'web3forms' });
-          window.location.href = hasFOTM ? 'thanks_ube.html' : 'thanks.html';
+          const pickupVal = formData.get('pickup_date') || '';
+          const isWednesday = pickupVal ? new Date(pickupVal + 'T12:00:00').getDay() === 3 : false;
+          if (isWednesday) {
+            window.location.href = hasFOTM ? 'thanks_ube.html' : 'thanks.html';
+          } else {
+            const dateLabel = pickupVal ? new Date(pickupVal + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) : 'your selected date';
+            window.location.href = 'thanks_pending.html?date=' + encodeURIComponent(dateLabel);
+          }
         } else {
           throw new Error(data.message);
         }

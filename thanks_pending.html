@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Received — Sugar & Shai Cookies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #FDF6EE;
+      color: #3D2B27;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      max-width: 480px;
+      box-shadow: 0 8px 40px rgba(74,94,42,0.1);
+    }
+    .icon { font-size: 4rem; margin-bottom: 1rem; }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      color: #4A5E2A;
+      margin-bottom: 0.75rem;
+    }
+    .date-badge {
+      display: inline-block;
+      background: #f3f7ed;
+      color: #4A5E2A;
+      border: 1.5px solid #a0b870;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      margin-bottom: 1.25rem;
+    }
+    p { color: #7A5C56; line-height: 1.7; margin-bottom: 1.25rem; }
+    .note {
+      background: #fdf3e3;
+      border-left: 3px solid #c07a2b;
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-size: 0.88rem;
+      color: #7A5C56;
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+    .note strong { color: #c07a2b; }
+    a.btn {
+      display: inline-block;
+      background: #4A5E2A;
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+    a.btn:hover { background: #3A4A20; }
+    .ig-link {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: #4A5E2A;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .ig-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">🍪</div>
+    <div class="date-badge" id="dateLabel">Pickup Pending</div>
+    <h1>Order Received!</h1>
+    <p>Your order is in — thank you! Since you've requested a non-Wednesday pickup, Shai will reach out to confirm your date works.</p>
+    <div class="note">
+      <strong>Heads up:</strong> Wednesday is our regular pickup day. Other dates are subject to confirmation — Shai will contact you directly to sort it out.<br /><br />
+      <strong>Need it sooner?</strong> DM Shai on Instagram for last-minute arrangements.
+    </div>
+    <p style="font-size:0.85rem;">Shai will also reach out <strong>on your pickup day</strong> to coordinate a time. 🕐</p>
+    <a class="btn" href="index.html">Back to Home</a>
+    <a class="ig-link" href="https://www.instagram.com/sugarandshaicookies/" target="_blank">@sugarandshaicookies on Instagram →</a>
+  </div>
+
+  <script>
+    // Show pickup date from URL param if present
+    const params = new URLSearchParams(window.location.search);
+    const date = params.get('date');
+    if (date) {
+      document.getElementById('dateLabel').textContent = date + ' — Pending Confirmation';
+    }
+  </script>
+</body>
+</html>
