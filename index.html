@@ -1768,10 +1768,16 @@
     const pickupInput = document.getElementById('pickup-date');
     const pickupNote  = document.getElementById('pickupDateNote');
 
-    // No same-day orders
+    // No same-day or past orders — use local date, not UTC
+    function localDateStr(d) {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    }
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    pickupInput.min = tomorrow.toISOString().split('T')[0];
+    pickupInput.min = localDateStr(tomorrow);
 
     pickupInput.addEventListener('change', function() {
       let selected = new Date(this.value + 'T12:00:00');
@@ -1786,7 +1792,7 @@
         if (now > cutoff) {
           // Auto-advance to the following Wednesday
           selected.setDate(selected.getDate() + 7);
-          this.value = selected.toISOString().split('T')[0];
+          this.value = localDateStr(selected);
           const nextLabel = selected.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' });
           pickupNote.style.color = '#c07a2b';
           pickupNote.textContent = 'Cutoff for this Wednesday has passed — your order will be placed for ' + nextLabel + '.';
