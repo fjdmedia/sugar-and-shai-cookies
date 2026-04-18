@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Sugar &amp; Shai Cookies — Site Upgrade Breakdown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka+One&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:     #FDF6EE;
+    --cream-2:   #FAEFE2;
+    --blush:     #F2C4CE;
+    --blush-soft:#FBE5EA;
+    --rose:      #D4849A;
+    --dusty:     #C97B8B;
+    --olive:     #4A5E2A;
+    --olive-dark:#3A4A20;
+    --mocha:     #8B5E52;
+    --chocolate: #5C3D35;
+    --text:      #3D2B27;
+    --text-light:#7A5C56;
+    --white:     #FFFFFF;
+    --border:    rgba(74, 94, 42, 0.16);
+    --border-rose:rgba(212, 132, 154, 0.30);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+
+  /* COVER */
+  .cover {
+    min-height: 70vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 80px 32px;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(circle at 18% 10%, rgba(242, 196, 206, 0.45), transparent 55%),
+      radial-gradient(circle at 82% 90%, rgba(74, 94, 42, 0.12), transparent 55%),
+      var(--cream);
+  }
+  .cover-eyebrow {
+    font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--olive); margin-bottom: 22px; font-weight: 700;
+  }
+  .cover h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.1;
+    margin-bottom: 20px; font-weight: 400; color: var(--chocolate);
+  }
+  .cover h1 span {
+    font-family: 'Pacifico', cursive;
+    color: var(--rose); font-size: 0.9em; font-weight: 400;
+    display: inline-block; transform: translateY(6px);
+  }
+  .cover p {
+    font-size: 1.1rem; color: var(--text-light);
+    max-width: 640px; margin: 0 auto 32px;
+  }
+  .cover-meta {
+    display: flex; gap: 40px; flex-wrap: wrap; justify-content: center;
+    margin-top: 28px; padding-top: 32px;
+    border-top: 1px solid var(--border);
+    width: 100%; max-width: 680px;
+  }
+  .cover-meta strong {
+    display: block; color: var(--olive); font-size: 0.72rem;
+    letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .cover-meta span { font-size: 0.95rem; color: var(--chocolate); font-weight: 600; }
+
+  /* TOC */
+  .toc { padding: 60px 0; border-bottom: 1px solid var(--border); background: var(--cream-2); }
+  .toc h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.9rem; margin-bottom: 26px; font-weight: 400; color: var(--chocolate);
+  }
+  .toc h2 span { font-family: 'Pacifico', cursive; color: var(--rose); }
+  .toc ol {
+    list-style: none; counter-reset: toc;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 40px;
+  }
+  .toc li {
+    counter-increment: toc; padding: 12px 0;
+    border-bottom: 1px solid rgba(74, 94, 42, 0.08);
+    display: flex; gap: 16px; align-items: baseline;
+    font-size: 1rem; color: var(--text);
+  }
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    color: var(--olive); font-family: 'Fredoka One', cursive;
+    font-size: 0.9rem; font-weight: 400; min-width: 34px;
+  }
+  .toc .tag-new {
+    margin-left: auto; font-size: 0.62rem; letter-spacing: 0.18em;
+    color: var(--white); background: var(--rose);
+    padding: 3px 10px; border-radius: 20px; font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  /* SECTION */
+  section.block { padding: 80px 0; border-bottom: 1px solid var(--border); }
+  section.block.alt { background: var(--cream-2); }
+
+  .section-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 0.72rem; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--olive);
+    margin-bottom: 16px; font-weight: 800;
+  }
+  .badge-new {
+    display: inline-block; font-size: 0.62rem; letter-spacing: 0.15em;
+    color: var(--white); background: var(--rose);
+    padding: 4px 10px; border-radius: 20px;
+    font-weight: 800;
+  }
+  h2.block-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.9rem, 3.5vw, 2.7rem); line-height: 1.18;
+    margin-bottom: 16px; font-weight: 400; color: var(--chocolate);
+  }
+  h2.block-title span {
+    font-family: 'Pacifico', cursive; color: var(--rose);
+    display: inline-block;
+  }
+  .block-intro {
+    font-size: 1.05rem; color: var(--text-light);
+    max-width: 760px; margin-bottom: 42px;
+  }
+
+  /* COMPARE LAYOUT */
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 36px;
+  }
+  .compare-col { display: flex; flex-direction: column; gap: 14px; }
+  .compare-label {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.75rem; letter-spacing: 0.22em;
+    text-transform: uppercase; font-weight: 800;
+  }
+  .compare-label .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .compare-col.before .dot { background: var(--mocha); }
+  .compare-col.before .compare-label { color: var(--mocha); }
+  .compare-col.after .dot { background: var(--olive); box-shadow: 0 0 12px rgba(74, 94, 42, 0.4); }
+  .compare-col.after .compare-label { color: var(--olive); }
+
+  .screenshot-frame {
+    border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; background: var(--white);
+    box-shadow: 0 6px 22px rgba(92, 61, 53, 0.06);
+  }
+  .compare-col.after .screenshot-frame {
+    border-color: var(--olive);
+    box-shadow: 0 18px 50px rgba(74, 94, 42, 0.12);
+  }
+  .screenshot-frame img { width: 100%; display: block; }
+
+  /* SINGLE (new section) */
+  .single-shot-label {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.75rem; letter-spacing: 0.22em;
+    text-transform: uppercase; font-weight: 800;
+    color: var(--olive); margin-bottom: 14px;
+  }
+  .single-shot-label .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--olive); box-shadow: 0 0 12px rgba(74, 94, 42, 0.4);
+  }
+  .single-shot {
+    border: 1px solid var(--olive); border-radius: 14px;
+    overflow: hidden; background: var(--white);
+    box-shadow: 0 18px 50px rgba(74, 94, 42, 0.10);
+    margin-bottom: 36px;
+  }
+  .single-shot img { width: 100%; display: block; }
+
+  /* WHY CARDS */
+  .why {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 26px;
+  }
+  .why-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--rose);
+    padding: 22px 24px; border-radius: 10px;
+  }
+  .why-card h4 {
+    font-family: 'Lato', sans-serif; font-size: 0.98rem;
+    color: var(--chocolate); margin-bottom: 8px; font-weight: 800;
+  }
+  .why-card p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; }
+
+  /* POLISH GRID */
+  .polish-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+    margin-top: 26px;
+  }
+  .polish-card {
+    background: var(--white); border: 1px solid var(--border);
+    padding: 22px 26px; border-radius: 10px;
+    display: flex; gap: 18px; align-items: flex-start;
+  }
+  .polish-card .p-tag {
+    display: inline-block; font-size: 0.62rem; letter-spacing: 0.18em;
+    color: var(--olive); background: rgba(74, 94, 42, 0.1);
+    padding: 3px 10px; border-radius: 20px; margin-bottom: 8px;
+    font-weight: 800; text-transform: uppercase;
+  }
+  .polish-card h4 {
+    font-family: 'Lato', sans-serif; font-size: 1rem;
+    color: var(--chocolate); margin-bottom: 6px; font-weight: 800;
+  }
+  .polish-card p {
+    color: var(--text-light); font-size: 0.9rem; line-height: 1.6;
+  }
+  .polish-card .p-body { flex: 1; }
+
+  /* INVISIBLE UPGRADES */
+  .invisible-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    margin-top: 26px;
+  }
+  .invisible-card {
+    background: var(--white); border: 1px solid var(--border);
+    padding: 22px 26px; border-radius: 10px;
+  }
+  .invisible-card .tag {
+    display: inline-block; font-size: 0.62rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--white);
+    background: var(--olive); padding: 3px 10px;
+    border-radius: 20px; margin-bottom: 10px; font-weight: 800;
+  }
+  .invisible-card .tag.speed { background: var(--rose); }
+  .invisible-card .tag.a11y { background: var(--mocha); }
+  .invisible-card .tag.trust{ background: var(--chocolate); }
+  .invisible-card h4 {
+    font-family: 'Lato', sans-serif; font-size: 1rem;
+    margin-bottom: 8px; color: var(--chocolate); font-weight: 800;
+  }
+  .invisible-card p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; }
+
+  /* TRUST STRIP SHOWCASE */
+  .trust-showcase-wrap {
+    background: var(--white); border: 1px solid var(--olive); border-radius: 14px;
+    padding: 0; margin-bottom: 36px; overflow: hidden;
+    box-shadow: 0 18px 50px rgba(74, 94, 42, 0.10);
+  }
+  .trust-showcase-wrap img { width: 100%; display: block; }
+
+  /* CTA */
+  .cta {
+    text-align: center; padding: 90px 32px;
+    background:
+      radial-gradient(circle at 50% 100%, rgba(212, 132, 154, 0.22), transparent 60%),
+      var(--cream);
+  }
+  .cta h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px;
+    color: var(--chocolate); font-weight: 400;
+  }
+  .cta h2 span { font-family: 'Pacifico', cursive; color: var(--rose); }
+  .cta p {
+    color: var(--text-light); font-size: 1.05rem;
+    max-width: 560px; margin: 0 auto 32px;
+  }
+  .btn {
+    display: inline-block; background: var(--olive); color: var(--white);
+    padding: 15px 36px; border-radius: 40px; text-decoration: none;
+    font-weight: 800; letter-spacing: 0.05em;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(74, 94, 42, 0.25);
+  }
+
+  footer {
+    text-align: center; padding: 40px 32px;
+    border-top: 1px solid var(--border);
+    color: var(--text-light); font-size: 0.85rem;
+    background: var(--cream-2);
+  }
+  footer a { color: var(--olive); text-decoration: none; font-weight: 700; }
+
+  @media (max-width: 900px) {
+    .compare { grid-template-columns: 1fr; gap: 24px; }
+    .why { grid-template-columns: 1fr; }
+    .polish-grid { grid-template-columns: 1fr; }
+    .invisible-grid { grid-template-columns: 1fr; }
+    .toc ol { grid-template-columns: 1fr; }
+    section.block { padding: 60px 0; }
+    .container { padding: 0 20px; }
+  }
+
+  @media print {
+    body { background: white; }
+    section.block, .cta, .cover, .toc { page-break-inside: avoid; }
+    .compare, .single-shot, .trust-showcase-wrap { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-eyebrow">Site Upgrade Breakdown</div>
+  <h1>Sugar &amp; Shai Cookies<br><span>— the next batch</span></h1>
+  <p>A section-by-section look at what's changing on the site. Every upgrade is built around one thing: turning more visitors into confirmed pre-orders.</p>
+  <div class="cover-meta">
+    <div>
+      <strong>Client</strong>
+      <span>Sugar &amp; Shai Cookies</span>
+    </div>
+    <div>
+      <strong>Prepared By</strong>
+      <span>FJMedia</span>
+    </div>
+    <div>
+      <strong>Date</strong>
+      <span>April 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- TOC -->
+<section class="toc">
+  <div class="container">
+    <h2>What's <span>inside</span></h2>
+    <ol>
+      <li>Hero — the first impression</li>
+      <li>Trust strip <span class="tag-new">NEW</span></li>
+      <li>Flavour of the Month — urgency</li>
+      <li>Customer reviews — social proof above the fold</li>
+      <li>Order form — trust signals</li>
+      <li>Polish pass — icons &amp; copy</li>
+      <li>Under the hood — SEO, Speed, Accessibility</li>
+      <li>Ready to push it live</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 01 HERO -->
+<section class="block">
+  <div class="container">
+    <div class="section-eyebrow">01 — First Impression</div>
+    <h2 class="block-title">The hero does <span>more heavy lifting</span></h2>
+    <p class="block-intro">The current hero relies on the logo + floating emojis to carry the page. The upgraded hero adds a real product shot (that cookie platter speaks louder than any headline), tightens the copy so the first thing a visitor reads tells Google <em>and</em> the customer exactly what the business does — handcrafted cookies, made from scratch in Tyndall, pre-order pickup every Wednesday.</p>
+
+    <div class="compare">
+      <div class="compare-col before">
+        <div class="compare-label"><span class="dot"></span>Current Site</div>
+        <div class="screenshot-frame"><img src="sections/before/home.png" alt="Current hero"></div>
+      </div>
+      <div class="compare-col after">
+        <div class="compare-label"><span class="dot"></span>Upgraded Site</div>
+        <div class="screenshot-frame"><img src="sections/after/home.png" alt="Upgraded hero"></div>
+      </div>
+    </div>
+
+    <div class="why">
+      <div class="why-card">
+        <h4>Product shot does the selling</h4>
+        <p>A real platter of cookies is worth more than any headline. Visitors see what they're ordering in the first second on the page.</p>
+      </div>
+      <div class="why-card">
+        <h4>SEO-first subtitle</h4>
+        <p>"Handcrafted cookies made from scratch in Tyndall, MB — pre-order pickup every Wednesday" hits every search term someone would Google.</p>
+      </div>
+      <div class="why-card">
+        <h4>Clearer next step</h4>
+        <p>"See Our Flavours" beats "View Gallery" — matches the way a customer actually thinks about what to order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 TRUST STRIP -->
+<section class="block alt">
+  <div class="container">
+    <div class="section-eyebrow">02 — <span class="badge-new">NEW</span>&nbsp;&nbsp;Reassurance Bar</div>
+    <h2 class="block-title">A trust strip that answers <span>the silent questions</span></h2>
+    <p class="block-intro">Right under the hero, a thin olive strip with four micro-badges: Tyndall MB · Pickup every Wednesday · Made fresh from scratch · Pre-order only, min 3pc. Four questions a first-time customer silently has — answered in under two seconds of scrolling.</p>
+
+    <div class="single-shot-label"><span class="dot"></span>New section on the upgraded site</div>
+    <div class="trust-showcase-wrap"><img src="sections/after/trust-strip.png" alt="Trust strip"></div>
+
+    <div class="why">
+      <div class="why-card">
+        <h4>Kills the location question</h4>
+        <p>"Where are you based?" is the #1 DM. The strip answers it before they can ask — and filters out customers who aren't near Tyndall.</p>
+      </div>
+      <div class="why-card">
+        <h4>Sets the pickup expectation</h4>
+        <p>"Wednesday pickups" sits up front so nobody fills out the form expecting next-day cookies. Fewer "can I get these tomorrow?" messages.</p>
+      </div>
+      <div class="why-card">
+        <h4>Signals a real operation</h4>
+        <p>A structured micro-bar visually tells visitors this is a business with rules and standards — not a casual side hustle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 FOTM -->
+<section class="block">
+  <div class="container">
+    <div class="section-eyebrow">03 — Flavour of the Month</div>
+    <h2 class="block-title">Urgency on the <span>monthly drop</span></h2>
+    <p class="block-intro">The Flavour of the Month is already one of the strongest conversion levers on the site. The upgrade adds a "Limited — April Only" urgency pill with a pulsing dot, so visitors know this flavour disappears at month-end and orders rush in now instead of "later."</p>
+
+    <div class="compare">
+      <div class="compare-col before">
+        <div class="compare-label"><span class="dot"></span>Current</div>
+        <div class="screenshot-frame"><img src="sections/before/fotm.png" alt="Current FOTM"></div>
+      </div>
+      <div class="compare-col after">
+        <div class="compare-label"><span class="dot"></span>Upgraded</div>
+        <div class="screenshot-frame"><img src="sections/after/fotm.png" alt="Upgraded FOTM"></div>
+      </div>
+    </div>
+
+    <div class="why">
+      <div class="why-card">
+        <h4>Scarcity drives action</h4>
+        <p>"Limited — April Only" gives the visitor a reason to order today. Every day they wait, the flavour gets closer to gone.</p>
+      </div>
+      <div class="why-card">
+        <h4>Pulsing dot grabs the eye</h4>
+        <p>A subtle animated indicator — not shouty, just enough to pull focus to the urgency line without cheapening the brand.</p>
+      </div>
+      <div class="why-card">
+        <h4>Easy monthly swap</h4>
+        <p>When May rolls around, the copy swaps to "Limited — May Only" with the new flavour. Same pattern, zero rebuild.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TESTIMONIALS -->
+<section class="block alt">
+  <div class="container">
+    <div class="section-eyebrow">04 — Social Proof</div>
+    <h2 class="block-title">Real customer quotes <span>above the videos</span></h2>
+    <p class="block-intro">The current testimonials section shows real customer videos + screenshots — strong visual proof. The upgrade adds three short text quote cards <em>above</em> the carousel, so readers get a hook in text form before they scroll through video reviews. Scan-friendly for fast readers, proof-heavy for slow ones.</p>
+
+    <div class="compare">
+      <div class="compare-col before">
+        <div class="compare-label"><span class="dot"></span>Current</div>
+        <div class="screenshot-frame"><img src="sections/before/testimonials.png" alt="Current testimonials"></div>
+      </div>
+      <div class="compare-col after">
+        <div class="compare-label"><span class="dot"></span>Upgraded</div>
+        <div class="screenshot-frame"><img src="sections/after/testimonials.png" alt="Upgraded testimonials"></div>
+      </div>
+    </div>
+
+    <div class="why">
+      <div class="why-card">
+        <h4>Text beats video for scanners</h4>
+        <p>Most visitors don't watch review videos — they skim. Pull quotes catch the scanners. Video still rewards the deep divers.</p>
+      </div>
+      <div class="why-card">
+        <h4>Three angles, one section</h4>
+        <p>One quote covers flavour. One covers gifting (birthday). One covers quality ("best in Manitoba"). Covers the three reasons people buy.</p>
+      </div>
+      <div class="why-card">
+        <h4>Placeholders swap to real ones</h4>
+        <p>Current quotes are placeholders. Once you send 3 real customer quotes over, we drop them straight in — same design, real names.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 ORDER FORM -->
+<section class="block">
+  <div class="container">
+    <div class="section-eyebrow">05 — Order Form</div>
+    <h2 class="block-title">Same form, <span>added trust signal</span></h2>
+    <p class="block-intro">The order form is already doing the heavy lifting — per-flavour quantity selectors, live pricing summary, automatic pickup-date logic. The upgrade adds one small but critical line right under the submit button: <strong>"No payment taken until Shai confirms your order."</strong> Kills the biggest hesitation first-time buyers have on a home-based bakery site.</p>
+
+    <div class="compare">
+      <div class="compare-col before">
+        <div class="compare-label"><span class="dot"></span>Current</div>
+        <div class="screenshot-frame"><img src="sections/before/order-form.png" alt="Current order form"></div>
+      </div>
+      <div class="compare-col after">
+        <div class="compare-label"><span class="dot"></span>Upgraded</div>
+        <div class="screenshot-frame"><img src="sections/after/order-form.png" alt="Upgraded order form"></div>
+      </div>
+    </div>
+
+    <div class="why">
+      <div class="why-card">
+        <h4>Kills the "am I about to get charged?" fear</h4>
+        <p>New visitors hesitate before hitting submit because they don't know if the form will auto-charge them. The shield-check line removes that.</p>
+      </div>
+      <div class="why-card">
+        <h4>"Reserve My Cookies" reads warmer</h4>
+        <p>First-person copy on the submit button frames it as their decision, not a transaction. Friendly, not clinical.</p>
+      </div>
+      <div class="why-card">
+        <h4>Less back-and-forth over e-transfer</h4>
+        <p>Customers now expect Shai to confirm first — so nobody sends money before the order is accepted. Fewer awkward refunds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 POLISH PASS -->
+<section class="block alt">
+  <div class="container">
+    <div class="section-eyebrow">06 — Polish Pass</div>
+    <h2 class="block-title">The tiny upgrades that <span>add up</span></h2>
+    <p class="block-intro">Individually small, collectively the difference between "looks nice" and "looks professional." Every emoji swapped for a crisp Lucide icon, consistent Canadian spelling, clearer button copy. None of these alone would move the needle — together, they lift the feel of the whole site.</p>
+
+    <div class="polish-grid">
+      <div class="polish-card">
+        <div class="p-body">
+          <span class="p-tag">Icons</span>
+          <h4>Emojis → Lucide icons</h4>
+          <p>Across About, Contact, and the order form, platform-dependent emojis are swapped for crisp Lucide SVG icons that render identically on every device and browser.</p>
+        </div>
+      </div>
+      <div class="polish-card">
+        <div class="p-body">
+          <span class="p-tag">Copy</span>
+          <h4>"Flavors" → "Flavours"</h4>
+          <p>Consistent Canadian spelling across the whole site. Small detail, but a Winnipeg customer notices when it's wrong.</p>
+        </div>
+      </div>
+      <div class="polish-card">
+        <div class="p-body">
+          <span class="p-tag">Gallery</span>
+          <h4>BTS marquee row</h4>
+          <p>A second scrolling row below the cookie photos showing behind-the-scenes content — dough prep, packaging, the process. Builds trust and character.</p>
+        </div>
+      </div>
+      <div class="polish-card">
+        <div class="p-body">
+          <span class="p-tag">CTA</span>
+          <h4>Instagram icon on gallery CTA</h4>
+          <p>The "See More on Instagram" button gets a Lucide Instagram icon — signals clearly where the click leads before they tap it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 UNDER THE HOOD -->
+<section class="block">
+  <div class="container">
+    <div class="section-eyebrow">07 — Under The Hood</div>
+    <h2 class="block-title">The invisible upgrades — <span>the ones Google cares about</span></h2>
+    <p class="block-intro">Changes you won't see at a glance, but the ones that separate a hobby site from a professional one. These affect search ranking, load speed on mobile, and who can actually find the site in the first place.</p>
+
+    <div class="invisible-grid">
+      <div class="invisible-card">
+        <span class="tag">SEO</span>
+        <h4>SEO-optimized title + meta description</h4>
+        <p>"Sugar &amp; Shai Cookies | Homemade Cookies · Winnipeg, MB" — tells Google exactly what the site is and where it serves. Pairs with a keyword-rich meta description for the search snippet.</p>
+      </div>
+      <div class="invisible-card">
+        <span class="tag">SEO</span>
+        <h4>Bakery schema for Google</h4>
+        <p>JSON-LD LocalBusiness markup of type <em>Bakery</em> — signals to Google that this is a Winnipeg-area bakery, unlocking "cookies near me" and map-pack eligibility.</p>
+      </div>
+      <div class="invisible-card">
+        <span class="tag">SEO</span>
+        <h4>Open Graph + Twitter Card</h4>
+        <p>When the link gets shared over text, IG DMs, or Facebook, it now shows a proper preview card with a cookie image and headline — not a broken thumbnail.</p>
+      </div>
+      <div class="invisible-card">
+        <span class="tag speed">Speed</span>
+        <h4>Lazy-loaded images</h4>
+        <p>Gallery, about slideshow, and reviews all load only when they scroll into view. First paint happens faster — especially on slow mobile data.</p>
+      </div>
+      <div class="invisible-card">
+        <span class="tag speed">Speed</span>
+        <h4>Hero image preload</h4>
+        <p>The product platter in the hero is preloaded so it paints with the rest of the hero — no awkward image pop-in on first scroll.</p>
+      </div>
+      <div class="invisible-card">
+        <span class="tag speed">Speed</span>
+        <h4>Deferred GSAP loading</h4>
+        <p>Animation library loads after the page content paints — content shows first, animations sprinkle in after. Feels faster even when it's not.</p>
+      </div>
+      <div class="invisible-card">
+        <span class="tag a11y">Accessibility</span>
+        <h4>Descriptive image alt text</h4>
+        <p>Every image has a real description — "Biscoff and matcha cookies," "Mini eggs cookies" — so screen readers (and Google image search) can parse them.</p>
+      </div>
+      <div class="invisible-card">
+        <span class="tag trust">Trust</span>
+        <h4>Confirm-before-pay flow spelled out</h4>
+        <p>Shield-check line on the submit button sets the expectation: nobody sends an e-transfer before Shai confirms. Fewer chargebacks, fewer awkward refunds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to <span>flip the switch?</span></h2>
+  <p>The upgraded version is built, tested, and ready. Once you give the word, it replaces the current site in under 10 minutes — same URL, same form, bigger impact.</p>
+  <a href="#" class="btn">Let's push it live</a>
+</section>
+
+<footer>
+  Prepared by <a href="https://fjmedia.ca">FJMedia</a> · April 2026 · Sugar &amp; Shai Cookies Site Upgrade
+</footer>
+
+</body>
+</html>
