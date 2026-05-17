@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sugar & Shai Cookies | Homemade Cookies · Winnipeg, MB</title>
-  <meta name="description" content="Handcrafted cookies made from scratch in Tyndall, MB. Biscoff, Matcha, Chocolate Chunk & monthly specials. Pre-order pickup — min 3pc per flavour." />
-  <meta property="og:title" content="Sugar & Shai Cookies | Homemade Cookies · Winnipeg, MB" />
-  <meta property="og:description" content="Handcrafted cookies made from scratch in Tyndall, MB. Pre-order for pickup — Biscoff, Matcha, Chocolate Chunk & monthly specials." />
+  <title>Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai</title>
+  <meta name="description" content="Custom cookies in Winnipeg & Tyndall, MB. Pre-order Biscoff, Matcha, Chocolate Chunk + May's Lemon Raspberry Dream. Wednesday pickup, min 3pc." />
+  <meta property="og:title" content="Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai" />
+  <meta property="og:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk + monthly flavours like Lemon Raspberry Dream." />
   <meta property="og:image" content="https://sugarandshaicookies.com/Gallery/Cookies.jpg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sugar & Shai Cookies | Homemade Cookies · Winnipeg, MB" />
-  <meta name="twitter:description" content="Handcrafted cookies made from scratch in Tyndall, MB. Pre-order for pickup — Biscoff, Matcha, Chocolate Chunk & monthly specials." />
+  <meta name="twitter:title" content="Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai" />
+  <meta name="twitter:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk + monthly flavours like Lemon Raspberry Dream." />
   <meta name="twitter:image" content="https://sugarandshaicookies.com/Gallery/Cookies.jpg" />
   <meta property="og:url" content="https://sugarandshaicookies.com" />
   <link rel="canonical" href="https://sugarandshaicookies.com" />
@@ -624,16 +624,16 @@
       margin-bottom: 0.8rem;
       width: max-content;
       animation-name: marquee;
-      animation-duration: 50s;
+      animation-duration: 30s;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
-      animation-delay: -17s; /* mid-flow on first paint */
+      animation-delay: -10s; /* mid-flow on first paint */
       will-change: transform;
     }
     .marquee-row.reverse {
       animation-name: marquee-reverse;
-      animation-duration: 40s;
-      animation-delay: -22s; /* deeper into the reverse loop so leftmost item is mid-frame */
+      animation-duration: 35s;
+      animation-delay: -17s; /* deeper into the reverse loop so leftmost item is mid-frame */
     }
     .marquee-row:hover,
     .marquee-row.reverse:hover {
@@ -1070,106 +1070,6 @@
       .fotm-name { font-size: 1.5rem; }
     }
 
-    /* ── Mother's Day Special ── */
-    #mothers-day {
-      background: linear-gradient(160deg, #fff8f0 0%, #fdeed8 100%);
-      padding: 5rem 2rem;
-    }
-    .md-inner { max-width: 1000px; margin: 0 auto; }
-    .md-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      align-items: stretch;
-      background: var(--white);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 12px 40px rgba(201,123,139,0.12);
-      border: 1.5px solid #f2c4ce;
-    }
-    .md-media {
-      position: relative;
-      min-height: 360px;
-      overflow: hidden;
-      background: #f5e9d8;
-    }
-    .md-media img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .md-badge {
-      position: absolute;
-      top: 16px; left: 16px;
-      background: #c7587a;
-      color: var(--white);
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.85rem;
-      border-radius: 50px;
-    }
-    .md-body {
-      padding: 2.2rem 2.2rem 2.2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .md-body .section-label { color: #c7587a; margin-bottom: 0.4rem; }
-    .md-name {
-      font-family: 'Pacifico', cursive;
-      font-size: 1.9rem;
-      color: var(--chocolate);
-      line-height: 1.2;
-      margin-bottom: 0.6rem;
-    }
-    .md-price {
-      display: inline-block;
-      font-family: 'Fredoka One', cursive;
-      font-size: 1.6rem;
-      color: #c7587a;
-      margin-bottom: 1rem;
-    }
-    .md-urgency {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, #c7587a, #e67ba8);
-      color: var(--white);
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.45rem 1rem;
-      border-radius: 50px;
-      margin-bottom: 1.25rem;
-      width: fit-content;
-    }
-    .md-urgency-dot {
-      width: 8px; height: 8px;
-      background: #ff6b6b;
-      border-radius: 50%;
-      animation: dotBlink 1.5s ease-in-out infinite;
-    }
-    .md-desc {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      line-height: 1.65;
-      margin-bottom: 1.4rem;
-    }
-    .md-card .btn-primary {
-      background: #c7587a;
-      align-self: flex-start;
-    }
-    .md-card .btn-primary:hover { background: #b04464; }
-    @media (max-width: 768px) {
-      .md-card { grid-template-columns: 1fr; }
-      .md-media { min-height: 240px; }
-      .md-body { padding: 1.6rem; }
-      .md-name { font-size: 1.5rem; }
-    }
-
     /* ── Flavor Quantity Rows ── */
     .flavor-qty-grid {
       display: flex;
@@ -1191,18 +1091,6 @@
     .flavor-qty-row.fotm-flavor.active { border-color: #7952b3; background: #ede5f7; }
     .flavor-qty-row.fotm-flavor.fotm-lemon { border-color: #f4a4c2; background: #fef0f6; }
     .flavor-qty-row.fotm-flavor.fotm-lemon.active { border-color: #d63384; background: #fdd9e6; }
-    .flavor-qty-row.bundle-row { border-color: #f2c4ce; background: #fff5f8; }
-    .flavor-qty-row.bundle-row.active { border-color: #c7587a; background: #fde4ec; }
-    .bundle-tag {
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      background: #c7587a;
-      color: var(--white);
-      padding: 0.15rem 0.5rem;
-      border-radius: 50px;
-    }
     .flavor-qty-name {
       font-size: 0.92rem;
       color: var(--text);
@@ -1591,7 +1479,7 @@
     "@context": "https://schema.org",
     "@type": "Bakery",
     "name": "Sugar & Shai Cookies",
-    "description": "Handcrafted cookies made from scratch in Tyndall, MB. Biscoff, Matcha, Chocolate Chunk & monthly specials. Pre-order pickup.",
+    "description": "Custom cookies pre-ordered for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk + monthly flavours. Wednesday pickup, minimum 3pc per flavour.",
     "url": "https://sugarandshaicookies.com",
     "image": "https://sugarandshaicookies.com/Gallery/Cookies.jpg",
     "telephone": "",
@@ -1602,11 +1490,18 @@
       "addressRegion": "MB",
       "addressCountry": "CA"
     },
+    "areaServed": [
+      { "@type": "City", "name": "Winnipeg" },
+      { "@type": "City", "name": "Tyndall" },
+      { "@type": "AdministrativeArea", "name": "Manitoba" }
+    ],
     "sameAs": [
       "https://www.instagram.com/sugarandshaicookies/"
     ],
     "priceRange": "$20–$45",
     "servesCuisine": "Cookies",
+    "paymentAccepted": "Cash, E-Transfer",
+    "currenciesAccepted": "CAD",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Wednesday",
@@ -1728,7 +1623,7 @@
       <div class="fotm-header gs-reveal">
         <p class="section-label">This Month</p>
         <h2 class="section-title">Flavours of the Month</h2>
-        <p class="section-subtitle">Our brand-new May limited edition — plus one last call on Ube Bliss before it disappears.</p>
+        <p class="section-subtitle">Our brand-new May limited edition — plus Ube Bliss extended through May 31.</p>
       </div>
       <div class="fotm-grid">
 
@@ -1751,7 +1646,7 @@
           </div>
         </div>
 
-        <!-- Card 2: Ube Bliss — extended until May 16 -->
+        <!-- Card 2: Ube Bliss — extended until May 31 -->
         <div class="fotm-card fotm-ube gs-reveal">
           <div class="fotm-media">
             <img src="Cookies/April/Ube.jpg" alt="Ube Bliss Cookie" loading="lazy">
@@ -1760,7 +1655,7 @@
           <div class="fotm-body">
             <p class="section-label">Encore</p>
             <h2 class="fotm-name">Ube Bliss</h2>
-            <div class="fotm-urgency"><span class="fotm-urgency-dot"></span> Extended — Until May 16</div>
+            <div class="fotm-urgency"><span class="fotm-urgency-dot"></span> Extended — Until May 31</div>
             <p class="fotm-desc">A little nutty, a little creamy, a whole lot of ube — made with real ube halaya and finished with toasted coconut + ube cream cheese filling.</p>
             <div class="fotm-pricing">
               <span class="fotm-price-pill">12 mixed — $25</span>
@@ -1770,26 +1665,6 @@
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ── MOTHER'S DAY SPECIAL ── -->
-  <section id="mothers-day">
-    <div class="md-inner">
-      <div class="md-card gs-reveal">
-        <div class="md-media">
-          <img src="Cookies/May/Mom's Treat Box.jpg" alt="Mom's Treat Box — 3 mini cookies plus 6 cookies" loading="lazy">
-          <span class="md-badge">Mother's Day Special</span>
-        </div>
-        <div class="md-body">
-          <p class="section-label">Limited Bundle · May Only</p>
-          <h2 class="md-name">Mom's Treat Box</h2>
-          <span class="md-price">$28</span>
-          <div class="md-urgency"><span class="md-urgency-dot"></span> Pre-order now · Pickups May 7 – 16</div>
-          <p class="md-desc">featuring 3 mini cookies + 6 cookies (one of each flavour to try!)</p>
-          <a href="#order-form" class="btn-primary">Add a Mom's Box</a>
-        </div>
       </div>
     </div>
   </section>
@@ -1880,7 +1755,6 @@
       <div class="marquee-row">
         <!-- original set -->
         <div class="gallery-item"><img src="Cookies/May/Lemon Raspberry Dream.jpg" alt="Lemon Raspberry Dream cookies — May Flavour of the Month" loading="lazy" /></div>
-        <div class="gallery-item"><img src="Cookies/May/Mom's Treat Box.jpg" alt="Mom's Treat Box — Mother's Day Special" loading="lazy" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies.jpg" alt="Packaged cookies" loading="lazy" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="All flavours" loading="lazy" /></div>
         <div class="gallery-item"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha White Chocolate cookies" loading="lazy" /></div>
@@ -1891,7 +1765,6 @@
         <div class="gallery-item"><img src="Gallery/Cookies_6.jpg" alt="Chocolate chunk cookies" loading="lazy" /></div>
         <!-- duplicate set for seamless loop -->
         <div class="gallery-item"><img src="Cookies/May/Lemon Raspberry Dream.jpg" alt="Lemon Raspberry Dream cookies — May Flavour of the Month" loading="lazy" /></div>
-        <div class="gallery-item"><img src="Cookies/May/Mom's Treat Box.jpg" alt="Mom's Treat Box — Mother's Day Special" loading="lazy" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies.jpg" alt="Packaged cookies" loading="lazy" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="All flavours" loading="lazy" /></div>
         <div class="gallery-item"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha White Chocolate cookies" loading="lazy" /></div>
@@ -1909,50 +1782,10 @@
       <div class="marquee-row reverse">
         <!-- original set -->
         <div class="gallery-item"><img src="Gallery/BTS.jpg" alt="New cookie" loading="lazy" /></div>
-        <div class="gallery-item">
-          <video src="Gallery/BTS_1.mp4" loop muted playsinline preload="metadata"></video>
-          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </div>
         <div class="gallery-item"><img src="Gallery/BTS_2.jpg" alt="Dough prep" loading="lazy" /></div>
-        <div class="gallery-item">
-          <video src="Gallery/BTS_3.mp4" loop muted playsinline preload="metadata"></video>
-          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <video src="Gallery/Cookies_2.mp4" loop muted playsinline preload="metadata"></video>
-          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <video src="Gallery/BTS_4.mp4" loop muted playsinline preload="metadata"></video>
-          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <video src="Gallery/BTS_5.mp4" loop muted playsinline preload="metadata"></video>
-          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </div>
         <!-- duplicate set -->
         <div class="gallery-item"><img src="Gallery/BTS.jpg" alt="New cookie" loading="lazy" /></div>
-        <div class="gallery-item">
-          <video src="Gallery/BTS_1.mp4" loop muted playsinline preload="metadata"></video>
-          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </div>
         <div class="gallery-item"><img src="Gallery/BTS_2.jpg" alt="Dough prep" loading="lazy" /></div>
-        <div class="gallery-item">
-          <video src="Gallery/BTS_3.mp4" loop muted playsinline preload="metadata"></video>
-          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <video src="Gallery/Cookies_2.mp4" loop muted playsinline preload="metadata"></video>
-          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <video src="Gallery/BTS_4.mp4" loop muted playsinline preload="metadata"></video>
-          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </div>
-        <div class="gallery-item">
-          <video src="Gallery/BTS_5.mp4" loop muted playsinline preload="metadata"></video>
-          <div class="gallery-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </div>
       </div>
       </div>
 
@@ -2156,20 +1989,11 @@
             </div>
 
             <div class="flavor-qty-row fotm-flavor" id="row-ube">
-              <span class="flavor-qty-name">Ube Bliss <span class="fotm-inline-tag">Last Call · Until May 16</span></span>
+              <span class="flavor-qty-name">Ube Bliss <span class="fotm-inline-tag">Last Call · Until May 31</span></span>
               <div class="flavor-qty-controls">
                 <button type="button" class="qty-btn" data-target="qty-ube" data-action="minus">−</button>
                 <input type="number" class="qty-input" id="qty-ube" name="qty_ube" value="0" min="0" readonly aria-label="Ube Bliss quantity" />
                 <button type="button" class="qty-btn" data-target="qty-ube" data-action="plus">+</button>
-              </div>
-            </div>
-
-            <div class="flavor-qty-row bundle-row" id="row-momsbox">
-              <span class="flavor-qty-name">Mom's Treat Box <span class="bundle-tag">$28 · Bundle</span></span>
-              <div class="flavor-qty-controls">
-                <button type="button" class="qty-btn bundle-btn" data-target="qty-momsbox" data-action="minus">−</button>
-                <input type="number" class="qty-input" id="qty-momsbox" name="qty_momsbox" value="0" min="0" readonly aria-label="Mom's Treat Box quantity" />
-                <button type="button" class="qty-btn bundle-btn" data-target="qty-momsbox" data-action="plus">+</button>
               </div>
             </div>
 
@@ -2336,9 +2160,6 @@
       { id: 'qty-ube',       row: 'row-ube',      label: 'Ube Bliss',                  fotm: true  },
     ];
 
-    // Mom's Treat Box — sealed bundle, $28 flat, doesn't follow cookie min-3 rule, doesn't trigger FOTM mix pricing
-    const MOMS_BOX = { id: 'qty-momsbox', row: 'row-momsbox', label: "Mom's Treat Box", price: 28 };
-
     // Pricing (per cookie box)
     const PRICE = {
       regular: { 12: 20, 24: 35 },
@@ -2362,20 +2183,11 @@
           row.classList.remove('active');
         }
       });
-      const momsQty = getQty(MOMS_BOX.id);
-      const momsTotal = momsQty * MOMS_BOX.price;
-      const momsRow = document.getElementById(MOMS_BOX.row);
-      if (momsQty > 0) {
-        momsRow.classList.add('active');
-        lines.push({ label: MOMS_BOX.label, qty: momsQty, bundle: true, lineTotal: momsTotal });
-      } else {
-        momsRow.classList.remove('active');
-      }
-      return { cookieTotal, hasFOTM, lines, hasMinError, momsQty, momsTotal };
+      return { cookieTotal, hasFOTM, lines, hasMinError };
     }
 
     function updateSummary() {
-      const { cookieTotal, hasFOTM, lines, hasMinError, momsQty, momsTotal } = calcOrder();
+      const { cookieTotal, hasFOTM, lines, hasMinError } = calcOrder();
       const summary = document.getElementById('orderSummary');
       const summaryLines = document.getElementById('summaryLines');
       const summaryTotal = document.getElementById('summaryTotal');
@@ -2385,80 +2197,54 @@
 
       minWarn.style.display = hasMinError ? 'block' : 'none';
 
-      if (cookieTotal === 0 && momsQty === 0) { summary.classList.remove('visible'); return; }
+      if (cookieTotal === 0) { summary.classList.remove('visible'); return; }
       summary.classList.add('visible');
 
-      summaryLines.innerHTML = lines.map(l => {
-        if (l.bundle) {
-          return `<div class="summary-line"><span>${l.label} 🎁</span><span>${l.qty} × $${MOMS_BOX.price} = $${l.lineTotal}</span></div>`;
-        }
-        return `<div class="summary-line"><span>${l.label}${l.fotm ? ' ✦' : ''}</span><span>${l.qty} pcs</span></div>`;
-      }).join('');
+      summaryLines.innerHTML = lines.map(l =>
+        `<div class="summary-line"><span>${l.label}${l.fotm ? ' ✦' : ''}</span><span>${l.qty} pcs</span></div>`
+      ).join('');
 
       const type = hasFOTM ? 'mixed' : 'regular';
       const priceTable = PRICE[type];
       let cookiePrice = 0;
       let warnStr = '', noteStr = '';
 
-      // Cookie pricing logic
       if (cookieTotal > 24) {
         warnStr = 'Cookie orders above 24 pieces must be placed via DM — message @sugarandshaicookies on Instagram.';
-      } else if (cookieTotal > 0 && priceTable[cookieTotal]) {
+      } else if (priceTable[cookieTotal]) {
         cookiePrice = priceTable[cookieTotal];
-      } else if (cookieTotal > 0) {
+      } else {
         warnStr = 'Cookie pricing is set for 12 or 24 pieces. Adjust your quantities to hit a box size.';
       }
 
-      // Friendly note
       if (!warnStr) {
-        if (cookieTotal > 0 && hasFOTM) {
-          noteStr = momsQty > 0
-            ? "Mix & match cookies (FOTM included) + Mom's Treat Box."
-            : 'Mix & match pricing applied (Flavour of the Month included).';
-        } else if (cookieTotal > 0) {
+        if (hasFOTM) {
+          noteStr = 'Mix & match pricing applied (Flavour of the Month included).';
+        } else {
           const lemonQty = getQty('qty-lemon');
           const ubeQty   = getQty('qty-ube');
           if ((lemonQty > 0 && lemonQty < 3) || (ubeQty > 0 && ubeQty < 3)) {
             noteStr = 'Add at least 3 Lemon Raspberry Dream or 3 Ube Bliss to unlock mix pricing.';
           } else {
-            noteStr = momsQty > 0
-              ? "Regular cookie pricing + Mom's Treat Box."
-              : 'Regular pricing applied.';
+            noteStr = 'Regular pricing applied.';
           }
-        } else if (momsQty > 0) {
-          noteStr = "Mom's Treat Box only — no cookies in cart.";
         }
       }
 
-      // Grand total display
-      const grandTotal = cookiePrice + momsTotal;
-      let priceStr = '';
-      if (warnStr && cookieTotal > 0 && momsQty === 0) {
-        priceStr = `${cookieTotal} pcs`;
-      } else if (warnStr && momsQty > 0) {
-        priceStr = `Mom's Box: $${momsTotal}.00 (cookies pending)`;
-      } else if (cookieTotal > 0 && momsQty > 0) {
-        priceStr = `${cookieTotal} pcs ($${cookiePrice}) + ${momsQty} Mom's Box ($${momsTotal}) = $${grandTotal}.00`;
-      } else if (cookieTotal > 0) {
-        priceStr = `${cookieTotal} pcs — $${cookiePrice}.00`;
-      } else if (momsQty > 0) {
-        priceStr = `${momsQty} × Mom's Box — $${momsTotal}.00`;
-      }
+      const priceStr = warnStr ? `${cookieTotal} pcs` : `${cookieTotal} pcs — $${cookiePrice}.00`;
 
       summaryTotal.textContent = priceStr;
       summaryNote.textContent  = noteStr;
       summaryWarn.textContent  = warnStr;
     }
 
-    // Cookie buttons step by 3 ; Mom's Box steps by 1
+    // Cookie buttons step by 3
     document.querySelectorAll('.qty-btn').forEach(btn => {
       btn.addEventListener('click', function() {
         const input = document.getElementById(this.dataset.target);
-        const isBundle = this.classList.contains('bundle-btn');
-        const step = isBundle ? 1 : 3;
         let val = parseInt(input.value) || 0;
-        if (this.dataset.action === 'plus') val += step;
-        else if (this.dataset.action === 'minus' && val > 0) val = Math.max(0, val - step);
+        if (this.dataset.action === 'plus') val += 3;
+        else if (this.dataset.action === 'minus' && val > 0) val = Math.max(0, val - 3);
         input.value = val;
         updateSummary();
       });
@@ -2471,31 +2257,22 @@
     orderForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      const { cookieTotal, hasFOTM, lines, hasMinError, momsQty, momsTotal } = calcOrder();
+      const { cookieTotal, hasFOTM, lines, hasMinError } = calcOrder();
       const type = hasFOTM ? 'mixed' : 'regular';
       const priceTable = PRICE[type];
 
-      if (cookieTotal === 0 && momsQty === 0) { alert("Please select at least one flavour or a Mom's Treat Box."); return; }
+      if (cookieTotal === 0) { alert('Please select at least one flavour.'); return; }
       if (cookieTotal > 24) { alert('Cookie orders above 24 pieces must be placed via DM — message @sugarandshaicookies on Instagram.'); return; }
       if (hasMinError) { alert('Cookie quantities must be in multiples of 3. Use the Special Requests field for custom combos.'); return; }
-      if (cookieTotal > 0 && !priceTable[cookieTotal]) { alert('Cookie quantities must total 12 or 24 pieces. Adjust your selection or use Special Requests for custom combos.'); return; }
+      if (!priceTable[cookieTotal]) { alert('Cookie quantities must total 12 or 24 pieces. Adjust your selection or use Special Requests for custom combos.'); return; }
 
       const btn = orderForm.querySelector('button[type="submit"]');
       btn.textContent = 'Reserving…';
       btn.disabled = true;
 
-      // Build flavours summary string (cookies + Mom's Box if any)
-      const flavourSummary = lines.map(l => l.bundle
-        ? `${l.label}: ${l.qty} × $${MOMS_BOX.price}`
-        : `${l.label}: ${l.qty}pc`
-      ).join(', ');
-
-      const cookiePrice = cookieTotal > 0 ? priceTable[cookieTotal] : 0;
-      const grandTotal = cookiePrice + momsTotal;
-      const totalParts = [];
-      if (cookieTotal > 0) totalParts.push(`${cookieTotal}pc cookies $${cookiePrice}`);
-      if (momsQty > 0)     totalParts.push(`${momsQty}× Mom's Box $${momsTotal}`);
-      const priceStr = `${totalParts.join(' + ')} = $${grandTotal}.00`;
+      const flavourSummary = lines.map(l => `${l.label}: ${l.qty}pc`).join(', ');
+      const cookiePrice = priceTable[cookieTotal];
+      const priceStr = `${cookieTotal}pc cookies = $${cookiePrice}.00`;
 
       const formData = new FormData(orderForm);
       formData.set('flavours', flavourSummary);
@@ -2616,14 +2393,6 @@
       });
     });
 
-    // Mother's Day urgency — hide after May 16, last pickup day for Mom's Box + Ube Last Call window
-    (function hideMdUrgencyAfterCutoff() {
-      const cutoff = new Date('2026-05-16T23:59:00');
-      if (new Date() > cutoff) {
-        document.querySelectorAll('.md-urgency').forEach(el => { el.style.display = 'none'; });
-      }
-    })();
-
     // Sticky mobile CTA bar — show after scrolling past hero
     var mobileCta = document.getElementById('mobileCta');
     var heroSection = document.querySelector('.hero');
@@ -2682,12 +2451,6 @@
         gsap.fromTo('.fotm-card',
           { y: 30, opacity: 0 },
           { y: 0, opacity: 1, scrollTrigger: { trigger: '#fotm', start: 'top 85%', once: true }, duration: 0.7, stagger: 0.12, ease: 'power1.out' }
-        );
-
-        // Mother's Day Special card
-        gsap.fromTo('.md-card',
-          { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, scrollTrigger: { trigger: '#mothers-day', start: 'top 85%', once: true }, duration: 0.7, ease: 'power1.out' }
         );
 
         // FOTM section header

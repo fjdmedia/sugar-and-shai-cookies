@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /demo-upgrade/
+
+Sitemap: https://sugarandshaicookies.com/sitemap.xml
