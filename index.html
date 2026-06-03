@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai</title>
-  <meta name="description" content="Custom cookies in Winnipeg & Tyndall, MB. Pre-order Biscoff, Matcha, Chocolate Chunk + May's Lemon Raspberry Dream. Wednesday pickup, min 3pc." />
+  <meta name="description" content="Custom cookies in Winnipeg & Tyndall, MB. Pre-order Biscoff, Matcha, Chocolate Chunk + June's Brookie. Wednesday pickup, min 3pc." />
   <meta property="og:title" content="Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai" />
-  <meta property="og:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk + monthly flavours like Lemon Raspberry Dream." />
+  <meta property="og:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk + monthly flavours like June's Brookie." />
   <meta property="og:image" content="https://sugarandshaicookies.com/Gallery/Cookies.jpg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai" />
-  <meta name="twitter:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk + monthly flavours like Lemon Raspberry Dream." />
+  <meta name="twitter:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk + monthly flavours like June's Brookie." />
   <meta name="twitter:image" content="https://sugarandshaicookies.com/Gallery/Cookies.jpg" />
   <meta property="og:url" content="https://sugarandshaicookies.com" />
   <link rel="canonical" href="https://sugarandshaicookies.com" />
@@ -947,6 +947,12 @@
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
+    /* Single FOTM card — center it instead of stranding it in the left column */
+    .fotm-grid.single {
+      grid-template-columns: 1fr;
+      max-width: 540px;
+      margin: 0 auto;
+    }
 
     .fotm-card {
       --acc: #d63384;
@@ -967,6 +973,13 @@
       --acc-light: #9b72cf;
       --acc-bg: #f0e8f8;
       box-shadow: 0 12px 40px rgba(107,63,160,0.10);
+    }
+    .fotm-card.fotm-brookie {
+      --acc: #8f5226;
+      --acc-mid: #a86a32;
+      --acc-light: #d8aa72;
+      --acc-bg: #f7efe3;
+      box-shadow: 0 12px 40px rgba(143,82,38,0.12);
     }
     .fotm-media {
       position: relative;
@@ -1022,6 +1035,13 @@
     @keyframes urgencyPulseUbe {
       0%, 100% { box-shadow: 0 0 0 0 rgba(107,63,160,0.35); }
       50% { box-shadow: 0 0 0 8px rgba(107,63,160,0); }
+    }
+    .fotm-card.fotm-brookie .fotm-urgency {
+      animation: urgencyPulseBrookie 2s ease-in-out infinite;
+    }
+    @keyframes urgencyPulseBrookie {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(143,82,38,0.35); }
+      50% { box-shadow: 0 0 0 8px rgba(143,82,38,0); }
     }
     @keyframes dotBlink {
       0%, 100% { opacity: 1; }
@@ -1091,6 +1111,8 @@
     .flavor-qty-row.fotm-flavor.active { border-color: #7952b3; background: #ede5f7; }
     .flavor-qty-row.fotm-flavor.fotm-lemon { border-color: #f4a4c2; background: #fef0f6; }
     .flavor-qty-row.fotm-flavor.fotm-lemon.active { border-color: #d63384; background: #fdd9e6; }
+    .flavor-qty-row.fotm-flavor.fotm-brookie { border-color: #d8aa72; background: #f7efe3; }
+    .flavor-qty-row.fotm-flavor.fotm-brookie.active { border-color: #8f5226; background: #f0e2cf; }
     .flavor-qty-name {
       font-size: 0.92rem;
       color: var(--text);
@@ -1622,46 +1644,27 @@
     <div class="fotm-inner">
       <div class="fotm-header gs-reveal">
         <p class="section-label">This Month</p>
-        <h2 class="section-title">Flavours of the Month</h2>
-        <p class="section-subtitle">Our brand-new May limited edition — plus Ube Bliss extended through May 31.</p>
+        <h2 class="section-title">Flavour of the Month</h2>
+        <p class="section-subtitle">June's brand-new limited edition — the Brookie. Here for one month only.</p>
       </div>
-      <div class="fotm-grid">
+      <div class="fotm-grid single">
 
-        <!-- Card 1: Lemon Raspberry Dream (May 2026) -->
-        <div class="fotm-card gs-reveal">
+        <!-- Card: Brookie (June 2026) -->
+        <div class="fotm-card fotm-brookie gs-reveal">
           <div class="fotm-media">
-            <img src="Cookies/May/Lemon Raspberry Dream.jpg" alt="Lemon Raspberry Dream Cookie" loading="lazy">
-            <span class="fotm-badge">May 2026 Limited Edition</span>
+            <img src="Cookies/June/Brookie.jpg" alt="Brookie Cookie — brownie and cookie baked together" loading="lazy">
+            <span class="fotm-badge">June 2026 Limited Edition</span>
           </div>
           <div class="fotm-body">
             <p class="section-label">Flavour of the Month</p>
-            <h2 class="fotm-name">Lemon Raspberry Dream</h2>
-            <div class="fotm-urgency"><span class="fotm-urgency-dot"></span> Limited — May Only</div>
-            <p class="fotm-desc">citrusy, zesty and packed with real raspberry bits and white chocolate</p>
+            <h2 class="fotm-name">Brookie</h2>
+            <div class="fotm-urgency"><span class="fotm-urgency-dot"></span> Limited — June Only</div>
+            <p class="fotm-desc">A thick and indulgent treat featuring two classics in one: rich brownies and chewy cookies baked together for the perfect texture combo.</p>
             <div class="fotm-pricing">
               <span class="fotm-price-pill">12 mixed — $25</span>
               <span class="fotm-price-pill">24 mixed — $45</span>
             </div>
-            <a href="#order-form" class="btn-primary">Order Lemon Raspberry</a>
-          </div>
-        </div>
-
-        <!-- Card 2: Ube Bliss — extended until May 31 -->
-        <div class="fotm-card fotm-ube gs-reveal">
-          <div class="fotm-media">
-            <img src="Cookies/April/Ube.jpg" alt="Ube Bliss Cookie" loading="lazy">
-            <span class="fotm-badge">Last Call</span>
-          </div>
-          <div class="fotm-body">
-            <p class="section-label">Encore</p>
-            <h2 class="fotm-name">Ube Bliss</h2>
-            <div class="fotm-urgency"><span class="fotm-urgency-dot"></span> Extended — Until May 31</div>
-            <p class="fotm-desc">A little nutty, a little creamy, a whole lot of ube — made with real ube halaya and finished with toasted coconut + ube cream cheese filling.</p>
-            <div class="fotm-pricing">
-              <span class="fotm-price-pill">12 mixed — $25</span>
-              <span class="fotm-price-pill">24 mixed — $45</span>
-            </div>
-            <a href="#order-form" class="btn-primary">Order Ube Bliss</a>
+            <a href="#order-form" class="btn-primary">Order the Brookie</a>
           </div>
         </div>
 
@@ -1754,7 +1757,7 @@
       <div class="marquee-track gs-reveal">
       <div class="marquee-row">
         <!-- original set -->
-        <div class="gallery-item"><img src="Cookies/May/Lemon Raspberry Dream.jpg" alt="Lemon Raspberry Dream cookies — May Flavour of the Month" loading="lazy" /></div>
+        <div class="gallery-item"><img src="Cookies/June/Brookie.jpg" alt="Brookie cookies — June Flavour of the Month" loading="lazy" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies.jpg" alt="Packaged cookies" loading="lazy" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="All flavours" loading="lazy" /></div>
         <div class="gallery-item"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha White Chocolate cookies" loading="lazy" /></div>
@@ -1764,7 +1767,7 @@
         <div class="gallery-item"><img src="Gallery/Cookies_5.jpg" alt="Biscoff cookies" loading="lazy" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_6.jpg" alt="Chocolate chunk cookies" loading="lazy" /></div>
         <!-- duplicate set for seamless loop -->
-        <div class="gallery-item"><img src="Cookies/May/Lemon Raspberry Dream.jpg" alt="Lemon Raspberry Dream cookies — May Flavour of the Month" loading="lazy" /></div>
+        <div class="gallery-item"><img src="Cookies/June/Brookie.jpg" alt="Brookie cookies — June Flavour of the Month" loading="lazy" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies.jpg" alt="Packaged cookies" loading="lazy" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="All flavours" loading="lazy" /></div>
         <div class="gallery-item"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha White Chocolate cookies" loading="lazy" /></div>
@@ -1979,21 +1982,12 @@
               </div>
             </div>
 
-            <div class="flavor-qty-row fotm-flavor fotm-lemon" id="row-lemon">
-              <span class="flavor-qty-name">Lemon Raspberry Dream <span class="fotm-inline-tag" style="background:#d63384;">Flavour of the Month</span></span>
+            <div class="flavor-qty-row fotm-flavor fotm-brookie" id="row-brookie">
+              <span class="flavor-qty-name">Brookie <span class="fotm-inline-tag" style="background:#8f5226;">Flavour of the Month</span></span>
               <div class="flavor-qty-controls">
-                <button type="button" class="qty-btn" data-target="qty-lemon" data-action="minus">−</button>
-                <input type="number" class="qty-input" id="qty-lemon" name="qty_lemon" value="0" min="0" readonly aria-label="Lemon Raspberry Dream quantity" />
-                <button type="button" class="qty-btn" data-target="qty-lemon" data-action="plus">+</button>
-              </div>
-            </div>
-
-            <div class="flavor-qty-row fotm-flavor" id="row-ube">
-              <span class="flavor-qty-name">Ube Bliss <span class="fotm-inline-tag">Last Call · Until May 31</span></span>
-              <div class="flavor-qty-controls">
-                <button type="button" class="qty-btn" data-target="qty-ube" data-action="minus">−</button>
-                <input type="number" class="qty-input" id="qty-ube" name="qty_ube" value="0" min="0" readonly aria-label="Ube Bliss quantity" />
-                <button type="button" class="qty-btn" data-target="qty-ube" data-action="plus">+</button>
+                <button type="button" class="qty-btn" data-target="qty-brookie" data-action="minus">−</button>
+                <input type="number" class="qty-input" id="qty-brookie" name="qty_brookie" value="0" min="0" readonly aria-label="Brookie quantity" />
+                <button type="button" class="qty-btn" data-target="qty-brookie" data-action="plus">+</button>
               </div>
             </div>
 
@@ -2025,7 +2019,7 @@
 
         <div class="form-group">
           <label for="notes">Special Requests / Occasion</label>
-          <textarea id="notes" name="notes" placeholder="e.g. Custom combo of 12pcs not in multiples of 3 (e.g. 5 Biscoff + 4 Matcha + 3 Lemon Raspberry), gift wrapping, nut-free request, birthday occasion, etc."></textarea>
+          <textarea id="notes" name="notes" placeholder="e.g. Custom combo of 12pcs not in multiples of 3 (e.g. 5 Biscoff + 4 Matcha + 3 Brookie), gift wrapping, nut-free request, birthday occasion, etc."></textarea>
         </div>
 
         <div class="form-submit">
@@ -2156,8 +2150,7 @@
       { id: 'qty-matcha',    row: 'row-matcha',   label: 'Matcha White Chocolate',     fotm: false },
       { id: 'qty-choco',     row: 'row-choco',    label: 'Chocolate Chunk Sea Salt',   fotm: false },
       { id: 'qty-minieggs',  row: 'row-minieggs', label: 'Mini Eggs',                  fotm: false },
-      { id: 'qty-lemon',     row: 'row-lemon',    label: 'Lemon Raspberry Dream',     fotm: true  },
-      { id: 'qty-ube',       row: 'row-ube',      label: 'Ube Bliss',                  fotm: true  },
+      { id: 'qty-brookie',   row: 'row-brookie',  label: 'Brookie',                    fotm: true  },
     ];
 
     // Pricing (per cookie box)
@@ -2221,10 +2214,9 @@
         if (hasFOTM) {
           noteStr = 'Mix & match pricing applied (Flavour of the Month included).';
         } else {
-          const lemonQty = getQty('qty-lemon');
-          const ubeQty   = getQty('qty-ube');
-          if ((lemonQty > 0 && lemonQty < 3) || (ubeQty > 0 && ubeQty < 3)) {
-            noteStr = 'Add at least 3 Lemon Raspberry Dream or 3 Ube Bliss to unlock mix pricing.';
+          const brookieQty = getQty('qty-brookie');
+          if (brookieQty > 0 && brookieQty < 3) {
+            noteStr = 'Add at least 3 Brookie to unlock mix pricing.';
           } else {
             noteStr = 'Regular pricing applied.';
           }
@@ -2307,7 +2299,7 @@
           const dateLabel = pickupDate ? pickupDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) : '';
           const dateParam = dateLabel ? '?date=' + encodeURIComponent(dateLabel) : '';
           if (isWednesday) {
-            window.location.href = (hasFOTM ? 'thanks_lemon.html' : 'thanks.html') + dateParam;
+            window.location.href = (hasFOTM ? 'thanks_brookie.html' : 'thanks.html') + dateParam;
           } else {
             window.location.href = 'thanks_pending.html' + dateParam;
           }
@@ -2447,7 +2439,7 @@
           { x: 0, opacity: 1, scrollTrigger: { trigger: '#about', start: 'top 85%', once: true }, duration: 0.7, delay: 0.15, ease: 'power1.out' }
         );
 
-        // FOTM cards (stagger so the May card leads, Ube extension follows)
+        // FOTM card reveal
         gsap.fromTo('.fotm-card',
           { y: 30, opacity: 0 },
           { y: 0, opacity: 1, scrollTrigger: { trigger: '#fotm', start: 'top 85%', once: true }, duration: 0.7, stagger: 0.12, ease: 'power1.out' }
