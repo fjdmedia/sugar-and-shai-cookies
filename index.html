@@ -1774,7 +1774,8 @@
       </div>
 
       <!-- Row 2: Flavours + behind-the-scenes — scrolls right (reverse).
-           6-tile set (×2) so the strip exceeds the viewport and the -50% loop stays seamless. -->
+           Ships a 6-tile set (×2); the fillMarquees() script clones it further at
+           runtime so the repeating set always exceeds the viewport (any monitor width). -->
       <div class="marquee-track gs-reveal">
       <div class="marquee-row reverse">
         <!-- original set -->
@@ -2402,6 +2403,37 @@
       }, { threshold: 0 });
       ctaObserver.observe(heroSection);
     }
+
+    // ── Marquee fill ──
+    // A `-50%` marquee is only seamless when ONE repeating set is wider than the
+    // viewport. The markup ships two identical sets (fine up to ~1440); on wider
+    // monitors the bottom row was running into blank space. This clones each row's
+    // unit enough times to clear the current viewport, and scales the duration so
+    // scroll speed stays constant. No-JS fallback = the two static sets in markup.
+    function fillMarquees() {
+      document.querySelectorAll('.marquee-row').forEach(function(row) {
+        // Capture one unit (first half of the original two-set markup) once.
+        if (!row._unit) {
+          var kids = Array.prototype.slice.call(row.children);
+          var half = kids.slice(0, Math.floor(kids.length / 2));
+          row._unit = half.map(function(n) { return n.outerHTML; }).join('');
+          if (!row._unit) return; // nothing to do
+        }
+        row.innerHTML = row._unit;                 // lay out one unit to measure it
+        var unitW = row.scrollWidth;
+        if (!unitW) { row.innerHTML = row._unit + row._unit; return; } // safety
+        var k = Math.max(1, Math.ceil((window.innerWidth + 120) / unitW));
+        row.innerHTML = new Array(k * 2).fill(row._unit).join(''); // [unit×k][unit×k]
+        var base = row.classList.contains('reverse') ? 35 : 30;     // keep px/sec constant
+        row.style.animationDuration = (base * k) + 's';
+      });
+    }
+    fillMarquees();
+    var _mqResize;
+    window.addEventListener('resize', function() {
+      clearTimeout(_mqResize);
+      _mqResize = setTimeout(fillMarquees, 200);
+    });
   </script>
 
   <!-- GSAP -->
