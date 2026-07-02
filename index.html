@@ -223,6 +223,8 @@
     .specialty-overlay { position:absolute; inset:0; display:grid; place-items:center; background:rgba(92,61,53,0.45); opacity:0; transition:opacity var(--dur) var(--ease); }
     .specialty-card:hover .specialty-overlay { opacity:1; }
     .specialty-overlay span { font-family:var(--body); font-weight:700; font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); border:2px solid var(--white); padding:0.55rem 1.2rem; border-radius:var(--r-pill); }
+    /* Subtle time-limited note on a menu card (e.g. the extended Brookie) — understated cream pill, not the loud FOTM badge */
+    .card-badge { position:absolute; top:0.8rem; left:0.8rem; z-index:2; font-family:var(--body); font-size:0.6rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--mocha); background:rgba(253,246,238,0.92); border:1px solid var(--line-blush); padding:0.32rem 0.7rem; border-radius:var(--r-pill); box-shadow:var(--sh-1); backdrop-filter:blur(2px); }
     .specialty-card-body { padding:1.3rem 1.4rem 1.6rem; }
     .specialty-card-body h3 { font-family:var(--display); font-weight:400; font-size:1.15rem; color:var(--chocolate); margin-bottom:0.4rem; }
     .specialty-card-body p { font-size:0.86rem; color:var(--text-light); line-height:1.6; }
@@ -541,8 +543,8 @@
           <div class="specialty-card-body"><h3>Chocolate Chunk with Sea Salt</h3><p>Gooey dark chocolate chunks finished with a sprinkle of flaky sea salt. Pure perfection.</p></div>
         </div>
         <div class="specialty-card gs-reveal">
-          <div class="specialty-img-wrap"><img src="Cookies/June/Brookie.jpg" alt="Brookie Cookie" loading="lazy" /><div class="specialty-overlay"><span>Order Now</span></div></div>
-          <div class="specialty-card-body"><h3>Brookie</h3><p>Rich brownies and chewy cookies baked together — extended through July by popular demand.</p></div>
+          <div class="specialty-img-wrap"><span class="card-badge">Only Through July</span><img src="Cookies/June/Brookie.jpg" alt="Brookie Cookie" loading="lazy" /><div class="specialty-overlay"><span>Order Now</span></div></div>
+          <div class="specialty-card-body"><h3>Brookie</h3><p>Rich brownies and chewy cookies baked together — back by popular demand, only through the end of July.</p></div>
         </div>
       </div>
 
