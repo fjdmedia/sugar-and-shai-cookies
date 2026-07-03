@@ -558,7 +558,7 @@
         <div class="pricing-banner-item"><span class="pricing-banner-qty">12pc</span><span class="pricing-banner-price">$20.00</span></div>
         <div class="pricing-banner-divider">✦</div>
         <div class="pricing-banner-item"><span class="pricing-banner-qty">24pc</span><span class="pricing-banner-price">$35.00</span></div>
-        <div class="pricing-banner-note">Minimum of 3pc per flavour &nbsp;✦&nbsp; Mix with Flavour of the Month: 12pc $25 / 24pc $45</div>
+        <div class="pricing-banner-note">Minimum of 3pc per flavour &nbsp;✦&nbsp; Specialty flavours (Cookies and Cream, Brookie): 12pc $25 / 24pc $45</div>
       </div>
     </div>
   </section>
@@ -900,13 +900,17 @@
     });
 
     // ── Flavour quantity buttons ──
+    // fotm:true = premium "mix & match" pricing ($25/12, $45/24). Applies to BOTH the featured
+    // Flavour of the Month (Cookies and Cream) AND the extended Brookie; the 4 base flavours use
+    // regular pricing ($20/12, $35/24). Which flavour is *labelled* the Flavour of the Month is
+    // set in the markup (FOTM section + stepper tag) — separate from this pricing flag.
     const FLAVORS = [
       { id: 'qty-biscoff',   row: 'row-biscoff',  label: 'Biscoff',                   fotm: false },
       { id: 'qty-matcha',    row: 'row-matcha',   label: 'Matcha White Chocolate',     fotm: false },
       { id: 'qty-choco',     row: 'row-choco',    label: 'Chocolate Chunk Sea Salt',   fotm: false },
       { id: 'qty-minieggs',  row: 'row-minieggs', label: 'Mini Eggs',                  fotm: false },
       { id: 'qty-cookiescream', row: 'row-cookiescream', label: 'Cookies and Cream',   fotm: true  },
-      { id: 'qty-brookie',   row: 'row-brookie',  label: 'Brookie',                    fotm: false },
+      { id: 'qty-brookie',   row: 'row-brookie',  label: 'Brookie',                    fotm: true  },
     ];
 
     // Pricing (per cookie box)
@@ -968,11 +972,11 @@
 
       if (!warnStr) {
         if (hasFOTM) {
-          noteStr = 'Mix & match pricing applied (Flavour of the Month included).';
+          noteStr = 'Mix & match pricing applied (specialty flavour included).';
         } else {
-          const fotmQty = getQty('qty-cookiescream');
+          const fotmQty = getQty('qty-cookiescream') + getQty('qty-brookie');
           if (fotmQty > 0 && fotmQty < 3) {
-            noteStr = 'Add at least 3 Cookies and Cream to unlock mix pricing.';
+            noteStr = 'Add at least 3 Cookies and Cream or Brookie to unlock mix pricing.';
           } else {
             noteStr = 'Regular pricing applied.';
           }
