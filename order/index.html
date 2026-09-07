@@ -303,9 +303,6 @@
     <div class="order-form-inner">
 
       <form class="order-form" id="orderForm">
-        <input type="hidden" name="access_key" value="05b0163d-2b1f-4da2-870c-c4460c6ef221" />
-        <input type="hidden" name="subject" value="New Cookie Order — Sugar & Shai" />
-        <input type="hidden" name="from_name" value="Sugar & Shai Cookies Website" />
         <input type="hidden" name="order_source" value="Order Page (/order)" />
         <div class="form-row">
           <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="e.g. Sarah M." autocomplete="name" required /></div>
@@ -632,10 +629,18 @@
       const priceStr = `${cookieTotal}pc cookies = $${cookiePrice}.00 (${type} pricing)`;
 
       const formData = new FormData(orderForm);
-      formData.set('flavours', flavourSummary);
-      formData.set('quantity', priceStr);
 
-      // Send to Google Sheet + email notification
+      // ── Submit ──────────────────────────────────────────────────────────────────
+      // ONE submission path: the Apps Script appends the order row AND emails Shai
+      // (MailApp -> sugarandshaicookies@gmail.com), then returns {"result":"success"}.
+      // Its response is readable cross-origin, so it also drives the thank-you redirect.
+      //
+      // Web3Forms was removed 2026-09-07. It was only ever a second notifier, but the page's
+      // success/failure hung off it — and its CORS preflight 403'd from this domain (the key
+      // was registered to the old sugarandshaicookies.netlify.app host). Net effect: the row
+      // saved, Shai got her email, and the customer was still told "Something went wrong.
+      // Please DM us on Instagram" and never saw a confirmation. Never gate the customer's
+      // outcome on a service that is not the one storing the order.
       const gasData = new URLSearchParams();
       gasData.append('name',        formData.get('name')        || '');
       gasData.append('email',       formData.get('email')       || '');
@@ -648,16 +653,11 @@
       fetch('https://script.google.com/macros/s/AKfycbyxwDivyFF4zPmyRzhIGhXLniUcF-dRUz80Bl1GVYEsUsd7pemc27bmKQV8JH8yXelH/exec', {
         method: 'POST',
         body: gasData
-      }).catch(() => {});
-
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
       })
       .then(res => res.json())
       .then(data => {
-        if (data.success) {
-          gtag('event', 'order_form_submitted', { method: 'web3forms', source: 'order_page' });
+        if (data.result === 'success') {
+          gtag('event', 'order_form_submitted', { method: 'apps_script', source: 'order_page' });
           const pickupVal = formData.get('pickup_date') || '';
           const pickupDate = pickupVal ? new Date(pickupVal + 'T12:00:00') : null;
           const isWednesday = pickupDate ? pickupDate.getDay() === 3 : false;
@@ -670,13 +670,13 @@
             window.location.href = '/thanks_pending.html' + dateParam;
           }
         } else {
-          throw new Error(data.message);
+          throw new Error('Order was not confirmed');
         }
       })
       .catch(() => {
         btn.textContent = 'Reserve My Cookies';
         btn.disabled = false;
-        alert('Something went wrong. Please DM us on Instagram!');
+        alert('Something went wrong sending your order. Please DM @sugarandshaicookies on Instagram and we\'ll sort it out.');
       });
     });
   </script>
