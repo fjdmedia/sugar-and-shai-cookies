@@ -6,11 +6,17 @@
   <meta name="robots" content="noindex" />
   <title>Order Received — Sugar & Shai Cookies</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <!--
+    Specialty-tier confirmation. Replaces thanks_brookie.html, which was hardcoded to
+    "our June limited-edition Brookie" yet fired for EVERY premium order — so a July
+    Cookies-and-Cream buyer was thanked for a June flavour they never ordered.
+    Nothing here names a flavour or a month; it confirms the tier and the price instead.
+  -->
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Lato', sans-serif;
-      background: linear-gradient(160deg, #f9f5fd 0%, #ede5f7 100%);
+      background: linear-gradient(160deg, #f9f3ea 0%, #f3e6d2 100%);
       color: #3D2B27;
       min-height: 100vh;
       display: flex;
@@ -24,22 +30,22 @@
       border-radius: 24px;
       padding: 3rem 2.5rem;
       max-width: 480px;
-      box-shadow: 0 8px 40px rgba(107,63,160,0.12);
-      border: 1.5px solid rgba(155,114,207,0.4);
+      box-shadow: 0 8px 40px rgba(143,82,38,0.12);
+      border: 1.5px solid rgba(216,170,114,0.55);
     }
     .icon { font-size: 4rem; margin-bottom: 1rem; }
     h1 {
       font-family: 'Pacifico', cursive;
       font-size: 2rem;
-      color: #6b3fa0;
+      color: #8f5226;
       margin-bottom: 0.75rem;
     }
     p { color: #7A5C56; line-height: 1.7; margin-bottom: 2rem; }
     .tag {
       display: inline-block;
-      background: #f0e8f8;
-      color: #6b3fa0;
-      border: 1.5px solid #9b72cf;
+      background: #f7efe3;
+      color: #8f5226;
+      border: 1.5px solid #d8aa72;
       border-radius: 50px;
       font-size: 0.75rem;
       font-weight: 800;
@@ -50,7 +56,7 @@
     }
     a {
       display: inline-block;
-      background: #7952b3;
+      background: #8f5226;
       color: #fff;
       padding: 0.85rem 2rem;
       border-radius: 50px;
@@ -59,15 +65,15 @@
       font-size: 0.9rem;
       letter-spacing: 0.05em;
     }
-    a:hover { background: #6b3fa0; }
+    a:hover { background: #743f1c; }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="icon">🍠</div>
-    <div class="tag">Flavour of the Month</div>
+    <div class="icon">🍪</div>
+    <div class="tag">Specialty Box</div>
     <h1>Order Received!</h1>
-    <p id="thankMsg">You grabbed the Ube Bliss — great choice! 💜<br /><br />Your Wednesday order is locked in! Shai will reach out <strong>on pickup day</strong> to coordinate a time. Follow along on Instagram for updates!</p>
+    <p id="thankMsg">You picked a specialty flavour, so your box is at specialty pricing — <strong>$25 for 12pc</strong> or <strong>$45 for 24pc</strong>.<br /><br />Your Wednesday order is locked in. Shai will reach out <strong>on pickup day</strong> to coordinate a time.</p>
     <a href="index.html">Back to Home</a>
   </div>
 
@@ -76,7 +82,7 @@
     const date = params.get('date');
     if (date) {
       document.getElementById('thankMsg').innerHTML =
-        'You grabbed the Ube Bliss — great choice! 💜<br /><br />Your order is locked in for <strong>' + date + '</strong>! Shai will reach out <strong>on pickup day</strong> to coordinate a time. Follow along on Instagram for updates!';
+        'You picked a specialty flavour, so your box is at specialty pricing — <strong>$25 for 12pc</strong> or <strong>$45 for 24pc</strong>.<br /><br />Your order is locked in for <strong>' + date + '</strong>. Shai will reach out <strong>on pickup day</strong> to coordinate a time.';
     }
   </script>
 </body>

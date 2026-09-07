@@ -1,0 +1,33 @@
+# This repo is PUBLIC and serves GitHub Pages. Anything committed here is permanently
+# fetchable at its blob SHA — removing it in a later commit does NOT unpublish it.
+# So the working folder holds a lot that must never be staged. Deny it by default.
+
+# ── FJMedia internal / commercial — the highest-consequence items ──
+# retainer-proposal/ contains FJMedia's rate card AND this client's negotiated discount.
+retainer-proposal/
+Reports/
+comparison/
+docs/
+Invoices/
+
+# ── QA + build scratch (delete/ is ~510 MB and contains node_modules trees) ──
+delete/
+Test/
+node_modules/
+*.log
+
+# ── stale scratch builds that are not the live site ──
+index-rebuild.html
+supersaiyan-showcase.html
+demo-upgrade/
+
+# ── raw/unprocessed originals: browsers can't render HEIC, and unreferenced
+#    source exports don't belong on a public host. Ship the processed file only.
+*.HEIC
+*.heic
+photo_*.jpg
+Gallery/Main/
+
+# ── local tooling ──
+.DS_Store
+Thumbs.db

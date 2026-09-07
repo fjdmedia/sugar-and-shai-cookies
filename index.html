@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai</title>
-  <meta name="description" content="Custom cookies in Winnipeg & Tyndall, MB. Pre-order Biscoff, Matcha, Chocolate Chunk, Brookie + July's Cookies & Cream. Wednesday pickup, min 3pc." />
+  <meta name="description" content="Custom cookies in Winnipeg & Tyndall, MB. Pre-order Biscoff, Matcha, Chocolate Chunk + our new Red Velvet Oreo Cream Cheese. Wednesday pickup, min 3pc." />
   <meta property="og:title" content="Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai" />
-  <meta property="og:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk, Brookie + monthly flavours like July's Cookies & Cream." />
+  <meta property="og:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk, Mini Eggs + our new Red Velvet Oreo Cream Cheese." />
   <meta property="og:image" content="https://sugarandshaicookies.com/Gallery/Cookies.jpg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai" />
-  <meta name="twitter:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk, Brookie + monthly flavours like July's Cookies & Cream." />
+  <meta name="twitter:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk, Mini Eggs + our new Red Velvet Oreo Cream Cheese." />
   <meta name="twitter:image" content="https://sugarandshaicookies.com/Gallery/Cookies.jpg" />
   <meta property="og:url" content="https://sugarandshaicookies.com" />
   <link rel="canonical" href="https://sugarandshaicookies.com" />
@@ -90,7 +90,7 @@
     .section-title em { font-family:var(--script); font-style:normal; color:var(--rose); font-size:1.08em; }
     .section-subtitle { color:var(--text-light); font-size:1.02rem; line-height:1.7; max-width:46ch; margin-top:1rem; }
     .centered { text-align:center; max-width:640px; margin-inline:auto; }
-    .centered .section-subtitle { margin-inline:auto; }
+    .centered .section-subtitle, .order-header .section-subtitle, .order-form-header .section-subtitle { margin-inline:auto; }
     .centered .sig { justify-content:center; }
     .centered .sig::after { background:linear-gradient(90deg,var(--rose),transparent); }
     .centered .sig::before { content:''; width:32px; height:1px; background:linear-gradient(90deg,transparent,var(--rose)); }
@@ -124,14 +124,15 @@
     .nav-links > li > a.active { color:var(--rose); }
     .nav-cta { display:inline-flex; align-items:center; font-size:0.76rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); background:var(--olive); padding:0.6rem 1.3rem; border-radius:var(--r-pill); margin-left:0.5rem; box-shadow:var(--sh-1); transition:background var(--dur) var(--ease), transform var(--dur) var(--ease); }
     .nav-cta:hover { background:var(--olive-dark); transform:translateY(-1px); }
-    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; }
+    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:14px 10px; }
     .hamburger span { display:block; width:24px; height:2px; background:var(--mocha); border-radius:2px; transition:transform var(--dur) var(--ease), opacity var(--dur) var(--ease); }
     .nav-open .hamburger span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
     .nav-open .hamburger span:nth-child(2) { opacity:0; }
     .nav-open .hamburger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
     @media (max-width:900px){
       .hamburger { display:flex; }
-      .nav-links { position:fixed; inset:0 0 0 auto; width:min(80vw,300px); flex-direction:column; align-items:flex-start; justify-content:center; gap:0.4rem; background:var(--cream-2); border-left:1px solid var(--line-blush); padding:2rem var(--gutter); transform:translateX(100%); transition:transform var(--dur-slow) var(--ease-emph); }
+      /* height:100dvh (not inset bottom:0) — nav's backdrop-filter makes it the containing block for this fixed drawer, so bottom:0 would collapse the panel to the 72px nav box; viewport units ignore the containing block */
+      .nav-links { position:fixed; top:0; right:0; bottom:auto; left:auto; height:100vh; height:100dvh; width:min(80vw,300px); flex-direction:column; align-items:flex-start; justify-content:center; gap:0.4rem; background:var(--cream-2); border-left:1px solid var(--line-blush); padding:2rem var(--gutter); transform:translateX(100%); transition:transform var(--dur-slow) var(--ease-emph); }
       .nav-links.open { transform:translateX(0); }
       .nav-links > li { width:100%; }
       .nav-links > li > a:not(.nav-cta) { display:block; font-size:1rem; padding:0.7rem 0; }
@@ -198,11 +199,17 @@
     .fotm-card { display:grid; grid-template-columns:1fr 1fr; background:var(--white); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--sh-2); border:1px solid var(--line-blush); }
     .fotm-media { position:relative; min-height:320px; }
     .fotm-media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-    .fotm-badge { position:absolute; top:1rem; left:1rem; font-size:0.66rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); background:var(--rose); padding:0.4rem 0.9rem; border-radius:var(--r-pill); box-shadow:var(--sh-1); }
+    /* cream-on-chocolate, not white-on-rose: white on --rose measures 2.78:1 and fails G8 (needs 4.5).
+       Chocolate also separates better from the deep-red cookies behind it than a pink pill does. */
+    .fotm-badge { position:absolute; top:1rem; left:1rem; font-size:0.66rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); background:var(--chocolate); padding:0.4rem 0.9rem; border-radius:var(--r-pill); box-shadow:var(--sh-1); }
     .fotm-body { padding:clamp(1.6rem,3vw,2.6rem); display:flex; flex-direction:column; align-items:flex-start; }
     .fotm-name { font-family:var(--display); font-weight:400; font-size:2.2rem; color:var(--chocolate); margin:0.2rem 0 0.6rem; }
     .fotm-urgency { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.76rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--dusty); margin-bottom:1rem; }
     .fotm-urgency-dot { width:8px; height:8px; border-radius:50%; background:var(--rose); box-shadow:0 0 0 4px rgba(212,132,154,0.2); animation:pulse 2s var(--ease) infinite; }
+    /* Standing-availability line for a PERMANENT flavour. Deliberately un-animated: the pulsing
+       .fotm-urgency dot signals "limited time" and would be false scarcity on a year-round item. */
+    .fotm-standing { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.76rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--olive); margin-bottom:1rem; }
+    .fotm-standing-dot { width:8px; height:8px; border-radius:50%; background:var(--olive); box-shadow:0 0 0 4px rgba(74,94,42,0.15); }
     @keyframes pulse { 50% { box-shadow:0 0 0 7px rgba(212,132,154,0); } }
     .fotm-desc { color:var(--text-light); font-size:0.96rem; line-height:1.7; margin-bottom:1.3rem; }
     .fotm-pricing { display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:1.6rem; }
@@ -213,9 +220,26 @@
     #specialties { padding-block:clamp(4.5rem,9vw,8rem); }
     .specialties-inner { max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter); }
     .specialties-header { margin-bottom:clamp(2.25rem,4vw,3.25rem); }
-    /* Flex-wrap + center so the last row never orphans a lone card (G32b) — 4, 5 or 6 flavours all fill cleanly. */
-    .specialties-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:1.4rem; }
-    .specialty-card { flex:1 1 220px; max-width:290px; background:var(--white); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--sh-1); border:1px solid var(--line-blush); cursor:pointer; transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
+    /* Two priced groups, each on an EXPLICIT column count chosen so its card count never leaves a
+       lone card in the last row (G32b). A single 7-card flex row cannot do this: greedy wrapping
+       puts 7 items at 2+2+2+1 and 3+3+1 across the whole 460-1090px band. 4 classics run 4/2/1 and
+       3 specialty run 3/3/1 — every combination divides cleanly. */
+    .flavor-group + .flavor-group { margin-top:clamp(2.25rem,4vw,3rem); }
+    .flavor-group-head { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:center; gap:0.5rem 0.9rem; margin-bottom:1.25rem; }
+    .flavor-group-name { font-family:var(--body); font-weight:700; font-size:0.76rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--mocha); }
+    .flavor-group-price { font-size:0.84rem; font-weight:700; color:var(--olive); background:rgba(181,196,177,0.28); border:1px solid var(--sage); padding:0.24rem 0.8rem; border-radius:var(--r-pill); }
+    .specialties-grid { display:grid; gap:1.4rem; justify-content:center; }
+    .grid-classics  { grid-template-columns:repeat(4,minmax(0,240px)); }
+    .grid-specialty { grid-template-columns:repeat(1,minmax(0,240px)); }
+    /* Same 240px track cap in both groups so a card is the SAME size above and below the divide.
+       Two grids stacked one above the other with different card sizes reads as a mistake, not as
+       grouping. (This was a calc() matching a 3-column specialty group; that group is one card
+       now, so the plain cap is both correct and simpler.) */
+    @media (max-width:1100px){ .grid-classics { grid-template-columns:repeat(2,minmax(0,240px)); } }
+    @media (max-width:560px){
+      .grid-classics, .grid-specialty { grid-template-columns:minmax(0,320px); gap:1.4rem; }
+    }
+    .specialty-card { background:var(--white); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--sh-1); border:1px solid var(--line-blush); cursor:pointer; transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
     .specialty-card:hover { transform:translateY(-6px); box-shadow:var(--sh-2); }
     .specialty-img-wrap { position:relative; aspect-ratio:1/1; overflow:hidden; }
     .specialty-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform var(--dur-slow) var(--ease); }
@@ -223,21 +247,22 @@
     .specialty-overlay { position:absolute; inset:0; display:grid; place-items:center; background:rgba(92,61,53,0.45); opacity:0; transition:opacity var(--dur) var(--ease); }
     .specialty-card:hover .specialty-overlay { opacity:1; }
     .specialty-overlay span { font-family:var(--body); font-weight:700; font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); border:2px solid var(--white); padding:0.55rem 1.2rem; border-radius:var(--r-pill); }
-    /* Subtle time-limited note on a menu card (e.g. the extended Brookie) — understated cream pill, not the loud FOTM badge */
-    .card-badge { position:absolute; top:0.8rem; left:0.8rem; z-index:2; font-family:var(--body); font-size:0.6rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--mocha); background:rgba(253,246,238,0.92); border:1px solid var(--line-blush); padding:0.32rem 0.7rem; border-radius:var(--r-pill); box-shadow:var(--sh-1); backdrop-filter:blur(2px); }
     .specialty-card-body { padding:1.3rem 1.4rem 1.6rem; }
     .specialty-card-body h3 { font-family:var(--display); font-weight:400; font-size:1.15rem; color:var(--chocolate); margin-bottom:0.4rem; }
     .specialty-card-body p { font-size:0.86rem; color:var(--text-light); line-height:1.6; }
     .flavors-note { text-align:center; font-size:0.92rem; color:var(--text-light); margin-top:2rem; }
     .flavors-note a { color:var(--rose); font-weight:700; }
-    .pricing-banner { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:1rem 2rem; margin-top:2.5rem; padding:1.6rem 2rem; background:var(--chocolate); color:var(--cream); border-radius:var(--r-lg); box-shadow:var(--sh-2); }
-    .pricing-banner-item { display:flex; align-items:baseline; gap:0.6rem; }
-    .pricing-banner-qty { font-family:var(--body); font-weight:700; font-size:0.9rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--blush); }
-    .pricing-banner-price { font-family:var(--display); font-weight:400; font-size:1.7rem; }
-    .pricing-banner-divider { color:var(--rose); font-size:1rem; }
-    .pricing-banner-note { flex-basis:100%; text-align:center; font-size:0.82rem; color:rgba(253,246,238,0.75); border-top:1px solid rgba(253,246,238,0.18); padding-top:1rem; }
-    @media (max-width:880px){ .specialties-grid { grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:460px){ .specialties-grid { grid-template-columns:1fr; } }
+    /* Two named tiers, not one price + a footnote listing flavour names. The old single-row banner
+       only worked while exactly one flavour was premium; the note grew unreadable as that list grew. */
+    .pricing-banner { display:flex; flex-wrap:wrap; align-items:stretch; justify-content:center; gap:1.25rem 3rem; margin-top:2.5rem; padding:1.6rem 2rem; background:var(--chocolate); color:var(--cream); border-radius:var(--r-lg); box-shadow:var(--sh-2); }
+    .pricing-rule { position:relative; display:flex; flex-direction:column; align-items:center; gap:0.3rem; }
+    .pricing-rule + .pricing-rule::before { content:''; position:absolute; left:-1.5rem; top:6%; bottom:6%; width:1px; background:rgba(253,246,238,0.18); }
+    .pricing-rule-k { font-family:var(--body); font-weight:700; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--blush); }
+    .pricing-rule-v { font-family:var(--display); font-weight:400; font-size:1.15rem; color:var(--cream); }
+    .pricing-banner-note { flex-basis:100%; text-align:center; font-size:0.86rem; color:rgba(253,246,238,0.8); border-top:1px solid rgba(253,246,238,0.18); padding-top:1rem; }
+    .pricing-banner-note strong { color:var(--blush); }
+    /* below 620px the rules stack, so the vertical rule between them would hang in space */
+    @media (max-width:620px){ .pricing-banner { gap:1.1rem; } .pricing-rule + .pricing-rule::before { display:none; } }
 
     /* ════════════════════ GALLERY (marquee) ════════════════════ */
     #gallery { padding-block:clamp(4.5rem,9vw,8rem); background:var(--cream-2); overflow:hidden; }
@@ -311,11 +336,10 @@
     .flavor-qty-grid { display:flex; flex-direction:column; gap:0.7rem; }
     .flavor-qty-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; background:var(--cream); border:1.5px solid var(--line-blush); border-radius:var(--r); padding:0.8rem 1.1rem; transition:border-color var(--dur) var(--ease), background var(--dur) var(--ease); }
     .flavor-qty-row.active { border-color:var(--rose); background:var(--blush-soft); }
-    .flavor-qty-row.fotm-flavor { border-color:var(--sage); }
-    .flavor-qty-row.fotm-flavor.active { border-color:var(--olive); background:rgba(181,196,177,0.22); }
+    .flavor-qty-row.premium-flavor { border-color:var(--sage); }
+    .flavor-qty-row.premium-flavor.active { border-color:var(--olive); background:rgba(181,196,177,0.22); }
     .flavor-qty-name { font-weight:700; font-size:0.92rem; color:var(--chocolate); }
-    .fotm-inline-tag { font-size:0.66rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--olive); background:rgba(181,196,177,0.3); padding:0.2rem 0.55rem; border-radius:var(--r-pill); margin-left:0.4rem; white-space:nowrap; }
-    .fotm-inline-tag .tag-short { display:none; }
+    .premium-tag { font-size:0.66rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--olive); background:rgba(181,196,177,0.3); padding:0.2rem 0.55rem; border-radius:var(--r-pill); margin-left:0.4rem; white-space:nowrap; }
     .flavor-qty-controls { display:flex; align-items:center; gap:0.5rem; flex:none; }
     .qty-btn { width:44px; height:44px; border-radius:50%; border:2px solid var(--blush); background:var(--white); color:var(--rose); font-size:1.2rem; font-weight:700; line-height:1; cursor:pointer; display:grid; place-items:center; transition:background var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease); }
     .qty-btn:hover { background:var(--rose); color:var(--white); border-color:var(--rose); transform:scale(1.08); }
@@ -344,9 +368,6 @@
     .form-success p { color:var(--text-light); font-size:0.96rem; }
     @media (max-width:560px){
       .form-row { grid-template-columns:1fr; gap:0; }
-      /* swap the long FOTM tag for the short one (the full text is nowrap and overflows the row) */
-      .fotm-inline-tag .tag-full { display:none; }
-      .fotm-inline-tag .tag-short { display:inline; }
     }
     @media (max-width:480px){
       /* stack each stepper row so the 152px controls block never has to share a line with the name */
@@ -374,7 +395,7 @@
     .mobile-cta-bar { position:fixed; left:1rem; right:1rem; bottom:1rem; z-index:90; transform:translateY(150%); transition:transform var(--dur-slow) var(--ease-emph); display:none; }
     .mobile-cta-bar.visible { transform:translateY(0); }
     .mobile-cta-bar a { display:flex; align-items:center; justify-content:center; gap:0.5rem; background:var(--olive); color:var(--white); font-family:var(--body); font-weight:700; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; padding:1rem; border-radius:var(--r-pill); box-shadow:var(--sh-3); }
-    @media (max-width:760px){ .mobile-cta-bar { display:block; } }
+    @media (max-width:760px){ .mobile-cta-bar { display:block; } footer { padding-bottom:5.5rem; } }
 
     /* ════════════════════ FOOTER ════════════════════ */
     footer { background:var(--chocolate); color:var(--cream); }
@@ -382,7 +403,7 @@
     .footer-logo img { width:72px; height:72px; border-radius:50%; object-fit:cover; margin:0 auto 1rem; border:3px solid var(--rose); }
     .footer-tagline { font-family:var(--script); font-size:1.25rem; color:var(--blush); margin-bottom:1.5rem; }
     .footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem 1.6rem; margin-bottom:1.5rem; }
-    .footer-links a { font-size:0.82rem; font-weight:700; letter-spacing:0.06em; color:rgba(253,246,238,0.78); transition:color var(--dur) var(--ease); }
+    .footer-links a { display:inline-block; padding:0.45rem 0.2rem; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; color:rgba(253,246,238,0.78); transition:color var(--dur) var(--ease); }
     .footer-links a:hover { color:var(--blush); }
     .footer-copy { font-size:0.8rem; color:rgba(253,246,238,0.6); }
 
@@ -441,7 +462,7 @@
         <div class="hero-badge"><i data-lucide="heart" style="width:14px;height:14px;stroke-width:2.5;"></i> Handcrafted with Love</div>
         <p class="hero-script">Sugar &amp; Shai</p>
         <h1>Sweet Cookies,<br /><em>Beautiful</em> Designs</h1>
-        <p>Handcrafted cookies made from scratch in Tyndall, MB — pre-order pickup every Wednesday. Biscoff, Matcha, Chocolate Chunk &amp; monthly specials.</p>
+        <p>Handcrafted cookies made from scratch in Tyndall, MB — pre-order pickup every Wednesday. Biscoff, Matcha, Chocolate Chunk &amp; our Red Velvet Oreo Cream Cheese.</p>
         <div class="hero-btns">
           <a href="#order-form" class="btn-primary" onclick="gtag('event','order_button_click',{button:'hero_place_an_order'})"><i data-lucide="cookie" style="width:18px;height:18px;stroke-width:1.5;"></i> Place an Order</a>
           <a href="#specialties" class="btn-outline">See Our Flavours</a>
@@ -512,31 +533,34 @@
     </div>
   </section>
 
-  <!-- ── FLAVOUR OF THE MONTH ── -->
+  <!-- ── FEATURED SPECIALTY ──
+       Was the "Flavour of the Month" slot. It now features a PERMANENT specialty flavour, so
+       nothing in here is month-stamped — that stamping is what left the page reading "July" in
+       September. Section id kept as #fotm so existing inbound anchors do not break. -->
   <section id="fotm">
     <div class="fotm-inner">
       <div class="fotm-header gs-reveal">
         <span class="sig"><span class="spark">✦</span></span>
-        <p class="section-label">This Month</p>
-        <h2 class="section-title">Flavour of the Month</h2>
-        <p class="section-subtitle">Say hello to July's featured flavour — Cookies and Cream. The Brookie's here too, extended through the end of July.</p>
+        <p class="section-label">New</p>
+        <h2 class="section-title">A Permanent Specialty</h2>
+        <p class="section-subtitle">Red Velvet Oreo Cream Cheese just joined the menu — and this one's staying. Order it any week alongside the classics.</p>
       </div>
       <div class="fotm-grid single">
         <div class="fotm-card gs-reveal">
           <div class="fotm-media">
-            <img src="Cookies/Cookies and Cream.jpg" alt="Cookies and Cream Cookie — browned butter with crushed Oreos and white chocolate" loading="lazy">
-            <span class="fotm-badge">July 2026 Limited Edition</span>
+            <img src="Cookies/Red Velvet Oreo Cream Cheese.jpg" alt="Red Velvet Oreo Cream Cheese cookies on a baking tray — red velvet cookies studded with Oreo pieces, each topped with a white drizzle" loading="lazy">
+            <span class="fotm-badge">New — Always Available</span>
           </div>
           <div class="fotm-body">
-            <p class="section-label">Flavour of the Month</p>
-            <h2 class="fotm-name">Cookies and Cream</h2>
-            <div class="fotm-urgency"><span class="fotm-urgency-dot"></span> New — July Only</div>
-            <p class="fotm-desc">A browned butter cookie packed with crushed chocolate Oreos and melty white chocolate chunks — the perfect balance of creamy, crunchy, and chewy in every bite.</p>
+            <p class="section-label">Specialty Flavour</p>
+            <h2 class="fotm-name">Red Velvet Oreo Cream Cheese</h2>
+            <div class="fotm-standing"><span class="fotm-standing-dot"></span> On the menu every week</div>
+            <p class="fotm-desc">A rich and soft red velvet cookie loaded with crushed Oreo pieces and white chocolate, stuffed with a smooth and creamy cream cheese filling.</p>
             <div class="fotm-pricing">
-              <span class="fotm-price-pill">12 mixed — $25</span>
-              <span class="fotm-price-pill">24 mixed — $45</span>
+              <span class="fotm-price-pill">12pc — $25</span>
+              <span class="fotm-price-pill">24pc — $45</span>
             </div>
-            <a href="#order-form" class="btn-primary">Order Cookies and Cream</a>
+            <a href="#order-form" class="btn-primary">Order Red Velvet</a>
           </div>
         </div>
       </div>
@@ -550,9 +574,14 @@
         <span class="sig"><span class="spark">✦</span></span>
         <p class="section-label">Current Menu</p>
         <h2 class="section-title">Available Flavours</h2>
-        <p class="section-subtitle">Flavours rotate seasonally — DM on Instagram to ask what's available right now!</p>
+        <p class="section-subtitle">Four classics on the menu year-round, plus the specialty flavours. Mix and match however you like — minimum 3 pieces per flavour.</p>
       </div>
-      <div class="specialties-grid">
+      <div class="flavor-group">
+        <div class="flavor-group-head">
+          <h3 class="flavor-group-name">The Classics</h3>
+          <span class="flavor-group-price">12pc $20 · 24pc $35</span>
+        </div>
+      <div class="specialties-grid grid-classics">
         <div class="specialty-card gs-reveal">
           <div class="specialty-img-wrap"><img src="Cookies/Bischoff.png" alt="Biscoff Cookie" loading="lazy" /><div class="specialty-overlay"><span>Order Now</span></div></div>
           <div class="specialty-card-body"><h3>Biscoff</h3><p>That iconic caramelized speculoos flavour baked right into every bite.</p></div>
@@ -569,23 +598,39 @@
           <div class="specialty-img-wrap"><img src="Cookies/Chocolate Chunk.png" alt="Chocolate Chunk with Sea Salt Cookie" loading="lazy" /><div class="specialty-overlay"><span>Order Now</span></div></div>
           <div class="specialty-card-body"><h3>Chocolate Chunk with Sea Salt</h3><p>Gooey dark chocolate chunks finished with a sprinkle of flaky sea salt. Pure perfection.</p></div>
         </div>
-        <div class="specialty-card gs-reveal">
-          <div class="specialty-img-wrap"><span class="card-badge">Only Through July</span><img src="Cookies/June/Brookie.jpg" alt="Brookie Cookie" loading="lazy" /><div class="specialty-overlay"><span>Order Now</span></div></div>
-          <div class="specialty-card-body"><h3>Brookie</h3><p>Rich brownies and chewy cookies baked together — back by popular demand, only through the end of July.</p></div>
+      </div>
+      </div>
+
+      <!-- SPECIALTY TIER ($25/$45). Every card here must have a matching premium:true entry in the
+           FLAVORS array below (and in order/index.html) or the menu and the form will disagree.
+           One card today (Cookies and Cream and Brookie came off the menu 2026-09-06), so this
+           group and the featured card above show the same flavour: the featured card is the
+           announcement, this group is the standing menu, and a menu that omits an orderable
+           flavour is wrong. Adding specialty #2 needs no layout change beyond the column count. -->
+      <div class="flavor-group">
+        <div class="flavor-group-head">
+          <h3 class="flavor-group-name">Specialty Flavours</h3>
+          <span class="flavor-group-price">12pc $25 · 24pc $45</span>
         </div>
+      <div class="specialties-grid grid-specialty">
+        <div class="specialty-card gs-reveal">
+          <div class="specialty-img-wrap"><img src="Cookies/Red Velvet Oreo Cream Cheese.jpg" alt="Red Velvet Oreo Cream Cheese Cookie" loading="lazy" /><div class="specialty-overlay"><span>Order Now</span></div></div>
+          <div class="specialty-card-body"><h3>Red Velvet Oreo Cream Cheese</h3><p>Loaded with crushed Oreo pieces and white chocolate, stuffed with a cream cheese filling.</p></div>
+        </div>
+      </div>
       </div>
 
       <div class="flavors-note">
-        Flavours rotate seasonally — follow
+        Seasonal flavours come and go — follow
         <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener">@sugarandshaicookies</a>
-        on Instagram to stay up to date!
+        on Instagram to catch them.
       </div>
 
       <div class="pricing-banner gs-reveal">
-        <div class="pricing-banner-item"><span class="pricing-banner-qty">12pc</span><span class="pricing-banner-price">$20.00</span></div>
-        <div class="pricing-banner-divider">✦</div>
-        <div class="pricing-banner-item"><span class="pricing-banner-qty">24pc</span><span class="pricing-banner-price">$35.00</span></div>
-        <div class="pricing-banner-note">Minimum of 3pc per flavour &nbsp;✦&nbsp; Specialty flavours (Cookies and Cream, Brookie): 12pc $25 / 24pc $45</div>
+        <div class="pricing-rule"><span class="pricing-rule-k">Box sizes</span><span class="pricing-rule-v">12 or 24 pieces</span></div>
+        <div class="pricing-rule"><span class="pricing-rule-k">Per flavour</span><span class="pricing-rule-v">3 pieces minimum</span></div>
+        <div class="pricing-rule"><span class="pricing-rule-k">Over 24pc</span><span class="pricing-rule-v">DM to order</span></div>
+        <div class="pricing-banner-note">Add 3 or more of any specialty flavour and the <strong>whole box</strong> goes to specialty pricing — $25 for 12pc, $45 for 24pc.</div>
       </div>
     </div>
   </section>
@@ -604,7 +649,7 @@
            transform, so loading="lazy" never fires for off-screen tiles and they cycle in blank. -->
       <div class="marquee-track gs-reveal">
       <div class="marquee-row">
-        <div class="gallery-item"><img src="Cookies/June/Brookie.jpg" alt="Brookie cookies — June Flavour of the Month" /></div>
+        <div class="gallery-item"><img src="Gallery/Red Velvet.jpg" alt="Red Velvet Oreo Cream Cheese cookies fresh from the tray" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies.jpg" alt="Packaged cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="All flavours" /></div>
         <div class="gallery-item"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha White Chocolate cookies" /></div>
@@ -613,7 +658,7 @@
         <div class="gallery-item"><img src="Gallery/Cookies_4.jpg" alt="Mini eggs cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_5.jpg" alt="Biscoff cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_6.jpg" alt="Chocolate chunk cookies" /></div>
-        <div class="gallery-item"><img src="Cookies/June/Brookie.jpg" alt="Brookie cookies — June Flavour of the Month" /></div>
+        <div class="gallery-item"><img src="Gallery/Red Velvet.jpg" alt="Red Velvet Oreo Cream Cheese cookies fresh from the tray" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies.jpg" alt="Packaged cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="All flavours" /></div>
         <div class="gallery-item"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha White Chocolate cookies" /></div>
@@ -634,12 +679,14 @@
         <div class="gallery-item"><img src="Cookies/Chocolate Chunk.png" alt="Chocolate chunk sea salt cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="Assorted flavours" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_5.jpg" alt="Biscoff cookies" /></div>
+        <div class="gallery-item"><img src="Gallery/Red Velvet Interior.jpg" alt="Red Velvet Oreo Cream Cheese cookie split open, showing the cream cheese filling and Oreo pieces inside" /></div>
         <div class="gallery-item"><img src="Gallery/BTS.jpg" alt="Behind the scenes — fresh batch" /></div>
         <div class="gallery-item"><img src="Cookies/Bischoff.png" alt="Biscoff cookies close-up" /></div>
         <div class="gallery-item"><img src="Gallery/BTS_2.jpg" alt="Cookie dough prep" /></div>
         <div class="gallery-item"><img src="Cookies/Chocolate Chunk.png" alt="Chocolate chunk sea salt cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="Assorted flavours" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_5.jpg" alt="Biscoff cookies" /></div>
+        <div class="gallery-item"><img src="Gallery/Red Velvet Interior.jpg" alt="Red Velvet Oreo Cream Cheese cookie split open, showing the cream cheese filling and Oreo pieces inside" /></div>
       </div>
       </div>
 
@@ -656,20 +703,6 @@
         <span class="sig"><span class="spark">✦</span></span>
         <p class="section-label">Happy Customers</p>
         <h2 class="section-title">What People Are Saying</h2>
-      </div>
-      <div class="review-quotes" style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
-        <div style="background:var(--white);border-radius:16px;padding:1.5rem 1.8rem;max-width:300px;border:1px solid var(--line-blush);text-align:center;box-shadow:var(--sh-1);">
-          <p style="font-size:0.92rem;color:var(--text);line-height:1.6;font-style:italic;margin-bottom:0.75rem;">"These cookies are INSANE. The biscoff ones didn't last a day in my house."</p>
-          <p style="font-size:0.78rem;font-weight:700;color:var(--olive);letter-spacing:0.06em;">— Happy Customer</p>
-        </div>
-        <div style="background:var(--white);border-radius:16px;padding:1.5rem 1.8rem;max-width:300px;border:1px solid var(--line-blush);text-align:center;box-shadow:var(--sh-1);">
-          <p style="font-size:0.92rem;color:var(--text);line-height:1.6;font-style:italic;margin-bottom:0.75rem;">"Ordered for my daughter's birthday — everyone asked where the cookies were from!"</p>
-          <p style="font-size:0.78rem;font-weight:700;color:var(--olive);letter-spacing:0.06em;">— Happy Customer</p>
-        </div>
-        <div style="background:var(--white);border-radius:16px;padding:1.5rem 1.8rem;max-width:300px;border:1px solid var(--line-blush);text-align:center;box-shadow:var(--sh-1);">
-          <p style="font-size:0.92rem;color:var(--text);line-height:1.6;font-style:italic;margin-bottom:0.75rem;">"Best cookies in Manitoba, hands down. The matcha white chocolate is next level."</p>
-          <p style="font-size:0.78rem;font-weight:700;color:var(--olive);letter-spacing:0.06em;">— Happy Customer</p>
-        </div>
       </div>
       <div class="reviews-carousel-wrap gs-reveal">
         <button class="carousel-btn prev" onclick="scrollCarousel(-1)" aria-label="Previous reviews">&#8592;</button>
@@ -700,7 +733,7 @@
         <div class="step gs-reveal">
           <div class="step-number">1</div>
           <h3>Choose Your Flavours</h3>
-          <p>Browse our flavours including the <strong>Flavour of the Month</strong>. Select quantities in multiples of 3 — minimum 3pc per flavour. Need more than 24 pieces? Slide into our DMs on Instagram!</p>
+          <p>Browse the classics and the specialty flavours. Select quantities in multiples of 3 — minimum 3pc per flavour. Need more than 24 pieces? Slide into our DMs on Instagram.</p>
         </div>
         <div class="step gs-reveal">
           <div class="step-number">2</div>
@@ -751,7 +784,7 @@
         <hr class="form-divider" />
 
         <div>
-          <p class="form-flavours-label">Flavours &amp; Quantities <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.78rem;color:var(--text-light)">(min. 3pc per flavour)</span></p>
+          <p class="form-flavours-label">Flavours &amp; Quantities <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.78rem;color:var(--text-light)">(min. 3pc per flavour · any specialty prices the whole box at $25 / $45)</span></p>
           <div class="flavor-qty-grid">
             <div class="flavor-qty-row" id="row-biscoff">
               <span class="flavor-qty-name">Biscoff</span>
@@ -769,13 +802,9 @@
               <span class="flavor-qty-name">Mini Eggs</span>
               <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-minieggs" data-action="minus">−</button><input type="number" class="qty-input" id="qty-minieggs" name="qty_minieggs" value="0" min="0" readonly aria-label="Mini Eggs quantity" /><button type="button" class="qty-btn" data-target="qty-minieggs" data-action="plus">+</button></div>
             </div>
-            <div class="flavor-qty-row fotm-flavor" id="row-cookiescream">
-              <span class="flavor-qty-name">Cookies and Cream <span class="fotm-inline-tag"><span class="tag-full">Flavour of the Month</span><span class="tag-short">July Only</span></span></span>
-              <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-cookiescream" data-action="minus">−</button><input type="number" class="qty-input" id="qty-cookiescream" name="qty_cookiescream" value="0" min="0" readonly aria-label="Cookies and Cream quantity" /><button type="button" class="qty-btn" data-target="qty-cookiescream" data-action="plus">+</button></div>
-            </div>
-            <div class="flavor-qty-row" id="row-brookie">
-              <span class="flavor-qty-name">Brookie</span>
-              <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-brookie" data-action="minus">−</button><input type="number" class="qty-input" id="qty-brookie" name="qty_brookie" value="0" min="0" readonly aria-label="Brookie quantity" /><button type="button" class="qty-btn" data-target="qty-brookie" data-action="plus">+</button></div>
+            <div class="flavor-qty-row premium-flavor" id="row-redvelvet">
+              <span class="flavor-qty-name">Red Velvet Oreo Cream Cheese <span class="premium-tag">Specialty</span></span>
+              <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-redvelvet" data-action="minus">−</button><input type="number" class="qty-input" id="qty-redvelvet" name="qty_redvelvet" value="0" min="0" readonly aria-label="Red Velvet Oreo Cream Cheese quantity" /><button type="button" class="qty-btn" data-target="qty-redvelvet" data-action="plus">+</button></div>
             </div>
           </div>
           <p class="qty-min-warn" id="qtyMinWarn">⚠ Cookie quantities must be in multiples of 3 — use the buttons to adjust.</p>
@@ -802,7 +831,7 @@
 
         <div class="form-group">
           <label for="notes">Special Requests / Occasion</label>
-          <textarea id="notes" name="notes" placeholder="e.g. Custom combo of 12pcs not in multiples of 3 (e.g. 5 Biscoff + 4 Matcha + 3 Brookie), gift wrapping, nut-free request, birthday occasion, etc."></textarea>
+          <textarea id="notes" name="notes" placeholder="e.g. Custom combo of 12pcs not in multiples of 3 (e.g. 5 Biscoff + 4 Matcha + 3 Red Velvet), gift wrapping, nut-free request, birthday occasion, etc."></textarea>
         </div>
 
         <div class="form-submit">
@@ -863,6 +892,7 @@
         <li><a href="#specialties">Flavours</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#order">How to Order</a></li>
+        <li><a href="/order">Order Form</a></li>
         <li><a href="https://www.instagram.com/sugarandshaicookies/" target="_blank">Instagram</a></li>
       </ul>
       <p class="footer-copy">&copy; 2026 Sugar &amp; Shai Cookies. All rights reserved.</p>
@@ -927,47 +957,56 @@
     });
 
     // ── Flavour quantity buttons ──
-    // fotm:true = premium "mix & match" pricing ($25/12, $45/24). Applies to BOTH the featured
-    // Flavour of the Month (Cookies and Cream) AND the extended Brookie; the 4 base flavours use
-    // regular pricing ($20/12, $35/24). Which flavour is *labelled* the Flavour of the Month is
-    // set in the markup (FOTM section + stepper tag) — separate from this pricing flag.
+    // ⚠ MIRRORED — the flavour rows, FLAVORS array and PRICE table below are duplicated in
+    //   order/index.html. Any flavour add/remove/retier must edit BOTH files.
+    //
+    // premium:true puts a flavour in the SPECIALTY tier. Tier membership is a property of the
+    // flavour, NOT of the calendar — this used to be called `fotm`, which quietly meant a
+    // permanent specialty could not exist without lying about being a flavour of the month.
+    // A monthly flavour and a year-round one both just set premium:true.
+    //
+    // Pricing is per BOX, not per cookie: 3+ pieces of ANY premium flavour moves the whole
+    // box from classic ($20/$35) to specialty ($25/$45) rates.
     const FLAVORS = [
-      { id: 'qty-biscoff',   row: 'row-biscoff',  label: 'Biscoff',                   fotm: false },
-      { id: 'qty-matcha',    row: 'row-matcha',   label: 'Matcha White Chocolate',     fotm: false },
-      { id: 'qty-choco',     row: 'row-choco',    label: 'Chocolate Chunk Sea Salt',   fotm: false },
-      { id: 'qty-minieggs',  row: 'row-minieggs', label: 'Mini Eggs',                  fotm: false },
-      { id: 'qty-cookiescream', row: 'row-cookiescream', label: 'Cookies and Cream',   fotm: true  },
-      { id: 'qty-brookie',   row: 'row-brookie',  label: 'Brookie',                    fotm: true  },
+      { id: 'qty-biscoff',      row: 'row-biscoff',      label: 'Biscoff',                      premium: false },
+      { id: 'qty-matcha',       row: 'row-matcha',       label: 'Matcha White Chocolate',       premium: false },
+      { id: 'qty-choco',        row: 'row-choco',        label: 'Chocolate Chunk Sea Salt',     premium: false },
+      { id: 'qty-minieggs',     row: 'row-minieggs',     label: 'Mini Eggs',                    premium: false },
+      { id: 'qty-redvelvet',    row: 'row-redvelvet',    label: 'Red Velvet Oreo Cream Cheese', premium: true  },
     ];
 
     // Pricing (per cookie box)
     const PRICE = {
       regular: { 12: 20, 24: 35 },
-      mixed:   { 12: 25, 24: 45 },
+      premium: { 12: 25, 24: 45 },
     };
+    const MIN_PER_FLAVOUR = 3;
 
     function getQty(id) { return parseInt(document.getElementById(id).value) || 0; }
 
     function calcOrder() {
-      let cookieTotal = 0, hasFOTM = false, lines = [], hasMinError = false;
+      let cookieTotal = 0, hasPremium = false, premiumQty = 0, lines = [], hasMinError = false;
       FLAVORS.forEach(f => {
         const qty = getQty(f.id);
         const row = document.getElementById(f.row);
         if (qty > 0) {
-          if (qty % 3 !== 0) hasMinError = true;
+          if (qty % MIN_PER_FLAVOUR !== 0) hasMinError = true;
           cookieTotal += qty;
-          if (f.fotm && qty >= 3) hasFOTM = true;
-          lines.push({ label: f.label, qty, fotm: f.fotm });
+          if (f.premium) {
+            premiumQty += qty;
+            if (qty >= MIN_PER_FLAVOUR) hasPremium = true;
+          }
+          lines.push({ label: f.label, qty, premium: f.premium });
           row.classList.add('active');
         } else {
           row.classList.remove('active');
         }
       });
-      return { cookieTotal, hasFOTM, lines, hasMinError };
+      return { cookieTotal, hasPremium, premiumQty, lines, hasMinError };
     }
 
     function updateSummary() {
-      const { cookieTotal, hasFOTM, lines, hasMinError } = calcOrder();
+      const { cookieTotal, hasPremium, premiumQty, lines, hasMinError } = calcOrder();
       const summary = document.getElementById('orderSummary');
       const summaryLines = document.getElementById('summaryLines');
       const summaryTotal = document.getElementById('summaryTotal');
@@ -981,10 +1020,10 @@
       summary.classList.add('visible');
 
       summaryLines.innerHTML = lines.map(l =>
-        `<div class="summary-line"><span>${l.label}${l.fotm ? ' ✦' : ''}</span><span>${l.qty} pcs</span></div>`
+        `<div class="summary-line"><span>${l.label}${l.premium ? ' ✦' : ''}</span><span>${l.qty} pcs</span></div>`
       ).join('');
 
-      const type = hasFOTM ? 'mixed' : 'regular';
+      const type = hasPremium ? 'premium' : 'regular';
       const priceTable = PRICE[type];
       let cookiePrice = 0;
       let warnStr = '', noteStr = '';
@@ -998,15 +1037,13 @@
       }
 
       if (!warnStr) {
-        if (hasFOTM) {
-          noteStr = 'Mix & match pricing applied (specialty flavour included).';
+        if (hasPremium) {
+          noteStr = `Specialty pricing applied — a specialty flavour in the box prices the whole box at $${PRICE.premium[12]} / $${PRICE.premium[24]}.`;
+        } else if (premiumQty > 0) {
+          // Reachable only if a qty is set outside the +/- buttons (they step by 3).
+          noteStr = `Add at least ${MIN_PER_FLAVOUR} of a specialty flavour to unlock specialty pricing.`;
         } else {
-          const fotmQty = getQty('qty-cookiescream') + getQty('qty-brookie');
-          if (fotmQty > 0 && fotmQty < 3) {
-            noteStr = 'Add at least 3 Cookies and Cream or Brookie to unlock mix pricing.';
-          } else {
-            noteStr = 'Regular pricing applied.';
-          }
+          noteStr = 'Classic pricing applied.';
         }
       }
 
@@ -1036,13 +1073,13 @@
     orderForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      const { cookieTotal, hasFOTM, lines, hasMinError } = calcOrder();
-      const type = hasFOTM ? 'mixed' : 'regular';
+      const { cookieTotal, hasPremium, lines, hasMinError } = calcOrder();
+      const type = hasPremium ? 'premium' : 'regular';
       const priceTable = PRICE[type];
 
       if (cookieTotal === 0) { alert('Please select at least one flavour.'); return; }
       if (cookieTotal > 24) { alert('Cookie orders above 24 pieces must be placed via DM — message @sugarandshaicookies on Instagram.'); return; }
-      if (hasMinError) { alert('Cookie quantities must be in multiples of 3. Use the Special Requests field for custom combos.'); return; }
+      if (hasMinError) { alert(`Cookie quantities must be in multiples of ${MIN_PER_FLAVOUR}. Use the Special Requests field for custom combos.`); return; }
       if (!priceTable[cookieTotal]) { alert('Cookie quantities must total 12 or 24 pieces. Adjust your selection or use Special Requests for custom combos.'); return; }
 
       const btn = orderForm.querySelector('button[type="submit"]');
@@ -1051,7 +1088,8 @@
 
       const flavourSummary = lines.map(l => `${l.label}: ${l.qty}pc`).join(', ');
       const cookiePrice = priceTable[cookieTotal];
-      const priceStr = `${cookieTotal}pc cookies = $${cookiePrice}.00`;
+      // tier is spelled out so Shai can sanity-check the total in the order email / sheet
+      const priceStr = `${cookieTotal}pc cookies = $${cookiePrice}.00 (${type} pricing)`;
 
       const formData = new FormData(orderForm);
       formData.set('flavours', flavourSummary);
@@ -1086,7 +1124,7 @@
           const dateLabel = pickupDate ? pickupDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) : '';
           const dateParam = dateLabel ? '?date=' + encodeURIComponent(dateLabel) : '';
           if (isWednesday) {
-            window.location.href = (hasFOTM ? 'thanks_brookie.html' : 'thanks.html') + dateParam;
+            window.location.href = (hasPremium ? 'thanks_specialty.html' : 'thanks.html') + dateParam;
           } else {
             window.location.href = 'thanks_pending.html' + dateParam;
           }
@@ -1131,7 +1169,9 @@
     // Carousel scroll buttons
     function scrollCarousel(dir) {
       const carousel = document.getElementById('reviewsCarousel');
-      carousel.scrollBy({ left: dir * 250, behavior: 'smooth' });
+      // stride = real card width + flex gap — a hardcoded 250 ties between center-snap points and skips one going forward
+      const stride = carousel.querySelector('.review-item').getBoundingClientRect().width + (parseFloat(getComputedStyle(carousel).gap) || 0);
+      carousel.scrollBy({ left: dir * stride, behavior: 'smooth' });
     }
 
     // Specialty cards — click to order
@@ -1240,7 +1280,13 @@
         gsap.fromTo('.fotm-card', { y: 30, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#fotm', start: 'top 85%', once: true }, duration: 0.7, stagger: 0.12, ease: 'power1.out' });
         gsap.fromTo('.fotm-header', { y: 20, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#fotm', start: 'top 88%', once: true }, duration: 0.6, ease: 'power1.out' });
 
-        gsap.fromTo('.specialty-card', { y: 30, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '.specialties-grid', start: 'top 85%', once: true }, duration: 0.5, stagger: 0.1, ease: 'power1.out' });
+        // One trigger PER group. There are now two .specialties-grid elements, and a single
+        // selector-trigger binds to the first one only — which would fire the specialty group's
+        // stagger off the classics grid, long before those cards are anywhere near the viewport.
+        document.querySelectorAll('.specialties-grid').forEach(grid => {
+          gsap.fromTo(grid.querySelectorAll('.specialty-card'), { y: 30, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: grid, start: 'top 85%', once: true }, duration: 0.5, stagger: 0.1, ease: 'power1.out' });
+        });
+        gsap.fromTo('.flavor-group-head', { y: 16, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#specialties', start: 'top 82%', once: true }, duration: 0.5, stagger: 0.12, ease: 'power1.out' });
         gsap.fromTo('.pricing-banner', { y: 20, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '.pricing-banner', start: 'top 88%', once: true }, duration: 0.6, ease: 'power1.out' });
         gsap.fromTo('.marquee-track', { y: 20, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#gallery', start: 'top 85%', once: true }, duration: 0.7, stagger: 0.15, ease: 'power1.out' });
         gsap.fromTo('.reviews-carousel-wrap', { y: 30, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#testimonials', start: 'top 85%', once: true }, duration: 0.7, ease: 'power1.out' });

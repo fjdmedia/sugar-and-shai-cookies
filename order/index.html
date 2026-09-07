@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Custom Cookies · Pickup in Tyndall | Sugar &amp; Shai</title>
+  <meta name="description" content="Place your Sugar & Shai cookie pre-order. Biscoff, Matcha, Chocolate Chunk, Mini Eggs + our new Red Velvet Oreo Cream Cheese. Wednesday pickup in the Tyndall area, min 3pc per flavour." />
+  <meta property="og:title" content="Order Custom Cookies · Sugar &amp; Shai" />
+  <meta property="og:description" content="Pick your flavours, choose a pickup date, done. Wednesday pickup in the Tyndall area. Min 3pc per flavour." />
+  <meta property="og:image" content="https://sugarandshaicookies.com/Gallery/Cookies.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sugarandshaicookies.com/order" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Order Custom Cookies · Sugar &amp; Shai" />
+  <meta name="twitter:description" content="Pick your flavours, choose a pickup date, done. Wednesday pickup in the Tyndall area. Min 3pc per flavour." />
+  <meta name="twitter:image" content="https://sugarandshaicookies.com/Gallery/Cookies.jpg" />
+  <link rel="canonical" href="https://sugarandshaicookies.com/order" />
+  <link rel="preload" as="image" href="/Logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka+One&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XQXMER6DS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8XQXMER6DS');
+  </script>
+  <style>
+  /* ════════════════════════════════════════════════════════════════
+     FJMedia · lane: greenfield · genre: single-task conversion page
+     Sugar & Shai Cookies — standalone shareable order form (/order)
+     macrostructure: Single-Task Form Page (head → constraints → form → fallback)
+     hero: none (utility page — no 100vh, no page-load fade)
+     theme: inherited verbatim from index.html (locked multi-page coherence)
+     motion: hover micro only — no GSAP, no scroll reveals
+     signature: sparkle + hairline eyebrow; gradient hairline on the form card
+     ⚠ MIRRORED MARKUP — the flavour rows, FLAVORS array and PRICE table below are
+       duplicated from index.html. Any flavour add/remove/retier must edit BOTH.
+     ════════════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+
+    :root {
+      /* Surfaces — warm cream ladder */
+      --cream:#FDF6EE; --cream-2:#F8EFE2; --cream-3:#F2E6D6; --white:#FFFFFF;
+      /* Brand */
+      --blush:#F2C4CE; --blush-soft:#FAE3E8; --rose:#D4849A; --dusty:#C97B8B;
+      --mocha:#8B5E52; --chocolate:#5C3D35;
+      /* Accent (CTA) */
+      --olive:#4A5E2A; --olive-dark:#3A4A20; --olive-light:#6B7D45; --sage:#B5C4B1;
+      /* Text */
+      --text:#3D2B27; --text-light:#7A5C56; --text-mut:#9A847C;
+      /* Lines */
+      --line:rgba(140,94,82,0.16); --line-blush:rgba(242,196,206,0.55);
+      /* Type */
+      --script:'Pacifico',cursive; --display:'Fredoka One',system-ui,sans-serif; --body:'Lato',system-ui,sans-serif;
+      /* Radius */
+      --r-sm:12px; --r:20px; --r-lg:28px; --r-xl:40px; --r-pill:999px;
+      /* Shadows */
+      --sh-1:0 2px 10px rgba(140,94,82,0.08); --sh-2:0 14px 34px -12px rgba(140,94,82,0.20);
+      --sh-3:0 30px 64px -24px rgba(140,94,82,0.28); --sh-olive:0 18px 40px -16px rgba(74,94,42,0.35);
+      /* Motion */
+      --dur-fast:180ms; --dur:300ms; --dur-slow:520ms;
+      --ease:cubic-bezier(.2,.7,.2,1); --ease-emph:cubic-bezier(.2,.9,.1,1);
+      /* Layout */
+      --maxw:1200px; --formw:760px; --gutter:clamp(1.25rem,5vw,3.5rem);
+    }
+
+    body { font-family:var(--body); background:var(--cream); color:var(--text); line-height:1.7; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    ::selection { background:var(--blush); color:var(--chocolate); }
+    ::-webkit-scrollbar { width:7px; } ::-webkit-scrollbar-track { background:var(--cream); }
+    ::-webkit-scrollbar-thumb { background:var(--blush); border-radius:4px; }
+    ::-webkit-scrollbar-thumb:hover { background:var(--rose); }
+    *:focus-visible { outline:2px solid var(--olive); outline-offset:3px; border-radius:6px; }
+    img { display:block; max-width:100%; } a { color:inherit; text-decoration:none; } ul { list-style:none; }
+    /* Grid children must shrink (G27 — no 320px blowout) */
+    .order-form-inner > *, .alt-inner > *, .footer-inner > * { min-width:0; }
+
+    /* ── Signature eyebrow: sparkle + hairline ── */
+    .sig { display:flex; align-items:center; gap:0.55rem; margin-bottom:0.85rem; height:14px; color:var(--rose); justify-content:center; }
+    .sig::before { content:''; width:32px; height:1px; background:linear-gradient(90deg,transparent,var(--rose)); }
+    .sig::after { content:''; width:32px; height:1px; background:linear-gradient(90deg,var(--rose),transparent); }
+    .sig .spark { font-size:0.85rem; line-height:1; }
+
+    .section-label { font-family:var(--body); font-weight:700; font-size:0.74rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--rose); display:block; margin-bottom:0.7rem; }
+    .section-title { font-family:var(--display); font-weight:400; font-size:clamp(1.9rem,4.4vw,3rem); line-height:1.12; color:var(--chocolate); letter-spacing:0.005em; }
+    .section-title em { font-family:var(--script); font-style:normal; color:var(--rose); font-size:1.08em; }
+    .section-subtitle { color:var(--text-light); font-size:1.02rem; line-height:1.7; max-width:46ch; margin:1rem auto 0; }
+
+    /* ════════════════════ BUTTONS ════════════════════ */
+    .btn-primary, .btn-outline {
+      display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
+      font-family:var(--body); font-weight:700; font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase;
+      padding:0.95rem 1.9rem; border-radius:var(--r-pill); cursor:pointer; border:2px solid transparent;
+      transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+    .btn-primary { background:var(--olive); color:var(--white); box-shadow:var(--sh-olive); }
+    .btn-primary:hover { background:var(--olive-dark); transform:translateY(-2px); box-shadow:0 24px 50px -18px rgba(74,94,42,0.45); }
+    .btn-primary:active { transform:translateY(0); }
+    .btn-primary[disabled] { opacity:0.65; cursor:not-allowed; transform:none; }
+    .btn-outline { background:transparent; color:var(--dusty); border-color:var(--blush); }
+    .btn-outline:hover { background:var(--blush-soft); border-color:var(--rose); color:var(--rose); transform:translateY(-2px); }
+
+    /* ════════════════════ NAV (slim — single-task page) ════════════════════ */
+    nav { position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; gap:1rem; height:72px; padding:0 var(--gutter); background:rgba(253,246,238,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--line-blush); }
+    .nav-logo { display:flex; align-items:center; gap:0.7rem; min-width:0; }
+    .nav-logo img { flex:none; height:48px; width:48px; object-fit:cover; border-radius:50%; border:2px solid var(--blush); transition:transform var(--dur) var(--ease); }
+    .nav-logo:hover img { transform:rotate(-6deg) scale(1.05); }
+    .nav-logo-text { font-family:var(--script); font-size:1.15rem; color:var(--rose); line-height:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    /* 44px tall — this is the only escape hatch on the page, it gets a full tap target */
+    .nav-back { flex:none; position:relative; display:inline-flex; align-items:center; min-height:44px; font-size:0.76rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-light); transition:color var(--dur) var(--ease); }
+    .nav-back::after { content:''; position:absolute; left:0; right:0; bottom:0.7rem; height:2px; border-radius:2px; background:var(--rose); transform:scaleX(0); transform-origin:left; transition:transform var(--dur) var(--ease); }
+    .nav-back:hover { color:var(--dusty); }
+    .nav-back:hover::after { transform:scaleX(1); }
+    @media (max-width:420px){ .nav-logo-text { display:none; } }
+
+    /* ════════════════════ PAGE HEAD ════════════════════ */
+    .page-head { text-align:center; padding:clamp(2.5rem,6vw,4rem) var(--gutter) 0; }
+    .page-head-inner { max-width:var(--formw); margin-inline:auto; }
+
+    /* Constraint chips — the rules people need BEFORE they fill anything in */
+    .rule-chips { display:flex; flex-wrap:wrap; justify-content:center; gap:0.6rem; margin-top:1.6rem; }
+    .rule-chip { display:inline-flex; align-items:center; gap:0.45rem; font-size:0.78rem; font-weight:700; color:var(--mocha); background:var(--white); border:1px solid var(--line-blush); padding:0.5rem 1rem; border-radius:var(--r-pill); box-shadow:var(--sh-1); }
+    .rule-chip i { color:var(--olive); }
+
+    /* ════════════════════ PRICING BANNER ════════════════════ */
+    .pricing-wrap { max-width:var(--formw); margin:clamp(2rem,4vw,2.75rem) auto 0; padding-inline:var(--gutter); }
+    /* Two named tiers, mirrors index.html. The old single-row banner only worked while exactly
+       one flavour was premium; the footnote listing names grew unreadable as that list grew. */
+    .pricing-banner { display:flex; flex-wrap:wrap; align-items:stretch; justify-content:center; gap:1.25rem 3rem; padding:1.6rem 2rem; background:var(--chocolate); color:var(--cream); border-radius:var(--r-lg); box-shadow:var(--sh-2); }
+    .pricing-tier { position:relative; display:flex; flex-direction:column; align-items:center; gap:0.45rem; }
+    .pricing-tier + .pricing-tier::before { content:''; position:absolute; left:-1.5rem; top:8%; bottom:8%; width:1px; background:rgba(253,246,238,0.18); }
+    .pricing-tier-name { font-family:var(--body); font-weight:700; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--blush); }
+    .pricing-tier-specialty .pricing-tier-name { color:var(--sage); }
+    .pricing-tier-prices { display:flex; align-items:baseline; gap:0.9rem; }
+    .pricing-banner-item { display:flex; align-items:baseline; gap:0.5rem; }
+    .pricing-banner-qty { font-family:var(--body); font-weight:700; font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(253,246,238,0.72); }
+    .pricing-banner-price { font-family:var(--display); font-weight:400; font-size:1.6rem; }
+    .pricing-banner-divider { color:var(--rose); font-size:1rem; }
+    .pricing-banner-note { flex-basis:100%; text-align:center; font-size:0.82rem; color:rgba(253,246,238,0.75); border-top:1px solid rgba(253,246,238,0.18); padding-top:1rem; }
+    /* below 620px the tiers stack, so the vertical rule between them would hang in space */
+    @media (max-width:620px){ .pricing-banner { gap:1.1rem; } .pricing-tier + .pricing-tier::before { display:none; } }
+
+    /* ════════════════════ ORDER FORM ════════════════════ */
+    #order-form { padding-block:clamp(2.5rem,5vw,3.5rem) clamp(3.5rem,7vw,5.5rem); }
+    .order-form-inner { max-width:var(--formw); margin-inline:auto; padding-inline:var(--gutter); }
+    .order-form { background:var(--white); border-radius:var(--r-xl); padding:clamp(1.6rem,4vw,3rem); box-shadow:var(--sh-2); border:1px solid var(--line-blush); position:relative; }
+    .order-form::before { content:''; position:absolute; top:0; left:2.5rem; right:2.5rem; height:4px; border-radius:0 0 4px 4px; background:linear-gradient(90deg,var(--blush),var(--rose),var(--olive)); }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+    .form-group { display:flex; flex-direction:column; margin-bottom:1.25rem; }
+    .form-group label { font-size:0.76rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--mocha); margin-bottom:0.5rem; }
+    .form-group input, .form-group select, .form-group textarea { font-family:var(--body); font-size:0.95rem; color:var(--text); background:var(--cream); border:1.5px solid var(--line-blush); border-radius:var(--r-sm); padding:0.85rem 1rem; transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease); }
+    .form-group input::placeholder, .form-group textarea::placeholder { color:var(--text-mut); }
+    .form-group input:hover, .form-group select:hover, .form-group textarea:hover { border-color:var(--blush); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--rose); background:var(--white); box-shadow:0 0 0 3px rgba(212,132,154,0.15); }
+    .form-group select { cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4849A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; background-size:16px; padding-right:2.6rem; }
+    .form-group textarea { resize:vertical; min-height:100px; line-height:1.6; }
+    .form-note { font-size:0.78rem; margin-top:0.25rem; color:var(--text-light); }
+    .form-divider { border:none; border-top:1px dashed var(--line-blush); margin:1.4rem 0 1.8rem; }
+    .form-flavours-label { font-size:0.84rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--rose); margin-bottom:1rem; }
+    .form-flavours-label span { font-weight:400; text-transform:none; letter-spacing:0; font-size:0.78rem; color:var(--text-light); }
+
+    .flavor-qty-grid { display:flex; flex-direction:column; gap:0.7rem; }
+    .flavor-qty-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; background:var(--cream); border:1.5px solid var(--line-blush); border-radius:var(--r); padding:0.8rem 1.1rem; transition:border-color var(--dur) var(--ease), background var(--dur) var(--ease); }
+    .flavor-qty-row.active { border-color:var(--rose); background:var(--blush-soft); }
+    .flavor-qty-row.premium-flavor { border-color:var(--sage); }
+    .flavor-qty-row.premium-flavor.active { border-color:var(--olive); background:rgba(181,196,177,0.22); }
+    .flavor-qty-text { min-width:0; }
+    .flavor-qty-name { display:block; font-weight:700; font-size:0.92rem; color:var(--chocolate); line-height:1.4; }
+    /* Standalone page has no flavour photos to scroll past — the descriptor carries that job */
+    .flavor-qty-desc { display:block; font-size:0.78rem; color:var(--text-light); line-height:1.5; margin-top:0.1rem; }
+    .premium-tag { font-size:0.66rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--olive); background:rgba(181,196,177,0.3); padding:0.2rem 0.55rem; border-radius:var(--r-pill); margin-left:0.4rem; white-space:nowrap; }
+    .flavor-qty-controls { display:flex; align-items:center; gap:0.5rem; flex:none; }
+    .qty-btn { width:44px; height:44px; border-radius:50%; border:2px solid var(--blush); background:var(--white); color:var(--rose); font-size:1.2rem; font-weight:700; line-height:1; cursor:pointer; display:grid; place-items:center; transition:background var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease), border-color var(--dur) var(--ease); }
+    .qty-btn:hover { background:var(--rose); color:var(--white); border-color:var(--rose); transform:scale(1.08); }
+    .qty-btn:active { transform:scale(0.95); }
+    .qty-input { width:48px; text-align:center; font-family:var(--display); font-weight:400; font-size:1.1rem; color:var(--chocolate); background:transparent; border:none; }
+    .qty-min-warn { display:none; font-size:0.82rem; font-weight:700; color:var(--dusty); margin-top:0.9rem; }
+
+    .order-summary { display:none; margin-top:1.6rem; background:var(--cream-2); border:1.5px solid var(--blush); border-radius:var(--r); padding:1.4rem 1.6rem; }
+    .order-summary.visible { display:block; }
+    .order-summary-title { font-family:var(--display); font-weight:400; font-size:1.15rem; color:var(--chocolate); margin-bottom:0.9rem; }
+    .summary-line { display:flex; justify-content:space-between; gap:1rem; font-size:0.9rem; color:var(--text-light); padding:0.3rem 0; }
+    .order-summary-divider { border:none; border-top:1px dashed var(--line-blush); margin:0.7rem 0; }
+    .order-summary-total { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; font-family:var(--display); font-weight:400; color:var(--chocolate); }
+    .order-summary-total span:last-child { color:var(--olive); }
+    .order-summary-note { font-size:0.8rem; color:var(--olive); font-weight:700; margin-top:0.7rem; }
+    .order-summary-warn { font-size:0.82rem; color:var(--dusty); font-weight:700; margin-top:0.5rem; }
+
+    .form-submit { margin-top:1.8rem; text-align:center; }
+    .form-submit .btn-primary { width:100%; }
+    .form-submit-note { font-size:0.8rem; color:var(--text-light); margin-top:0.8rem; }
+    .form-submit-assure { font-size:0.78rem; color:var(--olive); font-weight:600; margin-top:0.25rem; }
+
+    .form-success { display:none; text-align:center; padding:2.5rem 1rem; }
+    .form-success.visible { display:block; }
+    .form-success-icon { margin-bottom:1rem; }
+    .form-success h3 { font-family:var(--display); font-weight:400; font-size:1.6rem; color:var(--chocolate); margin-bottom:0.7rem; }
+    .form-success p { color:var(--text-light); font-size:0.96rem; }
+    @media (max-width:560px){
+      .form-row { grid-template-columns:1fr; gap:0; }
+    }
+    @media (max-width:480px){
+      /* stack each stepper row so the 152px controls block never shares a line with the name */
+      .flavor-qty-row { flex-direction:column; align-items:flex-start; gap:0.75rem; }
+      .flavor-qty-controls { align-self:flex-start; }
+    }
+
+    /* ════════════════════ ALT ORDER METHODS ════════════════════ */
+    #alt-order { padding-block:clamp(3rem,6vw,4.5rem); background:linear-gradient(180deg,var(--cream),var(--cream-2)); }
+    .alt-inner { max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter); text-align:center; }
+    .contact-methods { display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; max-width:640px; margin:2rem auto 0; }
+    .contact-method { display:flex; flex-direction:column; align-items:center; gap:0.5rem; background:var(--white); border:1px solid var(--line-blush); border-radius:var(--r-lg); padding:2rem 1.4rem; transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease); }
+    a.contact-method:hover { transform:translateY(-4px); box-shadow:var(--sh-2); border-color:var(--blush); }
+    .contact-method-icon { width:56px; height:56px; display:grid; place-items:center; border-radius:50%; background:var(--blush-soft); color:var(--rose); margin-bottom:0.4rem; }
+    .contact-method-label { font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--mocha); }
+    .contact-method-value { font-size:0.9rem; font-weight:700; color:var(--olive); overflow-wrap:anywhere; }
+    .contact-note { font-size:0.86rem; color:var(--text-light); margin-top:1.4rem; }
+    @media (max-width:600px){ .contact-methods { grid-template-columns:1fr; } }
+
+    /* ════════════════════ FOOTER ════════════════════ */
+    footer { background:var(--chocolate); color:var(--cream); }
+    .footer-inner { max-width:var(--maxw); margin-inline:auto; padding:clamp(2.5rem,5vw,3.5rem) var(--gutter) 2.5rem; text-align:center; }
+    .footer-logo img { width:72px; height:72px; border-radius:50%; object-fit:cover; margin:0 auto 1rem; border:3px solid var(--rose); }
+    .footer-tagline { font-family:var(--script); font-size:1.25rem; color:var(--blush); margin-bottom:1.5rem; }
+    .footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0 1.6rem; margin-bottom:1.5rem; }
+    /* inline-flex + min-height clears the 24px WCAG target floor without changing the visual row */
+    .footer-links a { display:inline-flex; align-items:center; min-height:32px; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; color:rgba(253,246,238,0.78); transition:color var(--dur) var(--ease); }
+    .footer-links a:hover { color:var(--blush); }
+    .footer-copy { font-size:0.8rem; color:rgba(253,246,238,0.6); }
+    .footer-credit { font-size:0.65rem; opacity:0.45; margin-top:0.5rem; }
+    .footer-credit a { display:inline-flex; align-items:center; min-height:26px; color:inherit; font-weight:600; }
+
+    @media (prefers-reduced-motion: reduce){
+      *, *::before, *::after { animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://sugarandshaicookies.com/order#webpage",
+    "url": "https://sugarandshaicookies.com/order",
+    "name": "Order Custom Cookies — Sugar & Shai Cookies",
+    "description": "Place a cookie pre-order with Sugar & Shai Cookies. Wednesday pickup in the Tyndall area, minimum 3pc per flavour.",
+    "isPartOf": { "@id": "https://sugarandshaicookies.com/#business" },
+    "about": { "@id": "https://sugarandshaicookies.com/#business" },
+    "inLanguage": "en-CA"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a class="nav-logo" href="/"><img src="/Logo.jpg" alt="Sugar &amp; Shai Cookies" width="48" height="48" /><span class="nav-logo-text">Sugar &amp; Shai</span></a>
+    <a class="nav-back" href="/#specialties">Flavours &amp; Photos</a>
+  </nav>
+
+  <!-- ── PAGE HEAD ── -->
+  <header class="page-head">
+    <div class="page-head-inner">
+      <span class="sig"><span class="spark">✦</span></span>
+      <p class="section-label">Order Form</p>
+      <h1 class="section-title">Place Your <em>Cookie</em> Order</h1>
+      <p class="section-subtitle">Pick your flavours, choose a pickup date, and Shai will confirm your spot. Most orders confirmed within 24 hours.</p>
+      <div class="rule-chips">
+        <span class="rule-chip"><i data-lucide="package" style="width:14px;height:14px;stroke-width:2.5;"></i> Pre-order only</span>
+        <span class="rule-chip"><i data-lucide="clock" style="width:14px;height:14px;stroke-width:2.5;"></i> Wednesday pickup</span>
+        <span class="rule-chip"><i data-lucide="map-pin" style="width:14px;height:14px;stroke-width:2.5;"></i> Tyndall area</span>
+        <span class="rule-chip"><i data-lucide="cookie" style="width:14px;height:14px;stroke-width:2.5;"></i> Min. 3pc per flavour</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── PRICING ── -->
+  <div class="pricing-wrap">
+    <div class="pricing-banner">
+      <div class="pricing-tier">
+        <span class="pricing-tier-name">Classic</span>
+        <div class="pricing-tier-prices">
+          <span class="pricing-banner-item"><span class="pricing-banner-qty">12pc</span><span class="pricing-banner-price">$20</span></span>
+          <span class="pricing-banner-divider">✦</span>
+          <span class="pricing-banner-item"><span class="pricing-banner-qty">24pc</span><span class="pricing-banner-price">$35</span></span>
+        </div>
+      </div>
+      <div class="pricing-tier pricing-tier-specialty">
+        <span class="pricing-tier-name">Specialty</span>
+        <div class="pricing-tier-prices">
+          <span class="pricing-banner-item"><span class="pricing-banner-qty">12pc</span><span class="pricing-banner-price">$25</span></span>
+          <span class="pricing-banner-divider">✦</span>
+          <span class="pricing-banner-item"><span class="pricing-banner-qty">24pc</span><span class="pricing-banner-price">$45</span></span>
+        </div>
+      </div>
+      <div class="pricing-banner-note">Minimum 3pc per flavour &nbsp;✦&nbsp; one specialty flavour in the box puts the whole box at specialty pricing</div>
+    </div>
+  </div>
+
+  <!-- ── ORDER FORM ── -->
+  <section id="order-form">
+    <div class="order-form-inner">
+
+      <form class="order-form" id="orderForm">
+        <input type="hidden" name="access_key" value="05b0163d-2b1f-4da2-870c-c4460c6ef221" />
+        <input type="hidden" name="subject" value="New Cookie Order — Sugar & Shai" />
+        <input type="hidden" name="from_name" value="Sugar & Shai Cookies Website" />
+        <input type="hidden" name="order_source" value="Order Page (/order)" />
+        <div class="form-row">
+          <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="e.g. Sarah M." autocomplete="name" required /></div>
+          <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="phone">Phone / Instagram</label><input type="text" id="phone" name="contact" placeholder="Phone # or @handle" autocomplete="tel" /></div>
+          <div class="form-group">
+            <label for="pickup-date">Pickup Date Needed</label>
+            <input type="date" id="pickup-date" name="pickup_date" required />
+            <span class="form-note" id="pickupDateNote">Wednesdays are our regular pickup day — cutoff is Sunday at 7PM the week before.</span>
+          </div>
+        </div>
+
+        <hr class="form-divider" />
+
+        <div>
+          <p class="form-flavours-label">Flavours &amp; Quantities <span>(min. 3pc per flavour)</span></p>
+          <div class="flavor-qty-grid">
+            <div class="flavor-qty-row" id="row-biscoff">
+              <span class="flavor-qty-text">
+                <span class="flavor-qty-name">Biscoff</span>
+                <span class="flavor-qty-desc">Caramelized speculoos baked right in</span>
+              </span>
+              <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-biscoff" data-action="minus">−</button><input type="number" class="qty-input" id="qty-biscoff" name="qty_biscoff" value="0" min="0" readonly aria-label="Biscoff quantity" /><button type="button" class="qty-btn" data-target="qty-biscoff" data-action="plus">+</button></div>
+            </div>
+            <div class="flavor-qty-row" id="row-matcha">
+              <span class="flavor-qty-text">
+                <span class="flavor-qty-name">Matcha White Chocolate</span>
+                <span class="flavor-qty-desc">Earthy matcha, creamy white chocolate chips</span>
+              </span>
+              <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-matcha" data-action="minus">−</button><input type="number" class="qty-input" id="qty-matcha" name="qty_matcha" value="0" min="0" readonly aria-label="Matcha White Chocolate quantity" /><button type="button" class="qty-btn" data-target="qty-matcha" data-action="plus">+</button></div>
+            </div>
+            <div class="flavor-qty-row" id="row-choco">
+              <span class="flavor-qty-text">
+                <span class="flavor-qty-name">Chocolate Chunk Sea Salt</span>
+                <span class="flavor-qty-desc">Gooey dark chocolate chunks, flaky sea salt</span>
+              </span>
+              <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-choco" data-action="minus">−</button><input type="number" class="qty-input" id="qty-choco" name="qty_choco" value="0" min="0" readonly aria-label="Chocolate Chunk Sea Salt quantity" /><button type="button" class="qty-btn" data-target="qty-choco" data-action="plus">+</button></div>
+            </div>
+            <div class="flavor-qty-row" id="row-minieggs">
+              <span class="flavor-qty-text">
+                <span class="flavor-qty-name">Mini Eggs</span>
+                <span class="flavor-qty-desc">Crunchy mini eggs in a soft, chewy cookie</span>
+              </span>
+              <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-minieggs" data-action="minus">−</button><input type="number" class="qty-input" id="qty-minieggs" name="qty_minieggs" value="0" min="0" readonly aria-label="Mini Eggs quantity" /><button type="button" class="qty-btn" data-target="qty-minieggs" data-action="plus">+</button></div>
+            </div>
+            <div class="flavor-qty-row premium-flavor" id="row-redvelvet">
+              <span class="flavor-qty-text">
+                <span class="flavor-qty-name">Red Velvet Oreo Cream Cheese <span class="premium-tag">Specialty</span></span>
+                <span class="flavor-qty-desc">Red velvet, crushed Oreos, white chocolate, cream cheese filling</span>
+              </span>
+              <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-redvelvet" data-action="minus">−</button><input type="number" class="qty-input" id="qty-redvelvet" name="qty_redvelvet" value="0" min="0" readonly aria-label="Red Velvet Oreo Cream Cheese quantity" /><button type="button" class="qty-btn" data-target="qty-redvelvet" data-action="plus">+</button></div>
+            </div>
+          </div>
+          <p class="qty-min-warn" id="qtyMinWarn">⚠ Cookie quantities must be in multiples of 3 — use the buttons to adjust.</p>
+        </div>
+
+        <div class="order-summary" id="orderSummary">
+          <div class="order-summary-title">Order Summary</div>
+          <div id="summaryLines"></div>
+          <hr class="order-summary-divider" />
+          <div class="order-summary-total"><span>Total</span><span id="summaryTotal"></span></div>
+          <p class="order-summary-note" id="summaryNote"></p>
+          <p class="order-summary-warn" id="summaryWarn"></p>
+        </div>
+
+        <div class="form-group" style="margin-top:1.6rem;">
+          <label for="payment">Preferred Payment</label>
+          <select id="payment" name="payment" required>
+            <option value="" disabled selected>Select payment method</option>
+            <option value="E-Transfer">E-Transfer</option>
+            <option value="Cash">Cash</option>
+          </select>
+          <span class="form-note" id="paymentNote" style="display:none;"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Special Requests / Occasion</label>
+          <textarea id="notes" name="notes" placeholder="e.g. Custom combo of 12pcs not in multiples of 3 (e.g. 5 Biscoff + 4 Matcha + 3 Red Velvet), gift wrapping, nut-free request, birthday occasion, etc."></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-primary"><i data-lucide="cookie" style="width:18px;height:18px;stroke-width:1.5;"></i> Reserve My Cookies</button>
+          <p class="form-submit-note">Pre-orders only · Pickup in Tyndall area · Min. 3pc per flavour</p>
+          <p class="form-submit-assure"><i data-lucide="shield-check" style="width:14px;height:14px;stroke-width:2;vertical-align:-2px;margin-right:4px;"></i> No payment taken until Shai confirms your order</p>
+        </div>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon"><i data-lucide="check-circle" style="width:48px;height:48px;stroke-width:1.5;color:var(--olive);"></i></div>
+        <h3>Order Received!</h3>
+        <p>Thanks for reaching out! Shai will confirm your spot within 24–48 hours.<br />Check your email for a reply.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ALT ORDER METHODS ── -->
+  <section id="alt-order">
+    <div class="alt-inner">
+      <span class="sig"><span class="spark">✦</span></span>
+      <p class="section-label">Bigger Order?</p>
+      <h2 class="section-title">Over 24 Pieces or Something Custom</h2>
+      <p class="section-subtitle">Orders above 24 pieces and custom decorated sets go through Shai directly — send a message and she'll sort it out with you.</p>
+      <div class="contact-methods">
+        <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener" class="contact-method">
+          <span class="contact-method-icon"><i data-lucide="send" style="width:24px;height:24px;stroke-width:1.5;"></i></span>
+          <span class="contact-method-label">DM to Pre-Order</span>
+          <span class="contact-method-value">@sugarandshaicookies</span>
+        </a>
+        <a href="mailto:sugarandshaicookies@gmail.com" class="contact-method">
+          <span class="contact-method-icon"><i data-lucide="mail" style="width:24px;height:24px;stroke-width:1.5;"></i></span>
+          <span class="contact-method-label">Email</span>
+          <span class="contact-method-value">sugarandshaicookies@gmail.com</span>
+        </a>
+      </div>
+      <p class="contact-note">Home-based bakery · Pre-orders only · Pickup in Tyndall area · Please allow 24–48 hrs for a response</p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="/Logo.jpg" alt="Sugar &amp; Shai Cookies" width="72" height="72" /></div>
+      <p class="footer-tagline">Handcrafted with love, one cookie at a time.</p>
+      <ul class="footer-links">
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#specialties">Flavours</a></li>
+        <li><a href="/#gallery">Gallery</a></li>
+        <li><a href="/#order">How to Order</a></li>
+        <li><a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Sugar &amp; Shai Cookies. All rights reserved.</p>
+      <p class="footer-credit">Powered by <a href="https://fjmedia.ca" target="_blank" rel="noopener">FJMedia</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Pickup date logic ──
+    const pickupInput = document.getElementById('pickup-date');
+    const pickupNote  = document.getElementById('pickupDateNote');
+
+    // No same-day or past orders — use local date, not UTC
+    function localDateStr(d) {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    }
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    pickupInput.min = localDateStr(tomorrow);
+
+    pickupInput.addEventListener('change', function() {
+      let selected = new Date(this.value + 'T12:00:00');
+      const now = new Date();
+      const day = selected.getDay();
+
+      if (day === 3) { // Wednesday
+        const cutoff = new Date(selected);
+        cutoff.setDate(cutoff.getDate() - 3); // Sunday before
+        cutoff.setHours(19, 0, 0, 0);         // 7PM
+
+        if (now > cutoff) {
+          // Auto-advance to the following Wednesday
+          selected.setDate(selected.getDate() + 7);
+          this.value = localDateStr(selected);
+          const nextLabel = selected.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' });
+          pickupNote.style.color = '#c07a2b';
+          pickupNote.textContent = 'Cutoff for this Wednesday has passed — your order will be placed for ' + nextLabel + '.';
+        } else {
+          pickupNote.style.color = 'var(--olive)';
+          pickupNote.textContent = 'Wednesday pickup — order by Sunday at 7PM to lock in your spot.';
+        }
+      } else {
+        pickupNote.style.color = 'var(--dusty)';
+        pickupNote.textContent = 'Non-Wednesday pickup — Shai will reach out to confirm this date works.';
+      }
+    });
+
+    // ── Payment note ──
+    const paymentSelect = document.getElementById('payment');
+    const paymentNote   = document.getElementById('paymentNote');
+    paymentSelect.addEventListener('change', function() {
+      if (this.value === 'E-Transfer') {
+        paymentNote.style.display = 'block';
+        paymentNote.style.color   = 'var(--olive)';
+        paymentNote.textContent   = 'E-transfer will be sent to your email address provided above.';
+      } else {
+        paymentNote.style.display = 'none';
+      }
+    });
+
+    // ── Flavour quantity buttons ──
+    // premium:true puts a flavour in the SPECIALTY tier. Tier membership is a property of the
+    // flavour, NOT of the calendar — this used to be called `fotm`, which quietly meant a
+    // permanent specialty could not exist without lying about being a flavour of the month.
+    // A monthly flavour and a year-round one both just set premium:true.
+    // Pricing is per BOX: 3+ pieces of ANY premium flavour moves the whole box from classic
+    // ($20/12, $35/24) to specialty ($25/12, $45/24).
+    // ⚠ Keep in sync with the same array in /index.html.
+    const FLAVORS = [
+      { id: 'qty-biscoff',      row: 'row-biscoff',      label: 'Biscoff',                      premium: false },
+      { id: 'qty-matcha',       row: 'row-matcha',       label: 'Matcha White Chocolate',       premium: false },
+      { id: 'qty-choco',        row: 'row-choco',        label: 'Chocolate Chunk Sea Salt',     premium: false },
+      { id: 'qty-minieggs',     row: 'row-minieggs',     label: 'Mini Eggs',                    premium: false },
+      { id: 'qty-redvelvet',    row: 'row-redvelvet',    label: 'Red Velvet Oreo Cream Cheese', premium: true  },
+    ];
+
+    // Pricing (per cookie box)
+    const PRICE = {
+      regular: { 12: 20, 24: 35 },
+      premium: { 12: 25, 24: 45 },
+    };
+    const MIN_PER_FLAVOUR = 3;
+
+    function getQty(id) { return parseInt(document.getElementById(id).value) || 0; }
+
+    function calcOrder() {
+      let cookieTotal = 0, hasPremium = false, premiumQty = 0, lines = [], hasMinError = false;
+      FLAVORS.forEach(f => {
+        const qty = getQty(f.id);
+        const row = document.getElementById(f.row);
+        if (qty > 0) {
+          if (qty % MIN_PER_FLAVOUR !== 0) hasMinError = true;
+          cookieTotal += qty;
+          if (f.premium) {
+            premiumQty += qty;
+            if (qty >= MIN_PER_FLAVOUR) hasPremium = true;
+          }
+          lines.push({ label: f.label, qty, premium: f.premium });
+          row.classList.add('active');
+        } else {
+          row.classList.remove('active');
+        }
+      });
+      return { cookieTotal, hasPremium, premiumQty, lines, hasMinError };
+    }
+
+    function updateSummary() {
+      const { cookieTotal, hasPremium, premiumQty, lines, hasMinError } = calcOrder();
+      const summary = document.getElementById('orderSummary');
+      const summaryLines = document.getElementById('summaryLines');
+      const summaryTotal = document.getElementById('summaryTotal');
+      const summaryNote  = document.getElementById('summaryNote');
+      const summaryWarn  = document.getElementById('summaryWarn');
+      const minWarn      = document.getElementById('qtyMinWarn');
+
+      minWarn.style.display = hasMinError ? 'block' : 'none';
+
+      if (cookieTotal === 0) { summary.classList.remove('visible'); return; }
+      summary.classList.add('visible');
+
+      summaryLines.innerHTML = lines.map(l =>
+        `<div class="summary-line"><span>${l.label}${l.premium ? ' ✦' : ''}</span><span>${l.qty} pcs</span></div>`
+      ).join('');
+
+      const type = hasPremium ? 'premium' : 'regular';
+      const priceTable = PRICE[type];
+      let cookiePrice = 0;
+      let warnStr = '', noteStr = '';
+
+      if (cookieTotal > 24) {
+        warnStr = 'Cookie orders above 24 pieces must be placed via DM — message @sugarandshaicookies on Instagram.';
+      } else if (priceTable[cookieTotal]) {
+        cookiePrice = priceTable[cookieTotal];
+      } else {
+        warnStr = 'Cookie pricing is set for 12 or 24 pieces. Adjust your quantities to hit a box size.';
+      }
+
+      if (!warnStr) {
+        if (hasPremium) {
+          noteStr = `Specialty pricing applied — a specialty flavour in the box prices the whole box at $${PRICE.premium[12]} / $${PRICE.premium[24]}.`;
+        } else if (premiumQty > 0) {
+          // Reachable only if a qty is set outside the +/- buttons (they step by 3).
+          noteStr = `Add at least ${MIN_PER_FLAVOUR} of a specialty flavour to unlock specialty pricing.`;
+        } else {
+          noteStr = 'Classic pricing applied.';
+        }
+      }
+
+      const priceStr = warnStr ? `${cookieTotal} pcs` : `${cookieTotal} pcs — $${cookiePrice}.00`;
+
+      summaryTotal.textContent = priceStr;
+      summaryNote.textContent  = noteStr;
+      summaryWarn.textContent  = warnStr;
+    }
+
+    // Cookie buttons step by 3
+    document.querySelectorAll('.qty-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const input = document.getElementById(this.dataset.target);
+        let val = parseInt(input.value) || 0;
+        if (this.dataset.action === 'plus') val += 3;
+        else if (this.dataset.action === 'minus' && val > 0) val = Math.max(0, val - 3);
+        input.value = val;
+        updateSummary();
+      });
+    });
+
+    // Order form — submit via Web3Forms
+    const orderForm = document.getElementById('orderForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    orderForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const { cookieTotal, hasPremium, lines, hasMinError } = calcOrder();
+      const type = hasPremium ? 'premium' : 'regular';
+      const priceTable = PRICE[type];
+
+      if (cookieTotal === 0) { alert('Please select at least one flavour.'); return; }
+      if (cookieTotal > 24) { alert('Cookie orders above 24 pieces must be placed via DM — message @sugarandshaicookies on Instagram.'); return; }
+      if (hasMinError) { alert(`Cookie quantities must be in multiples of ${MIN_PER_FLAVOUR}. Use the Special Requests field for custom combos.`); return; }
+      if (!priceTable[cookieTotal]) { alert('Cookie quantities must total 12 or 24 pieces. Adjust your selection or use Special Requests for custom combos.'); return; }
+
+      const btn = orderForm.querySelector('button[type="submit"]');
+      btn.textContent = 'Reserving…';
+      btn.disabled = true;
+
+      const flavourSummary = lines.map(l => `${l.label}: ${l.qty}pc`).join(', ');
+      const cookiePrice = priceTable[cookieTotal];
+      // tier is spelled out so Shai can sanity-check the total in the order email / sheet
+      const priceStr = `${cookieTotal}pc cookies = $${cookiePrice}.00 (${type} pricing)`;
+
+      const formData = new FormData(orderForm);
+      formData.set('flavours', flavourSummary);
+      formData.set('quantity', priceStr);
+
+      // Send to Google Sheet + email notification
+      const gasData = new URLSearchParams();
+      gasData.append('name',        formData.get('name')        || '');
+      gasData.append('email',       formData.get('email')       || '');
+      gasData.append('contact',     formData.get('contact')     || '');
+      gasData.append('pickup_date', formData.get('pickup_date') || '');
+      gasData.append('flavours',    flavourSummary);
+      gasData.append('quantity',    priceStr);
+      gasData.append('payment',     formData.get('payment')     || '');
+      gasData.append('notes',       formData.get('notes')       || '');
+      fetch('https://script.google.com/macros/s/AKfycbyxwDivyFF4zPmyRzhIGhXLniUcF-dRUz80Bl1GVYEsUsd7pemc27bmKQV8JH8yXelH/exec', {
+        method: 'POST',
+        body: gasData
+      }).catch(() => {});
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          gtag('event', 'order_form_submitted', { method: 'web3forms', source: 'order_page' });
+          const pickupVal = formData.get('pickup_date') || '';
+          const pickupDate = pickupVal ? new Date(pickupVal + 'T12:00:00') : null;
+          const isWednesday = pickupDate ? pickupDate.getDay() === 3 : false;
+          const dateLabel = pickupDate ? pickupDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) : '';
+          const dateParam = dateLabel ? '?date=' + encodeURIComponent(dateLabel) : '';
+          // Root-absolute — this page lives one directory deep at /order/
+          if (isWednesday) {
+            window.location.href = (hasPremium ? '/thanks_specialty.html' : '/thanks.html') + dateParam;
+          } else {
+            window.location.href = '/thanks_pending.html' + dateParam;
+          }
+        } else {
+          throw new Error(data.message);
+        }
+      })
+      .catch(() => {
+        btn.textContent = 'Reserve My Cookies';
+        btn.disabled = false;
+        alert('Something went wrong. Please DM us on Instagram!');
+      });
+    });
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script>
+    window.addEventListener('load', function() {
+      if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+    });
+  </script>
+</body>
+</html>
