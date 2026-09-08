@@ -40,7 +40,11 @@ function doPost(e) {
     'Check your Google Sheet for all orders.'
   ].join('\n');
 
-  MailApp.sendEmail('sugarandshaicookies@gmail.com', subject, body);
+  // CC James so FJMedia has a copy of every order (added 2026-09-08 at his request).
+  // Shai stays the primary recipient — she must never be dropped from this line.
+  MailApp.sendEmail('sugarandshaicookies@gmail.com', subject, body, {
+    cc: 'diazfjamesc@gmail.com'
+  });
 
   return ContentService
     .createTextOutput(JSON.stringify({ result: 'success' }))
@@ -359,3 +363,4 @@ function setupSheet(sheet) {
   sheet.setTabColor('#4A5E2A');
   sheet.setName('Orders');
 }
+
