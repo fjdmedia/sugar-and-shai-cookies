@@ -31,3 +31,8 @@ Gallery/Main/
 # ── local tooling ──
 .DS_Store
 Thumbs.db
+
+# Redesign draft — previewed at fjmedia.ca/preview/sugar-and-shai/, NOT approved for this
+# domain. Committing it would make it publicly fetchable at sugarandshaicookies.com/redesign.html
+# before the client has signed off. The committed preview copy in fjmedia-astro is the record.
+redesign.html
