@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai</title>
-  <meta name="description" content="Custom cookies in Winnipeg & Tyndall, MB. Pre-order Biscoff, Matcha, Chocolate Chunk + our new Red Velvet Oreo Cream Cheese. Wednesday pickup, min 3pc." />
-  <meta property="og:title" content="Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai" />
-  <meta property="og:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk, Mini Eggs + our new Red Velvet Oreo Cream Cheese." />
+  <title>Custom Cookies Winnipeg · Pre-Order Pickup | Sugar &amp; Shai</title>
+  <meta name="description" content="Custom cookies in Winnipeg &amp; Tyndall, MB. Pre-order Biscoff, Matcha, Chocolate Chunk, Mini Eggs + our new Red Velvet Oreo Cream Cheese. Wednesday pickup, min 3pc." />
+  <meta property="og:title" content="Custom Cookies Winnipeg · Pre-Order Pickup | Sugar &amp; Shai" />
+  <meta property="og:description" content="Pre-order custom cookies for pickup in Winnipeg &amp; Tyndall, MB. Biscoff, Matcha, Chocolate Chunk, Mini Eggs + our new Red Velvet Oreo Cream Cheese." />
   <meta property="og:image" content="https://sugarandshaicookies.com/Gallery/Cookies.jpg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Custom Cookies Winnipeg · Pre-Order Pickup | Sugar & Shai" />
-  <meta name="twitter:description" content="Pre-order custom cookies for pickup in Winnipeg & Tyndall, MB. Biscoff, Matcha, Chocolate Chunk, Mini Eggs + our new Red Velvet Oreo Cream Cheese." />
+  <meta name="twitter:title" content="Custom Cookies Winnipeg · Pre-Order Pickup | Sugar &amp; Shai" />
+  <meta name="twitter:description" content="Pre-order custom cookies for pickup in Winnipeg &amp; Tyndall, MB. Biscoff, Matcha, Chocolate Chunk, Mini Eggs + our new Red Velvet Oreo Cream Cheese." />
   <meta name="twitter:image" content="https://sugarandshaicookies.com/Gallery/Cookies.jpg" />
   <meta property="og:url" content="https://sugarandshaicookies.com" />
   <link rel="canonical" href="https://sugarandshaicookies.com" />
-  <link rel="preload" as="image" href="Logo.jpg" />
+  <link rel="preload" as="image" href="Cookies/Red Velvet Oreo Cream Cheese.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka+One&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XQXMER6DS"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -27,102 +26,153 @@
     gtag('js', new Date());
     gtag('config', 'G-8XQXMER6DS');
   </script>
-  <noscript><style>.gs-reveal{opacity:1 !important;}</style></noscript>
   <style>
-  /* ════════════════════════════════════════════════════════════════
-     FJMedia · lane: redesign · rung: 4 (macrostructure rebuild)
-     Sugar & Shai Cookies — full rebuild on the original brand
-     ════════════════════════════════════════════════════════════════ */
+  /* ════════════════════════════════════════════════════════════════════════════
+     FJMedia · lane: redesign (Rung 4 — macrostructure) · genre: premium local bakery
+     Sugar & Shai Cookies — "Bento Grid, box-first"   [CLIENT-APPROVED 2026-09-12]
+
+     Shai picked this over variant A (Editorial Menu). Both carried the same
+     commercial spine; only the macrostructure differs. A is retired — do not
+     re-pitch it.
+
+     MACROSTRUCTURE: a 12-column bento above the fold-and-a-half, then a linear
+     scroll. The bento is doing real work, one payload per cell, no filler:
+       · t-feature (7×2) — the specialty, photographed. OFFER.
+       · t-box ×2 (5 wide) — Classic Box / Specialty Box with both counts. OFFER.
+       · t-rules (7) — "How the box works". OBJECTION (the mix + minimum rule).
+       · pickup (5) — day, cutoff, area, confirmation window. OBJECTION.
+       · 4 flavour tiles — the rest of the menu. OFFER.
+       · t-about — who bakes it. OBJECTION (is this a real person).
+       · t-cta — ACTION.
+
+     WHY BOX-FIRST (researched 2026-09-08, not taste — survives from variant A):
+       · Pre-order research: "if products are sold in fixed box counts, present
+         that directly." Shai sells BOXES (12 or 24, classic or specialty), not
+         cookies. The old page led with flavours and buried the box in a
+         footnote, which is why the mix rule needed its own explainer strip.
+       · Levain — closest product match (thick loaded cookies) — sizes product
+         photography at 40–60% of viewport rather than full-bleed.
+
+     LOCKED FROM THE LIVE SITE (this is a relayout, not a rebrand):
+       palette, Pacifico/Fredoka One/Lato, the ✦ sparkle eyebrow, real
+       photography, every anchor id, and the entire order form + pricing JS
+       (spliced verbatim — that pipeline was repaired 2026-09-07, never retyped).
+
+     CONTRAST: --rose (#D4849A) is DECORATIVE ONLY — 2.59:1 on cream, it fails AA
+     as text. Every text role uses --rose-ink (#B04A66): 4.88:1 on cream, 4.59:1
+     on cream-2, 5.23:1 white-on-rose-ink for filled hover states. This applies to
+     :hover colours and to error text that is display:none until it fires — neither
+     is visible to a default-state contrast scan. Verified by pixel-sampling the
+     rendered page, not by reading the CSS.
+
+     NOT full-bleed photography: the gallery set is 640px and already renders
+     at 1.36× on retina. Full-bleed would magnify a known, accepted limitation.
+
+     ANCHORS: the specialty section is #specialties, never #bento — /order links
+     into it from two places, and a fragment named after the layout breaks the
+     moment the layout changes.
+
+     gates: contrast 0 real failures (510 els scanned, incl. pixel-sampled
+     image-backed text) · reveals 23/23 fire · 0 console errors · 0 overflow at
+     1440/390 · marquee setWidth >= viewport both rows
+     ═════════════════════════════════════════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    /* overflow-x:clip (not hidden) clips without creating a scroll container, and unlike
+       hidden it actually constrains scrollWidth — the closed nav drawer is parked at
+       translateX(100%) and otherwise reports +300px of page overflow at every width <=900. */
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 
     :root {
-      /* Surfaces — warm cream ladder */
+      /* Surfaces — unchanged from live */
       --cream:#FDF6EE; --cream-2:#F8EFE2; --cream-3:#F2E6D6; --white:#FFFFFF;
-      /* Brand */
+      /* Brand — unchanged from live */
       --blush:#F2C4CE; --blush-soft:#FAE3E8; --rose:#D4849A; --dusty:#C97B8B;
+      /* --rose is the DECORATIVE accent (marks, rules, fills). As TEXT on cream it measures
+         2.59:1 and fails WCAG AA, which is why the live site's eyebrows fail today. --rose-ink
+         is the same hue darkened until it passes: 4.88:1 on --cream, 4.59:1 on --cream-2. */
+      --rose-ink:#B04A66;
       --mocha:#8B5E52; --chocolate:#5C3D35;
-      /* Accent (CTA) */
       --olive:#4A5E2A; --olive-dark:#3A4A20; --olive-light:#6B7D45; --sage:#B5C4B1;
-      /* Text */
       --text:#3D2B27; --text-light:#7A5C56; --text-mut:#9A847C;
-      /* Lines */
       --line:rgba(140,94,82,0.16); --line-blush:rgba(242,196,206,0.55);
-      /* Type */
       --script:'Pacifico',cursive; --display:'Fredoka One',system-ui,sans-serif; --body:'Lato',system-ui,sans-serif;
-      /* Radius — soft & generous */
-      --r-sm:12px; --r:20px; --r-lg:28px; --r-xl:40px; --r-pill:999px;
-      /* Shadows — soft, warm */
-      --sh-1:0 2px 10px rgba(140,94,82,0.08); --sh-2:0 14px 34px -12px rgba(140,94,82,0.20);
-      --sh-3:0 30px 64px -24px rgba(140,94,82,0.28); --sh-olive:0 18px 40px -16px rgba(74,94,42,0.35);
-      /* Motion */
+
+      /* Spacing — a real scale, so no section spacing is a one-off guess */
+      --s1:0.5rem; --s2:0.85rem; --s3:1.25rem; --s4:2rem; --s5:3rem; --s6:4.5rem; --s7:7rem;
+      --section-y: clamp(4.5rem, 9vw, 8.5rem);   /* premium = breathing room */
+      --gutter: clamp(1.25rem, 5vw, 4rem);
+      --maxw:1240px; --measure:62ch;
+
+      --r-sm:10px; --r:18px; --r-lg:26px; --r-xl:38px; --r-pill:999px;
+      --sh-1:0 2px 10px rgba(140,94,82,0.07);
+      --sh-2:0 16px 40px -16px rgba(140,94,82,0.22);
+      --sh-3:0 34px 70px -28px rgba(140,94,82,0.30);
+      --sh-olive:0 18px 40px -16px rgba(74,94,42,0.35);
+
       --dur-fast:180ms; --dur:300ms; --dur-slow:520ms;
       --ease:cubic-bezier(.2,.7,.2,1); --ease-emph:cubic-bezier(.2,.9,.1,1);
-      /* Layout */
-      --maxw:1200px; --gutter:clamp(1.25rem,5vw,3.5rem);
     }
 
     body { font-family:var(--body); background:var(--cream); color:var(--text); line-height:1.7; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
-    body.nav-open { overflow:hidden; }
     ::selection { background:var(--blush); color:var(--chocolate); }
     ::-webkit-scrollbar { width:7px; } ::-webkit-scrollbar-track { background:var(--cream); }
     ::-webkit-scrollbar-thumb { background:var(--blush); border-radius:4px; }
     ::-webkit-scrollbar-thumb:hover { background:var(--rose); }
     *:focus-visible { outline:2px solid var(--olive); outline-offset:3px; border-radius:6px; }
     img { display:block; max-width:100%; } a { color:inherit; text-decoration:none; } ul { list-style:none; }
-    section { position:relative; }
-    .gs-reveal { opacity:0; }
-
+    section { scroll-margin-top: 88px; }          /* sticky nav must not cover anchor targets */
     .wrap { width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter); }
-    .band { padding-block:clamp(4rem,8vw,7rem); }
-    /* Grid children must shrink (G27 — no 320px blowout) */
-    .about-inner > *, .order-form-inner > *, .contact-inner > *, .footer-inner > * { min-width:0; }
+    /* grid children must be allowed to shrink or a long token blows out 320px */
+    .hero-grid > *, .box-grid > *, .about-grid > *, .contact-grid > * { min-width:0; }
 
-    /* ── Signature eyebrow: sparkle + hairline, block-stacked above (G32d) ── */
-    .sig { display:flex; align-items:center; gap:0.55rem; margin-bottom:0.85rem; height:14px; color:var(--rose); }
-    .sig::after { content:''; width:32px; height:1px; background:linear-gradient(90deg,var(--rose),transparent); }
+    /* ── signature: ✦ sparkle + hairline. Block-stacked, never inline-colliding (G32d) ── */
+    .sig { display:flex; align-items:center; gap:0.55rem; height:14px; color:var(--rose); margin-bottom:0.8rem; }
+    .sig::after { content:''; width:34px; height:1px; background:linear-gradient(90deg,var(--rose),transparent); }
     .sig .spark { font-size:0.85rem; line-height:1; }
     .sig.center { justify-content:center; }
-    .sig.center::before { content:''; width:32px; height:1px; background:linear-gradient(90deg,transparent,var(--rose)); }
+    /* .sig.center existed but .section-head never had a rule at all, so on all four
+       centered sections the ornament centred while the eyebrow, heading and lede stayed
+       left — three different axes in one section, with dead space under the heading.
+       The markup's intent was never ambiguous; the rule was simply missing. */
+    .section-head.center { text-align:center; }
+    .section-head.center .lede { margin-inline:auto; }
 
-    .section-label { font-family:var(--body); font-weight:700; font-size:0.74rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--rose); display:block; margin-bottom:0.7rem; }
-    .section-title { font-family:var(--display); font-weight:400; font-size:clamp(1.9rem,4.4vw,3rem); line-height:1.12; color:var(--chocolate); letter-spacing:0.005em; }
-    .section-title em { font-family:var(--script); font-style:normal; color:var(--rose); font-size:1.08em; }
-    .section-subtitle { color:var(--text-light); font-size:1.02rem; line-height:1.7; max-width:46ch; margin-top:1rem; }
-    .centered { text-align:center; max-width:640px; margin-inline:auto; }
-    .centered .section-subtitle, .order-header .section-subtitle, .order-form-header .section-subtitle { margin-inline:auto; }
-    .centered .sig { justify-content:center; }
-    .centered .sig::after { background:linear-gradient(90deg,var(--rose),transparent); }
-    .centered .sig::before { content:''; width:32px; height:1px; background:linear-gradient(90deg,transparent,var(--rose)); }
+    .sig.center::before { content:''; width:34px; height:1px; background:linear-gradient(90deg,transparent,var(--rose)); }
+
+    .eyebrow { font-family:var(--body); font-weight:700; font-size:0.74rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--rose-ink); display:block; margin-bottom:0.7rem; }
+    /* optical correction: display face is geometric and runs wide, so pull tracking in
+       as size increases, and tighten leading — untouched defaults read loose and cheap */
+    .display { font-family:var(--display); font-weight:400; line-height:1.04; letter-spacing:-0.012em; color:var(--chocolate); }
+    h1.display { font-size:clamp(2.6rem,6vw,4.6rem); }
+    h2.display { font-size:clamp(2rem,4.2vw,3.2rem); }
+    .display em { font-family:var(--script); font-style:normal; color:var(--rose-ink); font-size:1.05em; letter-spacing:0; }
+    .lede { color:var(--text-light); font-size:1.05rem; line-height:1.75; max-width:52ch; }
 
     /* ════════════════════ BUTTONS ════════════════════ */
-    .btn-primary, .btn-outline {
-      display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
+    .btn, .btn-primary, .btn-ghost { display:inline-flex; align-items:center; justify-content:center; gap:0.55rem;
       font-family:var(--body); font-weight:700; font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase;
-      padding:0.95rem 1.9rem; border-radius:var(--r-pill); cursor:pointer; border:2px solid transparent;
-      transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
-    }
+      padding:1.05rem 2.1rem; border-radius:var(--r-pill); cursor:pointer; border:2px solid transparent; min-height:52px;
+      transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease); }
     .btn-primary { background:var(--olive); color:var(--white); box-shadow:var(--sh-olive); }
     .btn-primary:hover { background:var(--olive-dark); transform:translateY(-2px); box-shadow:0 24px 50px -18px rgba(74,94,42,0.45); }
     .btn-primary:active { transform:translateY(0); }
-    .btn-primary[disabled] { opacity:0.65; cursor:not-allowed; transform:none; }
-    .btn-outline { background:transparent; color:var(--dusty); border-color:var(--blush); }
-    .btn-outline:hover { background:var(--blush-soft); border-color:var(--rose); color:var(--rose); transform:translateY(-2px); }
+    .btn-primary[disabled] { opacity:0.65; cursor:not-allowed; transform:none; box-shadow:none; }
+    .btn-ghost { background:transparent; color:var(--rose-ink); border-color:var(--blush); }
+    .btn-ghost:hover { background:var(--blush-soft); border-color:var(--rose); color:var(--rose-ink); transform:translateY(-2px); }
 
     /* ════════════════════ NAV ════════════════════ */
-    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; height:72px; padding:0 var(--gutter); background:rgba(253,246,238,0.82); backdrop-filter:blur(12px); border-bottom:1px solid var(--line-blush); transition:box-shadow var(--dur) var(--ease), background var(--dur) var(--ease); }
-    nav.scrolled { box-shadow:var(--sh-1); background:rgba(253,246,238,0.95); }
-    .nav-logo { display:flex; align-items:center; gap:0.7rem; }
-    .nav-logo img { height:48px; width:48px; object-fit:cover; border-radius:50%; border:2px solid var(--blush); transition:transform var(--dur) var(--ease); }
-    .nav-logo img:hover { transform:rotate(-6deg) scale(1.05); }
-    .nav-logo-text { font-family:var(--script); font-size:1.15rem; color:var(--rose); line-height:1; }
-    .nav-links { display:flex; align-items:center; gap:0.5rem; }
-    .nav-links > li > a:not(.nav-cta) { position:relative; font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-light); padding:0.5rem 0.85rem; border-radius:var(--r-sm); transition:color var(--dur) var(--ease); }
+    nav { position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; gap:1rem;
+      height:76px; padding:0 var(--gutter); background:rgba(253,246,238,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--line-blush); }
+    .nav-logo { display:flex; align-items:center; gap:0.7rem; min-width:0; }
+    .nav-logo img { flex:none; height:46px; width:46px; object-fit:cover; border-radius:50%; border:2px solid var(--blush); transition:transform var(--dur) var(--ease); }
+    .nav-logo:hover img { transform:rotate(-6deg) scale(1.05); }
+    .nav-logo-text { font-family:var(--script); font-size:1.28rem; color:var(--rose-ink); white-space:nowrap; }
+    .nav-links { display:flex; align-items:center; gap:0.35rem; }
+    .nav-links > li > a:not(.nav-cta) { position:relative; display:inline-block; padding:0.6rem 0.85rem; font-size:0.79rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--mocha); transition:color var(--dur) var(--ease); }
     .nav-links > li > a:not(.nav-cta)::after { content:''; position:absolute; left:0.85rem; right:0.85rem; bottom:0.3rem; height:2px; border-radius:2px; background:var(--rose); transform:scaleX(0); transform-origin:left; transition:transform var(--dur) var(--ease); }
-    .nav-links > li > a:not(.nav-cta):hover { color:var(--dusty); }
-    .nav-links > li > a:not(.nav-cta):hover::after, .nav-links > li > a.active::after { transform:scaleX(1); }
-    .nav-links > li > a.active { color:var(--rose); }
-    .nav-cta { display:inline-flex; align-items:center; font-size:0.76rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); background:var(--olive); padding:0.6rem 1.3rem; border-radius:var(--r-pill); margin-left:0.5rem; box-shadow:var(--sh-1); transition:background var(--dur) var(--ease), transform var(--dur) var(--ease); }
+    .nav-links > li > a:not(.nav-cta):hover::after { transform:scaleX(1); }
+    .nav-links > li > a:hover { color:var(--rose-ink); }
+    .nav-cta { display:inline-flex; align-items:center; min-height:44px; font-size:0.76rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); background:var(--olive); padding:0.7rem 1.35rem; border-radius:var(--r-pill); margin-left:0.5rem; box-shadow:var(--sh-1); transition:background var(--dur) var(--ease), transform var(--dur) var(--ease); }
     .nav-cta:hover { background:var(--olive-dark); transform:translateY(-1px); }
     .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:14px 10px; }
     .hamburger span { display:block; width:24px; height:2px; background:var(--mocha); border-radius:2px; transition:transform var(--dur) var(--ease), opacity var(--dur) var(--ease); }
@@ -131,294 +181,267 @@
     .nav-open .hamburger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
     @media (max-width:900px){
       .hamburger { display:flex; }
-      /* height:100dvh (not inset bottom:0) — nav's backdrop-filter makes it the containing block for this fixed drawer, so bottom:0 would collapse the panel to the 72px nav box; viewport units ignore the containing block */
-      .nav-links { position:fixed; top:0; right:0; bottom:auto; left:auto; height:100vh; height:100dvh; width:min(80vw,300px); flex-direction:column; align-items:flex-start; justify-content:center; gap:0.4rem; background:var(--cream-2); border-left:1px solid var(--line-blush); padding:2rem var(--gutter); transform:translateX(100%); transition:transform var(--dur-slow) var(--ease-emph); }
-      .nav-links.open { transform:translateX(0); }
+      /* height:100dvh, NOT inset:0 — nav's backdrop-filter makes it the containing block
+         for this fixed drawer, so bottom:0 collapses the panel to the 76px nav box */
+      .nav-links { position:fixed; top:0; right:0; bottom:auto; left:auto; height:100vh; height:100dvh; width:min(80vw,300px);
+        flex-direction:column; align-items:flex-start; justify-content:center; gap:0.4rem; background:var(--cream-2);
+        border-left:1px solid var(--line-blush); padding:2rem var(--gutter); transform:translateX(100%);
+        /* visibility:hidden takes the CLOSED drawer out of layout. Parked at translateX(100%)
+           it still counts toward documentElement.scrollWidth (+300px at every width ≤900),
+           and it stays keyboard-focusable — you can tab into a menu you cannot see. */
+        visibility:hidden;
+        transition:transform var(--dur-slow) var(--ease-emph), visibility 0s linear var(--dur-slow); }
+      .nav-links.open { transform:translateX(0); visibility:visible; transition:transform var(--dur-slow) var(--ease-emph), visibility 0s; }
       .nav-links > li { width:100%; }
-      .nav-links > li > a:not(.nav-cta) { display:block; font-size:1rem; padding:0.7rem 0; }
-      .nav-links > li > a:not(.nav-cta)::after { display:none; }
-      .nav-cta { margin-left:0; margin-top:0.6rem; width:100%; justify-content:center; padding:0.9rem; }
+      .nav-links > li > a:not(.nav-cta) { display:block; font-size:1rem; padding:0.75rem 0; }
+      .nav-cta { margin:0.6rem 0 0; }
     }
 
-    /* ════════════════════ HERO ════════════════════ */
-    .hero { min-height:100svh; display:flex; align-items:center; padding:7rem var(--gutter) 4rem;
-      background:radial-gradient(900px 600px at 85% 15%, var(--blush-soft), transparent 60%), radial-gradient(700px 500px at 0% 100%, rgba(181,196,177,0.25), transparent 60%), var(--cream); }
-    .hero-inner { width:100%; max-width:var(--maxw); margin-inline:auto; display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(2rem,5vw,4.5rem); align-items:center; }
-    .hero-content { display:flex; flex-direction:column; align-items:flex-start; }
-    .hero-badge { display:inline-flex; align-items:center; gap:0.45rem; font-family:var(--body); font-weight:700; font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--olive); background:rgba(181,196,177,0.3); border:1px solid var(--sage); padding:0.5rem 1.1rem; border-radius:var(--r-pill); margin-bottom:1.4rem; }
-    .hero-script { font-family:var(--script); font-size:clamp(1.3rem,3vw,1.8rem); color:var(--rose); margin-bottom:0.2rem; line-height:1; }
-    .hero h1 { font-family:var(--display); font-weight:400; font-size:clamp(2.6rem,6vw,4.4rem); line-height:1.04; color:var(--chocolate); letter-spacing:0.005em; }
-    .hero h1 em { font-family:var(--script); font-style:normal; color:var(--rose); font-size:1.05em; }
-    .hero-content > p { color:var(--text-light); font-size:1.08rem; line-height:1.7; max-width:44ch; margin-top:1.4rem; }
-    .hero-btns { display:flex; flex-wrap:wrap; gap:0.9rem; margin-top:2.1rem; }
-    .hero-trust { display:flex; flex-wrap:wrap; gap:0.5rem 1.4rem; margin-top:1.8rem; padding-top:1.6rem; border-top:1px solid var(--line-blush); width:100%; max-width:520px; }
-    .hero-trust span { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.82rem; font-weight:700; color:var(--text-light); }
-    .hero-trust i { color:var(--olive); }
+    /* ════════════════════ HERO BAND — compact, the bento does the work ════════════════════ */
+    #home { position:relative; padding-block: clamp(2.75rem,5vw,4.5rem) clamp(1.5rem,3vw,2.5rem); }
+    #home::before { content:''; position:absolute; inset:0; z-index:-1;
+      background:radial-gradient(720px 420px at 82% 0%, var(--blush-soft), transparent 62%),
+                 radial-gradient(560px 400px at 0% 100%, rgba(181,196,177,0.20), transparent 62%); }
+    .hero-band { display:grid; grid-template-columns:1.25fr 0.75fr; gap:clamp(1.5rem,4vw,3.5rem); align-items:end; }
+    .hero-band h1 { margin:0.7rem 0 0.9rem; }
+    .hero-badge { display:inline-flex; align-items:center; gap:0.45rem; font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+      color:var(--olive); background:rgba(181,196,177,0.26); border:1px solid var(--sage); padding:0.5rem 1.05rem; border-radius:var(--r-pill); }
+    .hero-script { font-family:var(--script); font-size:1.3rem; color:var(--mocha); margin-top:1.1rem; }
+    .hero-cta-row { display:flex; flex-wrap:wrap; gap:0.8rem; }
+    .hero-side { display:flex; flex-direction:column; gap:0.55rem; padding-bottom:0.35rem; }
+    .hero-side-item { display:flex; align-items:center; gap:0.55rem; font-size:0.86rem; font-weight:700; color:var(--mocha); }
+    .hero-side-item i { color:var(--rose-ink); flex:none; }
+    @media (max-width:860px){ .hero-band { grid-template-columns:1fr; align-items:start; gap:1.5rem; } }
+    @media (max-width:620px){ .hero-cta-row .btn { width:100%; } }
 
-    .hero-image-wrap { position:relative; display:flex; justify-content:center; }
-    .hero-image-blob { width:min(440px,100%); aspect-ratio:5/6; overflow:hidden; border-radius:48% 52% 56% 44% / 54% 44% 56% 46%; box-shadow:var(--sh-3); border:6px solid var(--white); }
-    .hero-image-blob img { width:100%; height:100%; object-fit:cover; }
-    .hero-logo { position:absolute; bottom:-6px; left:-6px; width:96px; height:96px; border-radius:50%; object-fit:cover; border:5px solid var(--white); box-shadow:var(--sh-2); }
-    @media (max-width:880px){
-      .hero { min-height:auto; padding-top:6.5rem; text-align:left; }
-      .hero-inner { grid-template-columns:1fr; gap:2.5rem; }
-      .hero-image-blob { width:min(320px,80%); }
+    /* ════════════════════ BENTO — a mosaic of unequal tiles ════════════════════
+       Tiles carry DIFFERENT weights on purpose: the new flavour is the biggest
+       surface, the two boxes are equal siblings, the rules tile is the only dark
+       one. A grid of identical cards is the thing this shape exists to avoid. */
+    #bento { padding-block: clamp(1rem,2vw,1.5rem) var(--section-y); }
+    .bento { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(0.75rem,1.6vw,1.15rem); }
+    .bento > * { min-width:0; }
+    .tile { position:relative; border-radius:var(--r-lg); background:var(--white); border:1px solid var(--line-blush); box-shadow:var(--sh-1); overflow:hidden;
+      transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease); }
+    .tile:hover { transform:translateY(-3px); box-shadow:var(--sh-2); border-color:var(--blush); }
+    .tile-pad { padding:clamp(1.15rem,2.2vw,1.7rem); display:flex; flex-direction:column; height:100%; }
+    .tile-k { font-size:0.68rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--mocha); margin-bottom:0.45rem; }
+    .tile-h { font-family:var(--display); font-size:1.32rem; color:var(--chocolate); line-height:1.2; margin-bottom:0.5rem; }
+    .tile-p { font-size:0.9rem; color:var(--text-light); line-height:1.6; }
+
+    /* the hero tile — the new flavour gets the largest surface on the page */
+    .t-feature { grid-column:span 7; grid-row:span 2; min-height:clamp(380px,46vw,540px); }
+    .t-feature img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    /* The scrim has to be strong where the TEXT is, not just at the card's bottom edge.
+       The eyebrow is the topmost line, so a gradient that has already faded out by then
+       leaves it sitting on the bright white drizzle in the photo. Deep top padding moves
+       the fade above the copy, and the scrim holds >=0.86 across the whole text block. */
+    .t-feature-veil { position:absolute; inset:auto 0 0 0;
+      padding:clamp(4rem,8vw,6rem) clamp(1.2rem,2.4vw,1.9rem) clamp(1.2rem,2.4vw,1.9rem);
+      background:linear-gradient(to top, rgba(46,28,24,0.96), rgba(46,28,24,0.93) 55%, rgba(46,28,24,0.87) 74%, rgba(46,28,24,0.45) 89%, transparent);
+      color:#fff; display:flex; flex-direction:column; gap:0.35rem; }
+    .t-feature-k { font-size:0.66rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--blush); }
+    .t-feature-h { font-family:var(--display); font-size:clamp(1.4rem,2.6vw,2rem); line-height:1.15; }
+    .t-feature-p { font-size:0.9rem; line-height:1.55; color:rgba(255,255,255,0.9); max-width:46ch; }
+    .t-feature-price { display:inline-flex; align-items:baseline; gap:0.5rem; margin-top:0.4rem; font-family:var(--display); font-size:1.1rem; }
+    .t-feature-price span { font-family:var(--body); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--blush); }
+
+    /* the two boxes — equal siblings, stacked beside the feature */
+    .t-box { grid-column:span 5; }
+    .t-box.is-specialty { border-color:var(--sage); background:linear-gradient(180deg,#fff,rgba(181,196,177,0.10)); }
+    .t-box.is-specialty .tile-k { color:var(--olive); }
+    .t-box-prices { display:flex; gap:0.55rem; margin-top:auto; padding-top:0.9rem; }
+    .t-box-price { flex:1; text-align:center; background:var(--cream); border:1px solid var(--line-blush); border-radius:var(--r); padding:0.7rem 0.4rem; }
+    .t-box.is-specialty .t-box-price { background:rgba(255,255,255,0.75); border-color:var(--sage); }
+    .t-box-q { display:block; font-size:0.64rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-light); }
+    .t-box-v { font-family:var(--display); font-size:1.3rem; color:var(--chocolate); }
+
+    /* the rules tile — the only dark surface in the mosaic, so it reads as the note */
+    .t-rules { grid-column:span 7; background:var(--chocolate); border-color:var(--chocolate); color:var(--cream); }
+    .t-rules .tile-k { color:var(--blush); }
+    .t-rules .tile-h { color:var(--cream); }
+    .t-rules ul { display:flex; flex-direction:column; gap:0.5rem; margin-top:0.35rem; }
+    .t-rules li { display:grid; grid-template-columns:auto 1fr; align-items:start; gap:0.55rem; font-size:0.88rem; line-height:1.55; color:rgba(253,246,238,0.88); }
+    .t-rules li i { color:var(--blush); margin-top:3px; }
+    /* the sentence must be ONE flow child — as a flex/grid sibling every <strong> became
+       its own item and the row `gap` opened up between words mid-sentence */
+    .t-rules li span { display:block; }
+    .t-rules strong { color:var(--blush); }
+
+    .t-pickup { grid-column:span 5; }
+    .t-pickup-rows { display:flex; flex-direction:column; gap:0.6rem; margin-top:0.2rem; }
+    .t-pickup-row { display:flex; align-items:center; gap:0.6rem; font-size:0.88rem; color:var(--text); }
+    .t-pickup-row i { color:var(--olive); flex:none; }
+    .t-pickup-row b { font-weight:700; }
+
+    /* the four classics — small photo tiles */
+    .t-flavour { grid-column:span 3; }
+    .t-flavour-img { aspect-ratio:16/11; overflow:hidden; background:var(--cream-2); }
+    .t-flavour-img img { width:100%; height:100%; object-fit:cover; transition:transform var(--dur-slow) var(--ease); }
+    .t-flavour:hover .t-flavour-img img { transform:scale(1.06); }
+    .t-flavour-body { padding:0.95rem 1.05rem 1.15rem; }
+    .t-flavour-n { font-family:var(--display); font-size:1.02rem; color:var(--chocolate); line-height:1.25; }
+    .t-flavour-d { font-size:0.82rem; color:var(--text-light); line-height:1.5; margin-top:0.2rem; }
+
+    .t-about { grid-column:span 7; }
+    .t-about-inner { display:grid; grid-template-columns:0.8fr 1.2fr; height:100%; }
+    .t-about-img { position:relative; min-height:100%; background:var(--cream-2); }
+    .t-about-img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .t-about-quote { font-family:var(--script); font-size:1.25rem; color:var(--rose-ink); margin-bottom:0.5rem; }
+    .t-about p + p { margin-top:0.6rem; }
+    @media (max-width:620px){ .t-about-inner { grid-template-columns:1fr; } .t-about-img { min-height:200px; } }
+
+    .t-cta { grid-column:span 5; background:linear-gradient(160deg, var(--olive), var(--olive-dark)); border-color:var(--olive-dark); color:#fff; }
+    .t-cta .tile-k { color:#CBD8C6; }
+    .t-cta .tile-h { color:#fff; font-size:1.5rem; }
+    .t-cta p { color:rgba(255,255,255,0.86); font-size:0.9rem; line-height:1.6; }
+    .t-cta .btn { margin-top:auto; background:#fff; color:var(--olive-dark); box-shadow:none; }
+    .t-cta .btn:hover { background:var(--cream); transform:translateY(-2px); }
+
+    /* ── bento responsive: spans collapse in deliberate stages, never auto-flow ── */
+    @media (max-width:1080px){
+      .t-feature { grid-column:span 12; grid-row:auto; min-height:320px; }
+      .t-box { grid-column:span 6; }
+      .t-rules { grid-column:span 12; }
+      .t-pickup { grid-column:span 12; }
+      .t-flavour { grid-column:span 3; }
+      .t-about { grid-column:span 12; }
+      .t-cta { grid-column:span 12; }
     }
-    /* Phone: lead with the offer and the CTA, photo directly under. The image used to be
-       order:-1 here, which put 324px of picture above the headline and pushed "Place an Order"
-       to y=861 on a 664px viewport — every phone visitor had to scroll to find a way to buy.
-       Measured after: CTA sits above the fold on 375/390/414 and on a 320-wide SE. */
-    @media (max-width:620px){
-      .hero { padding-top:4.5rem; }
-      .hero-inner { gap:1.75rem; }
-      .hero-image-wrap { order:0; }
-      .hero-badge { margin-bottom:1rem; }
+    @media (max-width:760px){
+      .t-flavour { grid-column:span 6; }
+      .t-box, .t-rules, .t-pickup { grid-column:span 12; }
     }
-
-    /* ════════════════════ TRUST STRIP ════════════════════ */
-    .trust-strip { background:var(--chocolate); color:var(--cream); }
-    .trust-strip-inner { max-width:var(--maxw); margin-inline:auto; padding:1rem var(--gutter); display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:0.6rem 1.6rem; }
-    .trust-item { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.82rem; font-weight:700; letter-spacing:0.02em; }
-    .trust-item i { color:var(--blush); }
-    .trust-divider { width:5px; height:5px; background:var(--rose); transform:rotate(45deg); }
-    @media (max-width:600px){ .trust-divider { display:none; } }
-
-    /* ════════════════════ ABOUT ════════════════════ */
-    #about { padding-block:clamp(4.5rem,9vw,8rem); }
-    .about-inner { max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter); display:grid; grid-template-columns:0.95fr 1.05fr; gap:clamp(2rem,5vw,4.5rem); align-items:center; }
-    .about-image-wrap { position:relative; }
-    .about-slideshow { position:relative; aspect-ratio:4/5; border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--sh-3); border:6px solid var(--white); }
-    .about-slide { position:absolute; inset:0; opacity:0; transition:opacity 1.4s var(--ease); }
-    .about-slide img { width:100%; height:100%; object-fit:cover; }
-    .about-slide.active { opacity:1; }
-    .about-slide.fading { opacity:0; }
-    .about-img-badge { position:absolute; bottom:-18px; right:-18px; width:120px; height:120px; border-radius:50%; background:var(--olive); color:var(--white); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; font-size:0.72rem; font-weight:700; line-height:1.3; box-shadow:var(--sh-olive); border:4px solid var(--cream); }
-    .about-img-badge strong { font-family:var(--display); font-weight:400; font-size:1.7rem; line-height:1; margin-bottom:0.2rem; }
-    .about-features { display:grid; grid-template-columns:1fr 1fr; gap:0.9rem 1.4rem; margin:1.8rem 0; }
-    .about-feature { display:flex; align-items:center; gap:0.7rem; font-size:0.9rem; font-weight:700; color:var(--mocha); }
-    .about-feature-icon { flex:none; width:40px; height:40px; display:grid; place-items:center; border-radius:50%; background:rgba(181,196,177,0.28); border:1px solid var(--sage); }
-    @media (max-width:840px){ .about-inner { grid-template-columns:1fr; gap:3rem; } .about-features { grid-template-columns:1fr; } }
-
-    /* ════════════════════ FLAVOUR OF THE MONTH ════════════════════ */
-    #fotm { padding-block:clamp(4rem,8vw,7rem); background:linear-gradient(180deg,var(--cream),var(--cream-2)); }
-    .fotm-inner { max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter); }
-    .fotm-header { margin-bottom:clamp(2rem,4vw,3rem); }
-    .fotm-grid { display:grid; }
-    .fotm-grid.single { max-width:920px; margin-inline:auto; }
-    .fotm-card { display:grid; grid-template-columns:1fr 1fr; background:var(--white); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--sh-2); border:1px solid var(--line-blush); }
-    .fotm-media { position:relative; min-height:320px; }
-    .fotm-media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-    /* cream-on-chocolate, not white-on-rose: white on --rose measures 2.78:1 and fails G8 (needs 4.5).
-       Chocolate also separates better from the deep-red cookies behind it than a pink pill does. */
-    .fotm-badge { position:absolute; top:1rem; left:1rem; font-size:0.66rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); background:var(--chocolate); padding:0.4rem 0.9rem; border-radius:var(--r-pill); box-shadow:var(--sh-1); }
-    .fotm-body { padding:clamp(1.6rem,3vw,2.6rem); display:flex; flex-direction:column; align-items:flex-start; }
-    .fotm-name { font-family:var(--display); font-weight:400; font-size:2.2rem; color:var(--chocolate); margin:0.2rem 0 0.6rem; }
-    .fotm-urgency { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.76rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--dusty); margin-bottom:1rem; }
-    .fotm-urgency-dot { width:8px; height:8px; border-radius:50%; background:var(--rose); box-shadow:0 0 0 4px rgba(212,132,154,0.2); animation:pulse 2s var(--ease) infinite; }
-    /* Standing-availability line for a PERMANENT flavour. Deliberately un-animated: the pulsing
-       .fotm-urgency dot signals "limited time" and would be false scarcity on a year-round item. */
-    .fotm-standing { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.76rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--olive); margin-bottom:1rem; }
-    .fotm-standing-dot { width:8px; height:8px; border-radius:50%; background:var(--olive); box-shadow:0 0 0 4px rgba(74,94,42,0.15); }
-    @keyframes pulse { 50% { box-shadow:0 0 0 7px rgba(212,132,154,0); } }
-    .fotm-desc { color:var(--text-light); font-size:0.96rem; line-height:1.7; margin-bottom:1.3rem; }
-    .fotm-pricing { display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:1.6rem; }
-    .fotm-price-pill { font-size:0.84rem; font-weight:700; color:var(--olive); background:rgba(181,196,177,0.25); border:1px solid var(--sage); padding:0.45rem 1rem; border-radius:var(--r-pill); }
-    @media (max-width:760px){ .fotm-card { grid-template-columns:1fr; } .fotm-media { min-height:260px; } }
-
-    /* ════════════════════ FLAVOURS ════════════════════ */
-    #specialties { padding-block:clamp(4.5rem,9vw,8rem); }
-    .specialties-inner { max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter); }
-    .specialties-header { margin-bottom:clamp(2.25rem,4vw,3.25rem); }
-    /* Two priced groups, each on an EXPLICIT column count chosen so its card count never leaves a
-       lone card in the last row (G32b). A single 7-card flex row cannot do this: greedy wrapping
-       puts 7 items at 2+2+2+1 and 3+3+1 across the whole 460-1090px band. 4 classics run 4/2/1 and
-       3 specialty run 3/3/1 — every combination divides cleanly. */
-    .flavor-group + .flavor-group { margin-top:clamp(2.25rem,4vw,3rem); }
-    .flavor-group-head { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:center; gap:0.5rem 0.9rem; margin-bottom:1.25rem; }
-    .flavor-group-name { font-family:var(--body); font-weight:700; font-size:0.76rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--mocha); }
-    .flavor-group-price { font-size:0.84rem; font-weight:700; color:var(--olive); background:rgba(181,196,177,0.28); border:1px solid var(--sage); padding:0.24rem 0.8rem; border-radius:var(--r-pill); }
-    .specialties-grid { display:grid; gap:1.4rem; justify-content:center; }
-    .grid-classics  { grid-template-columns:repeat(4,minmax(0,240px)); }
-    .grid-specialty { grid-template-columns:repeat(1,minmax(0,240px)); }
-    /* Same 240px track cap in both groups so a card is the SAME size above and below the divide.
-       Two grids stacked one above the other with different card sizes reads as a mistake, not as
-       grouping. (This was a calc() matching a 3-column specialty group; that group is one card
-       now, so the plain cap is both correct and simpler.) */
-    @media (max-width:1100px){ .grid-classics { grid-template-columns:repeat(2,minmax(0,240px)); } }
-    @media (max-width:560px){
-      .grid-classics, .grid-specialty { grid-template-columns:minmax(0,320px); gap:1.4rem; }
+    @media (max-width:480px){
+      .t-flavour { grid-column:span 12; }
+      .t-flavour-img { aspect-ratio:16/9; }
     }
-    .specialty-card { background:var(--white); border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--sh-1); border:1px solid var(--line-blush); cursor:pointer; transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
-    .specialty-card:hover { transform:translateY(-6px); box-shadow:var(--sh-2); }
-    .specialty-img-wrap { position:relative; aspect-ratio:1/1; overflow:hidden; }
-    .specialty-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform var(--dur-slow) var(--ease); }
-    .specialty-card:hover .specialty-img-wrap img { transform:scale(1.06); }
-    .specialty-overlay { position:absolute; inset:0; display:grid; place-items:center; background:rgba(92,61,53,0.45); opacity:0; transition:opacity var(--dur) var(--ease); }
-    .specialty-card:hover .specialty-overlay { opacity:1; }
-    .specialty-overlay span { font-family:var(--body); font-weight:700; font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); border:2px solid var(--white); padding:0.55rem 1.2rem; border-radius:var(--r-pill); }
-    .specialty-card-body { padding:1.3rem 1.4rem 1.6rem; }
-    .specialty-card-body h3 { font-family:var(--display); font-weight:400; font-size:1.15rem; color:var(--chocolate); margin-bottom:0.4rem; }
-    .specialty-card-body p { font-size:0.86rem; color:var(--text-light); line-height:1.6; }
-    .flavors-note { text-align:center; font-size:0.92rem; color:var(--text-light); margin-top:2rem; }
-    .flavors-note a { color:var(--rose); font-weight:700; }
-    /* Two named tiers, not one price + a footnote listing flavour names. The old single-row banner
-       only worked while exactly one flavour was premium; the note grew unreadable as that list grew. */
-    .pricing-banner { display:flex; flex-wrap:wrap; align-items:stretch; justify-content:center; gap:1.25rem 3rem; margin-top:2.5rem; padding:1.6rem 2rem; background:var(--chocolate); color:var(--cream); border-radius:var(--r-lg); box-shadow:var(--sh-2); }
-    .pricing-rule { position:relative; display:flex; flex-direction:column; align-items:center; gap:0.3rem; }
-    .pricing-rule + .pricing-rule::before { content:''; position:absolute; left:-1.5rem; top:6%; bottom:6%; width:1px; background:rgba(253,246,238,0.18); }
-    .pricing-rule-k { font-family:var(--body); font-weight:700; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--blush); }
-    .pricing-rule-v { font-family:var(--display); font-weight:400; font-size:1.15rem; color:var(--cream); }
-    .pricing-banner-note { flex-basis:100%; text-align:center; font-size:0.86rem; color:rgba(253,246,238,0.8); border-top:1px solid rgba(253,246,238,0.18); padding-top:1rem; }
-    .pricing-banner-note strong { color:var(--blush); }
-    /* below 620px the rules stack, so the vertical rule between them would hang in space */
-    @media (max-width:620px){ .pricing-banner { gap:1.1rem; } .pricing-rule + .pricing-rule::before { display:none; } }
-
-    /* ════════════════════ GALLERY (marquee) ════════════════════ */
-    #gallery { padding-block:clamp(4.5rem,9vw,8rem); background:var(--cream-2); overflow:hidden; }
-    .gallery-inner { }
-    .gallery-header { max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter); margin-bottom:clamp(2rem,4vw,3rem); }
-    .marquee-track { margin-bottom:1.2rem; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
-    .marquee-row { display:flex; gap:1.2rem; width:max-content; animation-name:marquee; animation-timing-function:linear; animation-iteration-count:infinite; animation-duration:30s; }
-    .marquee-row.reverse { animation-name:marquee-rev; animation-duration:35s; }
-    @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
-    @keyframes marquee-rev { from { transform:translateX(-50%); } to { transform:translateX(0); } }
-    .gallery-item { flex:none; width:230px; height:230px; border-radius:var(--r); overflow:hidden; box-shadow:var(--sh-1); }
-    .gallery-item img { width:100%; height:100%; object-fit:cover; }
-    .gallery-cta { text-align:center; margin-top:2rem; }
-
-    /* ════════════════════ REVIEWS ════════════════════ */
-    #testimonials { padding-block:clamp(4.5rem,9vw,8rem); }
-    .reviews-inner { max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter); }
-    .reviews-header { text-align:center; margin-bottom:clamp(2rem,4vw,3rem); }
-    .reviews-header .sig { justify-content:center; }
-    .reviews-header .sig::after { background:linear-gradient(90deg,var(--rose),transparent); }
-    .reviews-header .sig::before { content:''; width:32px; height:1px; background:linear-gradient(90deg,transparent,var(--rose)); }
-    .reviews-carousel-wrap { position:relative; display:flex; align-items:center; gap:0.5rem; }
-    .reviews-carousel { display:flex; gap:1.2rem; overflow-x:auto; scroll-snap-type:x mandatory; padding:0.5rem 0.25rem 1rem; scrollbar-width:none; }
-    .reviews-carousel::-webkit-scrollbar { display:none; }
-    .review-item { flex:none; width:230px; aspect-ratio:9/16; border-radius:var(--r); overflow:hidden; position:relative; scroll-snap-align:center; box-shadow:var(--sh-1); cursor:pointer; background:var(--cream-3); }
+    /* ════════════════════ PROOF ════════════════════ */
+    #testimonials { padding-block:var(--section-y); }
+    .reviews-rail-wrap { position:relative; }
+    .reviews-rail { display:flex; gap:1.1rem; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; padding-bottom:0.5rem;
+      -ms-overflow-style:none; scrollbar-width:none;
+      -webkit-mask-image:linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+              mask-image:linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%); }
+    .reviews-rail::-webkit-scrollbar { display:none; }
+    .review-item { flex:none; width:216px; aspect-ratio:9/16; border-radius:var(--r); overflow:hidden; box-shadow:var(--sh-1); scroll-snap-align:center; position:relative; background:var(--cream-3); cursor:pointer; }
     .review-item img, .review-item video { width:100%; height:100%; object-fit:cover; }
     .review-play-btn { position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; }
-    .review-play-btn svg { width:54px; height:54px; fill:var(--white); filter:drop-shadow(0 2px 8px rgba(0,0,0,0.4)); transition:opacity var(--dur) var(--ease); }
-    .review-item.playing .review-play-btn svg { opacity:0; }
-    .carousel-btn { flex:none; width:44px; height:44px; border-radius:50%; border:2px solid var(--blush); background:var(--white); color:var(--rose); font-size:1.1rem; cursor:pointer; box-shadow:var(--sh-1); transition:background var(--dur) var(--ease), transform var(--dur) var(--ease), color var(--dur) var(--ease); }
-    .carousel-btn:hover { background:var(--rose); color:var(--white); border-color:var(--rose); transform:scale(1.05); }
-    @media (max-width:600px){ .carousel-btn { display:none; } }
+    .review-play-btn svg { width:46px; height:46px; fill:rgba(255,255,255,0.92); filter:drop-shadow(0 3px 8px rgba(0,0,0,0.35)); }
+    .review-item.playing .review-play-btn { display:none; }
+    .rail-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:3; width:44px; height:44px; border-radius:50%; display:grid; place-items:center;
+      background:var(--white); border:1px solid var(--line-blush); color:var(--mocha); cursor:pointer; box-shadow:var(--sh-1);
+      transition:background var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease); }
+    .rail-btn:hover { background:var(--rose-ink); color:var(--white); border-color:var(--rose-ink); transform:translateY(-50%) scale(1.06); }
+    .rail-btn.prev { left:-8px; } .rail-btn.next { right:-8px; }
+    @media (max-width:700px){ .rail-btn { display:none; } }
 
-    /* ════════════════════ HOW TO ORDER ════════════════════ */
-    #order { padding-block:clamp(4.5rem,9vw,8rem); background:linear-gradient(180deg,var(--cream-2),var(--cream)); }
-    .order-inner { max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter); }
-    .order-header { text-align:center; margin-bottom:clamp(2.25rem,4vw,3.25rem); }
-    .order-header .sig { justify-content:center; }
-    .order-header .sig::after { background:linear-gradient(90deg,var(--rose),transparent); }
-    .order-header .sig::before { content:''; width:32px; height:1px; background:linear-gradient(90deg,transparent,var(--rose)); }
-    .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
-    .step { background:var(--white); border-radius:var(--r-lg); padding:2rem 1.6rem; box-shadow:var(--sh-1); border:1px solid var(--line-blush); text-align:center; }
-    .step-number { width:54px; height:54px; margin:0 auto 1.2rem; display:grid; place-items:center; border-radius:50%; font-family:var(--display); font-weight:400; font-size:1.4rem; color:var(--white); background:var(--rose); box-shadow:0 10px 24px -10px rgba(212,132,154,0.6); }
-    .step h3 { font-family:var(--display); font-weight:400; font-size:1.1rem; color:var(--chocolate); margin-bottom:0.6rem; }
-    .step p { font-size:0.86rem; color:var(--text-light); line-height:1.65; }
-    .step p a { color:var(--olive); font-weight:700; }
-    @media (max-width:880px){ .steps { grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:460px){ .steps { grid-template-columns:1fr; } }
+    /* ════════════════════ GALLERY marquee ════════════════════ */
+    #gallery { padding-block:0 var(--section-y); overflow:hidden; }
+    .marquee-track { overflow:hidden;
+      -webkit-mask-image:linear-gradient(to right, transparent 0, #000 130px, #000 calc(100% - 130px), transparent 100%);
+              mask-image:linear-gradient(to right, transparent 0, #000 130px, #000 calc(100% - 130px), transparent 100%); }
+    .marquee-row { display:flex; gap:1rem; width:max-content; animation-name:marquee; animation-duration:30s; animation-timing-function:linear; animation-iteration-count:infinite; animation-delay:-7s; }
+    .marquee-row.reverse { animation-name:marquee-rev; animation-duration:35s; animation-delay:-12s; }
+    .marquee-track + .marquee-track { margin-top:1rem; }
+    .gallery-item { flex:none; width:230px; height:230px; border-radius:var(--r); overflow:hidden; box-shadow:var(--sh-1); }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; }
+    @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    @keyframes marquee-rev { from { transform:translateX(-50%); } to { transform:translateX(0); } }
+
+    /* ════════════════════ HOW IT WORKS ════════════════════ */
+    #order { padding-block:var(--section-y); background:var(--cream-2); }
+    .steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(1rem,2.4vw,1.8rem); }
+    .step { position:relative; padding-top:1.5rem; }
+    .step::before { content:''; position:absolute; top:0; left:0; width:28px; height:2px; background:var(--rose); border-radius:2px; }
+    .step-n { font-family:var(--body); font-size:0.68rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--rose-ink); margin-bottom:0.4rem; }
+    .step-t { font-family:var(--display); font-size:1.1rem; color:var(--chocolate); margin-bottom:0.3rem; }
+    .step-d { font-size:0.88rem; color:var(--text-light); line-height:1.6; }
+    @media (max-width:860px){ .steps { grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.6rem; } }
+    @media (max-width:480px){ .steps { grid-template-columns:1fr; } }
 
     /* ════════════════════ ORDER FORM ════════════════════ */
-    #order-form { padding-block:clamp(4.5rem,9vw,8rem); }
-    .order-form-inner { max-width:760px; margin-inline:auto; padding-inline:var(--gutter); }
-    .order-form-header { text-align:center; margin-bottom:clamp(2rem,4vw,3rem); }
-    .order-form-header .sig { justify-content:center; }
-    .order-form-header .sig::after { background:linear-gradient(90deg,var(--rose),transparent); }
-    .order-form-header .sig::before { content:''; width:32px; height:1px; background:linear-gradient(90deg,transparent,var(--rose)); }
-    .order-form { background:var(--white); border-radius:var(--r-xl); padding:clamp(1.6rem,4vw,3rem); box-shadow:var(--sh-2); border:1px solid var(--line-blush); position:relative; }
-    .order-form::before { content:''; position:absolute; top:0; left:2.5rem; right:2.5rem; height:4px; border-radius:0 0 4px 4px; background:linear-gradient(90deg,var(--blush),var(--rose),var(--olive)); }
-    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
-    .form-group { display:flex; flex-direction:column; margin-bottom:1.25rem; }
-    .form-group label { font-size:0.76rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--mocha); margin-bottom:0.5rem; }
-    .form-group input, .form-group select, .form-group textarea { font-family:var(--body); font-size:0.95rem; color:var(--text); background:var(--cream); border:1.5px solid var(--line-blush); border-radius:var(--r-sm); padding:0.85rem 1rem; transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease); }
-    .form-group input::placeholder, .form-group textarea::placeholder { color:var(--text-mut); }
+    #order-form { padding-block:var(--section-y); }
+    .order-form-inner { max-width:820px; margin-inline:auto; }
+    .order-form { background:var(--white); border:1px solid var(--line-blush); border-radius:var(--r-lg); padding:clamp(1.5rem,4vw,3rem); box-shadow:var(--sh-2); position:relative; overflow:hidden; }
+    .order-form::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--rose),var(--blush),var(--sage)); }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:0 1.25rem; }
+    .form-group { margin-bottom:1.35rem; }
+    .form-group label, .form-flavours-label { display:block; font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--mocha); margin-bottom:0.5rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width:100%; font-family:var(--body); font-size:0.96rem; color:var(--text); background:var(--cream);
+      border:1.5px solid var(--line-blush); border-radius:var(--r-sm); padding:0.85rem 1rem; min-height:48px;
+      transition:border-color var(--dur) var(--ease), background var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
+    .form-group textarea { min-height:104px; resize:vertical; }
     .form-group input:hover, .form-group select:hover, .form-group textarea:hover { border-color:var(--blush); }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--rose); background:var(--white); box-shadow:0 0 0 3px rgba(212,132,154,0.15); }
-    .form-group select { cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4849A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; background-size:16px; padding-right:2.6rem; }
-    .form-group textarea { resize:vertical; min-height:100px; line-height:1.6; }
-    .form-divider { border:none; border-top:1px dashed var(--line-blush); margin:1.4rem 0 1.8rem; }
-    .form-flavours-label { font-size:0.84rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--rose); margin-bottom:1rem; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--olive); background:var(--white); box-shadow:0 0 0 3px rgba(74,94,42,0.12); }
+    .form-group input::placeholder, .form-group textarea::placeholder { color:var(--text-mut); }
+    .form-note { display:block; font-size:0.78rem; color:var(--text-light); margin-top:0.4rem; line-height:1.5; }
+    .form-divider { border:0; border-top:1px solid var(--line-blush); margin:0.5rem 0 1.5rem; }
 
-    .flavor-qty-grid { display:flex; flex-direction:column; gap:0.7rem; }
-    .flavor-qty-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; background:var(--cream); border:1.5px solid var(--line-blush); border-radius:var(--r); padding:0.8rem 1.1rem; transition:border-color var(--dur) var(--ease), background var(--dur) var(--ease); }
+    .flavor-qty-grid { display:flex; flex-direction:column; gap:0.6rem; }
+    .flavor-qty-row { display:flex; align-items:center; justify-content:space-between; gap:0.9rem; background:var(--cream); border:1.5px solid var(--line-blush); border-radius:var(--r-sm); padding:0.7rem 0.9rem; transition:border-color var(--dur) var(--ease), background var(--dur) var(--ease); }
     .flavor-qty-row.active { border-color:var(--rose); background:var(--blush-soft); }
     .flavor-qty-row.premium-flavor { border-color:var(--sage); }
     .flavor-qty-row.premium-flavor.active { border-color:var(--olive); background:rgba(181,196,177,0.22); }
-    .flavor-qty-name { font-weight:700; font-size:0.92rem; color:var(--chocolate); }
+    .flavor-qty-name { font-size:0.92rem; font-weight:700; color:var(--text); }
     .premium-tag { font-size:0.66rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--olive); background:rgba(181,196,177,0.3); padding:0.2rem 0.55rem; border-radius:var(--r-pill); margin-left:0.4rem; white-space:nowrap; }
-    .flavor-qty-controls { display:flex; align-items:center; gap:0.5rem; flex:none; }
-    .qty-btn { width:44px; height:44px; border-radius:50%; border:2px solid var(--blush); background:var(--white); color:var(--rose); font-size:1.2rem; font-weight:700; line-height:1; cursor:pointer; display:grid; place-items:center; transition:background var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease); }
-    .qty-btn:hover { background:var(--rose); color:var(--white); border-color:var(--rose); transform:scale(1.08); }
-    .qty-btn:active { transform:scale(0.95); }
-    .qty-input { width:48px; text-align:center; font-family:var(--display); font-weight:400; font-size:1.1rem; color:var(--chocolate); background:transparent; border:none; }
-    .qty-min-warn { display:none; font-size:0.82rem; font-weight:700; color:var(--dusty); margin-top:0.9rem; }
+    .flavor-qty-controls { display:flex; align-items:center; gap:0.4rem; flex:none; }
+    .qty-btn { width:44px; height:44px; border-radius:50%; display:grid; place-items:center; font-size:1.15rem; font-weight:700; color:var(--mocha); background:var(--white); border:1.5px solid var(--line-blush); cursor:pointer; transition:background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease), transform var(--dur) var(--ease); }
+    .qty-btn:hover { background:var(--rose-ink); color:var(--white); border-color:var(--rose-ink); transform:scale(1.06); }
+    .qty-input { width:46px; text-align:center; font-family:var(--body); font-weight:700; font-size:1rem; color:var(--text); background:transparent; border:0; -moz-appearance:textfield; }
+    .qty-input::-webkit-outer-spin-button, .qty-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+    .qty-min-warn { display:none; font-size:0.8rem; color:var(--rose-ink); font-weight:700; margin-top:0.7rem; }
+    @media (max-width:480px){ .flavor-qty-row { flex-direction:column; align-items:flex-start; gap:0.75rem; } .flavor-qty-controls { align-self:flex-end; } }
 
-    .order-summary { display:none; margin-top:1.6rem; background:var(--cream-2); border:1.5px solid var(--blush); border-radius:var(--r); padding:1.4rem 1.6rem; }
+    .order-summary { display:none; background:var(--cream-2); border:1px solid var(--line-blush); border-radius:var(--r); padding:1.25rem 1.4rem; margin:1.5rem 0; }
     .order-summary.visible { display:block; }
-    .order-summary-title { font-family:var(--display); font-weight:400; font-size:1.15rem; color:var(--chocolate); margin-bottom:0.9rem; }
-    .summary-line { display:flex; justify-content:space-between; font-size:0.9rem; color:var(--text-light); padding:0.3rem 0; }
-    .order-summary-divider { border:none; border-top:1px dashed var(--line-blush); margin:0.7rem 0; }
-    .order-summary-total { display:flex; justify-content:space-between; align-items:baseline; font-family:var(--display); font-weight:400; color:var(--chocolate); }
-    .order-summary-total span:last-child { color:var(--olive); }
-    .order-summary-note { font-size:0.8rem; color:var(--olive); font-weight:700; margin-top:0.7rem; }
-    .order-summary-warn { font-size:0.82rem; color:var(--dusty); font-weight:700; margin-top:0.5rem; }
-
-    .form-submit { margin-top:1.8rem; text-align:center; }
-    .form-submit .btn-primary { width:100%; }
-    .form-submit-note { font-size:0.8rem; color:var(--text-light); margin-top:0.8rem; }
-
-    .form-success { display:none; text-align:center; padding:2.5rem 1rem; }
+    .order-summary-title { font-family:var(--display); font-size:1.05rem; color:var(--chocolate); margin-bottom:0.7rem; }
+    .summary-line { display:flex; justify-content:space-between; gap:1rem; font-size:0.9rem; color:var(--text-light); padding:0.2rem 0; }
+    .order-summary-divider { border:0; border-top:1px solid var(--line-blush); margin:0.7rem 0; }
+    .order-summary-total { display:flex; justify-content:space-between; gap:1rem; font-family:var(--display); font-size:1.1rem; color:var(--chocolate); }
+    .order-summary-note { font-size:0.82rem; color:var(--olive); font-weight:700; margin-top:0.6rem; line-height:1.5; }
+    .order-summary-warn { font-size:0.82rem; color:var(--rose-ink); font-weight:700; margin-top:0.4rem; line-height:1.5; }
+    .form-submit-note { display:block; text-align:center; font-size:0.8rem; color:var(--text-light); margin-top:0.9rem; }
+    .form-success { display:none; text-align:center; padding:2rem 1rem; }
     .form-success.visible { display:block; }
-    .form-success-icon { margin-bottom:1rem; }
-    .form-success h3 { font-family:var(--display); font-weight:400; font-size:1.6rem; color:var(--chocolate); margin-bottom:0.7rem; }
-    .form-success p { color:var(--text-light); font-size:0.96rem; }
-    @media (max-width:560px){
-      .form-row { grid-template-columns:1fr; gap:0; }
-    }
-    @media (max-width:480px){
-      /* stack each stepper row so the 152px controls block never has to share a line with the name */
-      .flavor-qty-row { flex-direction:column; align-items:flex-start; gap:0.75rem; }
-      .flavor-qty-controls { align-self:flex-start; }
-    }
+    .form-success h3 { font-family:var(--display); font-size:1.5rem; color:var(--chocolate); margin-bottom:0.6rem; }
+    .form-success p { color:var(--text-light); }
+    #paymentNote { display:none; }
+    @media (max-width:560px){ .form-row { grid-template-columns:1fr; gap:0; } }
 
     /* ════════════════════ CONTACT ════════════════════ */
-    #contact { padding-block:clamp(4.5rem,9vw,8rem); background:linear-gradient(180deg,var(--cream),var(--cream-2)); }
-    .contact-inner { max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter); text-align:center; }
-    .contact-inner .sig { justify-content:center; }
-    .contact-inner .sig::after { background:linear-gradient(90deg,var(--rose),transparent); }
-    .contact-inner .sig::before { content:''; width:32px; height:1px; background:linear-gradient(90deg,transparent,var(--rose)); }
-    .contact-inner .section-subtitle { margin-inline:auto; }
-    .contact-methods { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin:2.5rem 0 1.5rem; }
-    .contact-method { display:flex; flex-direction:column; align-items:center; gap:0.5rem; background:var(--white); border:1px solid var(--line-blush); border-radius:var(--r-lg); padding:2rem 1.4rem; transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease); }
-    a.contact-method:hover { transform:translateY(-4px); box-shadow:var(--sh-2); border-color:var(--blush); }
-    .contact-method-icon { width:56px; height:56px; display:grid; place-items:center; border-radius:50%; background:var(--blush-soft); color:var(--rose); margin-bottom:0.4rem; }
-    .contact-method-label { font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--mocha); }
-    .contact-method-value { font-size:0.9rem; font-weight:700; color:var(--olive); overflow-wrap:anywhere; }
-    .contact-note { font-size:0.86rem; color:var(--text-light); margin-top:1rem; }
-    @media (max-width:740px){ .contact-methods { grid-template-columns:1fr; } }
-
-    /* ════════════════════ STICKY MOBILE CTA ════════════════════ */
-    .mobile-cta-bar { position:fixed; left:1rem; right:1rem; bottom:1rem; z-index:90; transform:translateY(150%); transition:transform var(--dur-slow) var(--ease-emph); display:none; }
-    .mobile-cta-bar.visible { transform:translateY(0); }
-    .mobile-cta-bar a { display:flex; align-items:center; justify-content:center; gap:0.5rem; background:var(--olive); color:var(--white); font-family:var(--body); font-weight:700; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; padding:1rem; border-radius:var(--r-pill); box-shadow:var(--sh-3); }
-    @media (max-width:760px){ .mobile-cta-bar { display:block; } footer { padding-bottom:5.5rem; } }
+    #contact { padding-block:var(--section-y); background:var(--cream-2); }
+    .contact-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.1rem; max-width:760px; margin-inline:auto; }
+    .contact-card { display:flex; flex-direction:column; align-items:center; text-align:center; gap:0.5rem; background:var(--white); border:1px solid var(--line-blush); border-radius:var(--r-lg); padding:1.9rem 1.4rem; box-shadow:var(--sh-1); transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
+    .contact-card:hover { transform:translateY(-4px); box-shadow:var(--sh-2); }
+    .contact-icon { width:48px; height:48px; border-radius:50%; display:grid; place-items:center; background:var(--blush-soft); color:var(--rose); margin-bottom:0.35rem; }
+    .contact-k { font-size:0.7rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--mocha); }
+    .contact-v { font-weight:700; color:var(--rose-ink); word-break:break-word; }
+    .contact-note { text-align:center; font-size:0.85rem; color:var(--text-light); margin-top:1.6rem; }
+    @media (max-width:560px){ .contact-grid { grid-template-columns:1fr; } }
 
     /* ════════════════════ FOOTER ════════════════════ */
     footer { background:var(--chocolate); color:var(--cream); }
-    .footer-inner { max-width:var(--maxw); margin-inline:auto; padding:clamp(3rem,6vw,4.5rem) var(--gutter) 2.5rem; text-align:center; }
-    .footer-logo img { width:72px; height:72px; border-radius:50%; object-fit:cover; margin:0 auto 1rem; border:3px solid var(--rose); }
-    .footer-tagline { font-family:var(--script); font-size:1.25rem; color:var(--blush); margin-bottom:1.5rem; }
-    .footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem 1.6rem; margin-bottom:1.5rem; }
-    .footer-links a { display:inline-block; padding:0.45rem 0.2rem; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; color:rgba(253,246,238,0.78); transition:color var(--dur) var(--ease); }
+    .footer-inner { max-width:var(--maxw); margin-inline:auto; padding:clamp(2.5rem,5vw,3.5rem) var(--gutter); text-align:center; }
+    .footer-logo img { width:66px; height:66px; border-radius:50%; object-fit:cover; margin:0 auto 1rem; border:3px solid var(--rose); }
+    .footer-tagline { font-family:var(--script); font-size:1.2rem; color:var(--blush); margin-bottom:1.35rem; }
+    .footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0.4rem 1.5rem; margin-bottom:1.35rem; }
+    .footer-links a { display:inline-block; padding:0.45rem 0.2rem; font-size:0.8rem; font-weight:700; letter-spacing:0.06em; color:rgba(253,246,238,0.78); transition:color var(--dur) var(--ease); }
     .footer-links a:hover { color:var(--blush); }
-    .footer-copy { font-size:0.8rem; color:rgba(253,246,238,0.6); }
+    .footer-copy { font-size:0.78rem; color:rgba(253,246,238,0.72); }
 
+    /* ════════════════════ MOBILE CTA BAR ════════════════════ */
+    .mobile-cta-bar { position:fixed; left:1rem; right:1rem; bottom:1rem; z-index:90; transform:translateY(150%); transition:transform var(--dur-slow) var(--ease-emph); display:none; }
+    .mobile-cta-bar.visible { transform:translateY(0); }
+    .mobile-cta-bar a { display:flex; align-items:center; justify-content:center; gap:0.5rem; background:var(--olive); color:var(--white); font-weight:700; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; padding:1rem; border-radius:var(--r-pill); box-shadow:var(--sh-3); min-height:52px; }
+    @media (max-width:760px){ .mobile-cta-bar { display:block; } footer { padding-bottom:5.5rem; } }
+
+    /* reveals — opacity+transform only, never layout properties */
+    .gs-reveal { will-change:opacity, transform; }
     @media (prefers-reduced-motion: reduce){
       *, .marquee-row { animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
-      .gs-reveal { opacity:1 !important; }
+      .gs-reveal { opacity:1 !important; transform:none !important; }
     }
   </style>
   <script type="application/ld+json">
@@ -453,216 +476,178 @@
 
   <!-- ── NAV ── -->
   <nav>
-    <a class="nav-logo" href="#"><img src="Logo.jpg" alt="Sugar & Shai Cookies" /><span class="nav-logo-text">Sugar &amp; Shai</span></a>
+    <a class="nav-logo" href="#home"><img src="Logo.jpg" alt="Sugar &amp; Shai Cookies" /><span class="nav-logo-text">Sugar &amp; Shai</span></a>
     <ul class="nav-links" id="navLinks">
+      <li><a href="#specialties">Menu</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#specialties">Flavours</a></li>
-      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#order">How to Order</a></li>
       <li><a href="#order-form" class="nav-cta" onclick="gtag('event','order_button_click',{button:'nav_order_now'})">Order Now</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 
-  <!-- ── HERO ── -->
+  <!-- ── HERO BAND (compact — the bento carries the page) ── -->
   <section class="hero" id="home">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-badge"><i data-lucide="heart" style="width:14px;height:14px;stroke-width:2.5;"></i> Handcrafted with Love</div>
+    <div class="wrap hero-band">
+      <div>
+        <span class="hero-badge"><i data-lucide="heart" style="width:13px;height:13px;stroke-width:2.5;"></i> Handcrafted with love</span>
         <p class="hero-script">Sugar &amp; Shai</p>
-        <h1>Loaded <em>Gourmet</em><br />Cookies</h1>
-        <p>Handcrafted cookies made from scratch in Tyndall, MB — pre-order pickup every Wednesday. Biscoff, Matcha, Chocolate Chunk &amp; our Red Velvet Oreo Cream Cheese.</p>
-        <div class="hero-btns">
-          <a href="#order-form" class="btn-primary" onclick="gtag('event','order_button_click',{button:'hero_place_an_order'})"><i data-lucide="cookie" style="width:18px;height:18px;stroke-width:1.5;"></i> Place an Order</a>
-          <a href="#specialties" class="btn-outline">See Our Flavours</a>
-        </div>
-        <div class="hero-trust">
-          <span><i data-lucide="map-pin" style="width:15px;height:15px;stroke-width:2.5;"></i> Tyndall, MB</span>
-          <span><i data-lucide="clock" style="width:15px;height:15px;stroke-width:2.5;"></i> Wednesday Pickup</span>
-          <span><i data-lucide="cookie" style="width:15px;height:15px;stroke-width:2.5;"></i> From $20 / 12pc</span>
+        <h1 class="display">Loaded <em>Gourmet</em> Cookies</h1>
+        <p class="lede">Baked from scratch in Tyndall, MB — thick, soft and properly loaded. Pre-order by Sunday, pick up Wednesday.</p>
+        <div class="hero-cta-row" style="margin-top:1.6rem;">
+          <a href="#order-form" class="btn btn-primary" onclick="gtag('event','order_button_click',{button:'hero_order'})"><i data-lucide="cookie" style="width:17px;height:17px;stroke-width:2;"></i> Place an Order</a>
+          <a href="#specialties" class="btn btn-ghost">See the Menu</a>
         </div>
       </div>
-      <div class="hero-image-wrap">
-        <div class="hero-image-blob">
-          <picture>
-            <source srcset="Gallery/Cookies_1.webp" type="image/webp" />
-            <img src="Gallery/Cookies_1.jpg" alt="Assorted Sugar & Shai cookie flavours" width="640" height="853" fetchpriority="high" decoding="async" />
-          </picture>
-        </div>
-        <img src="Logo.jpg" alt="Sugar & Shai Cookies" class="hero-logo" />
+      <div class="hero-side">
+        <span class="hero-side-item"><i data-lucide="map-pin" style="width:16px;height:16px;stroke-width:2.2;"></i> Tyndall, MB</span>
+        <span class="hero-side-item"><i data-lucide="clock" style="width:16px;height:16px;stroke-width:2.2;"></i> Wednesday pickup</span>
+        <span class="hero-side-item"><i data-lucide="cookie" style="width:16px;height:16px;stroke-width:2.2;"></i> From $20 / 12pc</span>
       </div>
     </div>
   </section>
 
-  <!-- ── TRUST STRIP ── -->
-  <div class="trust-strip">
-    <div class="trust-strip-inner">
-      <div class="trust-item"><i data-lucide="map-pin" style="width:16px;height:16px;stroke-width:2;"></i> Tyndall, MB</div>
-      <div class="trust-divider"></div>
-      <div class="trust-item"><i data-lucide="clock" style="width:16px;height:16px;stroke-width:2;"></i> Pickup Every Wednesday</div>
-      <div class="trust-divider"></div>
-      <div class="trust-item"><i data-lucide="heart" style="width:16px;height:16px;stroke-width:2;"></i> Made Fresh From Scratch</div>
-      <div class="trust-divider"></div>
-      <div class="trust-item"><i data-lucide="package" style="width:16px;height:16px;stroke-width:2;"></i> Pre-Order Only · Min. 3pc</div>
-    </div>
-  </div>
-
-  <!-- ── ABOUT ── -->
-  <section id="about">
-    <div class="about-inner">
-      <div class="about-image-wrap">
-        <div class="about-slideshow" id="aboutSlideshow">
-          <div class="about-slide active"><img src="Gallery/Main/Cookies.jpg" alt="Assorted Sugar & Shai cookies" /></div>
-          <div class="about-slide"><img src="Gallery/Main/Cookies_1.jpg" alt="Biscoff and matcha cookies" loading="lazy" /></div>
-          <div class="about-slide"><img src="Gallery/Main/Cookies_3.jpg" alt="Matcha white chocolate cookies" loading="lazy" /></div>
-          <div class="about-slide"><img src="Gallery/Main/Cookies_4.jpg" alt="Mini eggs cookies" loading="lazy" /></div>
-          <div class="about-slide"><img src="Gallery/Main/Cookies_5.jpg" alt="Biscoff cookies close-up" loading="lazy" /></div>
-          <div class="about-slide"><img src="Gallery/Main/Cookies_6.jpg" alt="Chocolate chunk sea salt cookies" loading="lazy" /></div>
-        </div>
-        <div class="about-img-badge"><strong>100%</strong>Made with<br />Love</div>
-      </div>
-      <div class="about-text">
-        <span class="sig"><span class="spark">✦</span></span>
-        <p class="section-label">Our Story</p>
-        <h2 class="section-title">Where Every Cookie is a <em>Work of Art</em></h2>
-        <p class="section-subtitle" style="margin-bottom:1.5rem;">
-          Hi, I'm Shai! Sugar &amp; Shai is my home-based cookie business, baking from scratch in small batches. Every cookie is thick, soft and properly loaded — crushed Oreos, white chocolate, flaky sea salt, a cream cheese filling — and baked to order for your pickup day, never sitting on a shelf.
-        </p>
-        <p class="section-subtitle">
-          Whether you need a dozen for a birthday or a hundred for a wedding — I'm here to make your sweetest moments even sweeter. Anything over 24 pieces, just message me and we'll sort it out.
-        </p>
-        <div class="about-features">
-          <div class="about-feature"><div class="about-feature-icon"><i data-lucide="chef-hat" style="width:20px;height:20px;stroke-width:1.5;color:var(--olive);"></i></div><span>Home-based bakery</span></div>
-          <div class="about-feature"><div class="about-feature-icon"><i data-lucide="wheat" style="width:20px;height:20px;stroke-width:1.5;color:var(--olive);"></i></div><span>Made from scratch</span></div>
-          <div class="about-feature"><div class="about-feature-icon"><i data-lucide="gift" style="width:20px;height:20px;stroke-width:1.5;color:var(--olive);"></i></div><span>Ready to gift</span></div>
-          <div class="about-feature"><div class="about-feature-icon"><i data-lucide="map-pin" style="width:20px;height:20px;stroke-width:1.5;color:var(--olive);"></i></div><span>Pickup — Tyndall area</span></div>
-        </div>
-        <a href="#order-form" class="btn-primary" onclick="gtag('event','order_button_click',{button:'about_place_an_order'})">Place an Order</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FEATURED SPECIALTY ──
-       Was the "Flavour of the Month" slot. It now features a PERMANENT specialty flavour, so
-       nothing in here is month-stamped — that stamping is what left the page reading "July" in
-       September. Section id kept as #fotm so existing inbound anchors do not break. -->
-  <section id="fotm">
-    <div class="fotm-inner">
-      <div class="fotm-header gs-reveal">
-        <span class="sig"><span class="spark">✦</span></span>
-        <p class="section-label">New</p>
-        <h2 class="section-title">A Permanent Specialty</h2>
-        <p class="section-subtitle">Red Velvet Oreo Cream Cheese just joined the menu — and this one's staying. Order it any week alongside the classics.</p>
-      </div>
-      <div class="fotm-grid single">
-        <div class="fotm-card gs-reveal">
-          <div class="fotm-media">
-            <img src="Cookies/Red Velvet Oreo Cream Cheese.jpg" alt="Red Velvet Oreo Cream Cheese cookies on a baking tray — red velvet cookies studded with Oreo pieces, each topped with a white drizzle" loading="lazy">
-            <span class="fotm-badge">New — Always Available</span>
-          </div>
-          <div class="fotm-body">
-            <p class="section-label">Specialty Flavour</p>
-            <h2 class="fotm-name">Red Velvet Oreo Cream Cheese</h2>
-            <div class="fotm-standing"><span class="fotm-standing-dot"></span> On the menu every week</div>
-            <p class="fotm-desc">A rich and soft red velvet cookie loaded with crushed Oreo pieces and white chocolate, stuffed with a smooth and creamy cream cheese filling.</p>
-            <div class="fotm-pricing">
-              <span class="fotm-price-pill">12pc — $25</span>
-              <span class="fotm-price-pill">24pc — $45</span>
-            </div>
-            <a href="#order-form" class="btn-primary">Order Red Velvet</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FLAVOURS ── -->
+  <!-- ── BENTO ── -->
   <section id="specialties">
-    <div class="specialties-inner">
-      <div class="specialties-header">
-        <span class="sig"><span class="spark">✦</span></span>
-        <p class="section-label">Current Menu</p>
-        <h2 class="section-title">Available Flavours</h2>
-        <p class="section-subtitle">Four classics on the menu year-round, plus the specialty flavours. Mix and match however you like — minimum 3 pieces per flavour.</p>
-      </div>
-      <div class="flavor-group">
-        <div class="flavor-group-head">
-          <h3 class="flavor-group-name">The Classics</h3>
-          <span class="flavor-group-price">12pc $20 · 24pc $35</span>
-        </div>
-      <div class="specialties-grid grid-classics">
-        <div class="specialty-card gs-reveal">
-          <div class="specialty-img-wrap"><img src="Cookies/Bischoff.png" alt="Biscoff Cookie" loading="lazy" /><div class="specialty-overlay"><span>Order Now</span></div></div>
-          <div class="specialty-card-body"><h3>Biscoff</h3><p>That iconic caramelized speculoos flavour baked right into every bite.</p></div>
-        </div>
-        <div class="specialty-card gs-reveal">
-          <div class="specialty-img-wrap"><img src="Cookies/Mini Eggs.jpg" alt="Mini Eggs Cookie" loading="lazy" /><div class="specialty-overlay"><span>Order Now</span></div></div>
-          <div class="specialty-card-body"><h3>Mini Eggs</h3><p>Crunchy, chocolatey mini eggs folded into a soft, chewy cookie. On the menu year-round.</p></div>
-        </div>
-        <div class="specialty-card gs-reveal">
-          <div class="specialty-img-wrap"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha with White Chocolate Cookie" loading="lazy" /><div class="specialty-overlay"><span>Order Now</span></div></div>
-          <div class="specialty-card-body"><h3>Matcha with White Chocolate</h3><p>Earthy matcha balanced with creamy white chocolate chips — elegant and delicious.</p></div>
-        </div>
-        <div class="specialty-card gs-reveal">
-          <div class="specialty-img-wrap"><img src="Cookies/Chocolate Chunk.png" alt="Chocolate Chunk with Sea Salt Cookie" loading="lazy" /><div class="specialty-overlay"><span>Order Now</span></div></div>
-          <div class="specialty-card-body"><h3>Chocolate Chunk with Sea Salt</h3><p>Gooey dark chocolate chunks finished with a sprinkle of flaky sea salt. Pure perfection.</p></div>
-        </div>
-      </div>
-      </div>
+    <div class="wrap bento">
 
-      <!-- SPECIALTY TIER ($25/$45). Every card here must have a matching premium:true entry in the
-           FLAVORS array below (and in order/index.html) or the menu and the form will disagree.
-           One card today (Cookies and Cream and Brookie came off the menu 2026-09-06), so this
-           group and the featured card above show the same flavour: the featured card is the
-           announcement, this group is the standing menu, and a menu that omits an orderable
-           flavour is wrong. Adding specialty #2 needs no layout change beyond the column count. -->
-      <div class="flavor-group">
-        <div class="flavor-group-head">
-          <h3 class="flavor-group-name">Specialty Flavours</h3>
-          <span class="flavor-group-price">12pc $25 · 24pc $45</span>
+      <article class="tile t-feature gs-reveal">
+        <img src="Cookies/Red Velvet Oreo Cream Cheese.jpg" width="960" height="1280" fetchpriority="high" decoding="async"
+             alt="A tray of Red Velvet Oreo Cream Cheese cookies, each topped with a white drizzle" />
+        <div class="t-feature-veil">
+          <span class="t-feature-k">New · always available</span>
+          <h2 class="t-feature-h">Red Velvet Oreo Cream Cheese</h2>
+          <p class="t-feature-p">A rich and soft red velvet cookie loaded with crushed Oreo pieces and white chocolate, stuffed with a smooth and creamy cream cheese filling.</p>
+          <span class="t-feature-price"><span>Specialty</span> $25 / 12pc · $45 / 24pc</span>
         </div>
-      <div class="specialties-grid grid-specialty">
-        <div class="specialty-card gs-reveal">
-          <div class="specialty-img-wrap"><img src="Cookies/Red Velvet Oreo Cream Cheese.jpg" alt="Red Velvet Oreo Cream Cheese Cookie" loading="lazy" /><div class="specialty-overlay"><span>Order Now</span></div></div>
-          <div class="specialty-card-body"><h3>Red Velvet Oreo Cream Cheese</h3><p>Loaded with crushed Oreo pieces and white chocolate, stuffed with a cream cheese filling.</p></div>
+      </article>
+
+      <article class="tile t-box gs-reveal">
+        <div class="tile-pad">
+          <p class="tile-k">The classics</p>
+          <h3 class="tile-h">Classic Box</h3>
+          <p class="tile-p">Any mix of Biscoff, Mini Eggs, Matcha White Chocolate and Chocolate Chunk with Sea Salt.</p>
+          <div class="t-box-prices">
+            <div class="t-box-price"><span class="t-box-q">12 pieces</span><span class="t-box-v">$20</span></div>
+            <div class="t-box-price"><span class="t-box-q">24 pieces</span><span class="t-box-v">$35</span></div>
+          </div>
         </div>
-      </div>
-      </div>
+      </article>
 
-      <div class="flavors-note">
-        Seasonal flavours come and go — follow
-        <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener">@sugarandshaicookies</a>
-        on Instagram to catch them.
-      </div>
+      <article class="tile t-box is-specialty gs-reveal">
+        <div class="tile-pad">
+          <p class="tile-k">With a specialty</p>
+          <h3 class="tile-h">Specialty Box</h3>
+          <p class="tile-p">Everything in the classic box, plus Red Velvet Oreo Cream Cheese — the stuffed one.</p>
+          <div class="t-box-prices">
+            <div class="t-box-price"><span class="t-box-q">12 pieces</span><span class="t-box-v">$25</span></div>
+            <div class="t-box-price"><span class="t-box-q">24 pieces</span><span class="t-box-v">$45</span></div>
+          </div>
+        </div>
+      </article>
 
-      <div class="pricing-banner gs-reveal">
-        <div class="pricing-rule"><span class="pricing-rule-k">Box sizes</span><span class="pricing-rule-v">12 or 24 pieces</span></div>
-        <div class="pricing-rule"><span class="pricing-rule-k">Per flavour</span><span class="pricing-rule-v">3 pieces minimum</span></div>
-        <div class="pricing-rule"><span class="pricing-rule-k">Over 24pc</span><span class="pricing-rule-v">DM to order</span></div>
-        <div class="pricing-banner-note">Add 3 or more of any specialty flavour and the <strong>whole box</strong> goes to specialty pricing — $25 for 12pc, $45 for 24pc.</div>
+      <article class="tile t-rules gs-reveal">
+        <div class="tile-pad">
+          <p class="tile-k">Good to know</p>
+          <h3 class="tile-h">How the box works</h3>
+          <ul>
+            <li><i data-lucide="check" style="width:15px;height:15px;stroke-width:2.6;"></i><span>Every order is a box of <strong>12 or 24</strong>. Mix any flavours inside it.</span></li>
+            <li><i data-lucide="check" style="width:15px;height:15px;stroke-width:2.6;"></i><span>Minimum <strong>3 pieces</strong> of each flavour you pick.</span></li>
+            <li><i data-lucide="check" style="width:15px;height:15px;stroke-width:2.6;"></i><span>Add 3+ of any specialty and the <strong>whole box</strong> is specialty priced.</span></li>
+            <li><i data-lucide="check" style="width:15px;height:15px;stroke-width:2.6;"></i><span>Over 24 pieces? <strong>Send a DM</strong> and Shai will sort it out.</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tile t-pickup gs-reveal">
+        <div class="tile-pad">
+          <p class="tile-k">Pickup</p>
+          <h3 class="tile-h">Wednesdays, Tyndall</h3>
+          <div class="t-pickup-rows">
+            <span class="t-pickup-row"><i data-lucide="calendar" style="width:17px;height:17px;stroke-width:2;"></i> Pickup day — <b>Wednesday</b></span>
+            <span class="t-pickup-row"><i data-lucide="alarm-clock" style="width:17px;height:17px;stroke-width:2;"></i> Cutoff — <b>Sunday 7PM</b></span>
+            <span class="t-pickup-row"><i data-lucide="map-pin" style="width:17px;height:17px;stroke-width:2;"></i> Area — <b>Tyndall, MB</b></span>
+            <span class="t-pickup-row"><i data-lucide="mail" style="width:17px;height:17px;stroke-width:2;"></i> Confirmed in <b>24–48 hrs</b></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tile t-flavour gs-reveal">
+        <div class="t-flavour-img"><img src="Cookies/Bischoff.png" alt="Biscoff cookies" loading="lazy" /></div>
+        <div class="t-flavour-body"><p class="t-flavour-n">Biscoff</p><p class="t-flavour-d">Caramelised speculoos, baked right in.</p></div>
+      </article>
+      <article class="tile t-flavour gs-reveal">
+        <div class="t-flavour-img"><img src="Cookies/Mini Eggs.jpg" alt="Mini Eggs cookies" loading="lazy" /></div>
+        <div class="t-flavour-body"><p class="t-flavour-n">Mini Eggs</p><p class="t-flavour-d">Crunchy mini eggs, soft chewy cookie.</p></div>
+      </article>
+      <article class="tile t-flavour gs-reveal">
+        <div class="t-flavour-img"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha white chocolate cookies" loading="lazy" /></div>
+        <div class="t-flavour-body"><p class="t-flavour-n">Matcha White Chocolate</p><p class="t-flavour-d">Earthy matcha, creamy white chocolate.</p></div>
+      </article>
+      <article class="tile t-flavour gs-reveal">
+        <div class="t-flavour-img"><img src="Cookies/Chocolate Chunk.png" alt="Chocolate chunk sea salt cookies" loading="lazy" /></div>
+        <div class="t-flavour-body"><p class="t-flavour-n">Chocolate Chunk · Sea Salt</p><p class="t-flavour-d">Gooey dark chocolate, flaky sea salt.</p></div>
+      </article>
+
+      <article class="tile t-about gs-reveal" id="about">
+        <div class="t-about-inner">
+          <div class="t-about-img"><img src="Gallery/Cookies_1.jpg" alt="A box of Sugar &amp; Shai cookies, individually wrapped and ready to gift" loading="lazy" /></div>
+          <div class="tile-pad">
+            <p class="tile-k">Our story</p>
+            <p class="t-about-quote">Hi, I'm Shai</p>
+            <p class="tile-p">Sugar &amp; Shai is my home-based cookie business, baking from scratch in small batches. Every cookie is thick, soft and properly loaded — and baked to order for your pickup day, never sitting on a shelf.</p>
+            <p class="tile-p">Whether you need a dozen for a birthday or a hundred for a wedding, I'm here to make your sweetest moments even sweeter.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="tile t-cta gs-reveal">
+        <div class="tile-pad">
+          <p class="tile-k">Ready when you are</p>
+          <h3 class="tile-h">Reserve your cookies</h3>
+          <p>Pick your flavours, choose a Wednesday, and Shai will confirm your spot within 24–48 hours.</p>
+          <a href="#order-form" class="btn" style="margin-top:1.2rem;" onclick="gtag('event','order_button_click',{button:'bento_cta'})">Place an Order</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── PROOF ── -->
+  <section id="testimonials">
+    <div class="wrap">
+      <div class="section-head center gs-reveal">
+        <span class="sig center"><span class="spark">✦</span></span>
+        <p class="eyebrow">Happy customers</p>
+        <h2 class="display">What people are <em>saying</em></h2>
+      </div>
+      <div class="reviews-rail-wrap gs-reveal">
+        <button class="rail-btn prev" onclick="scrollRail(-1)" aria-label="Previous reviews"><i data-lucide="chevron-left" style="width:20px;height:20px;stroke-width:2.4;"></i></button>
+        <div class="reviews-rail" id="reviewsRail">
+          <div class="review-item"><video src="Reviews/Review_1.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          <div class="review-item"><img src="Reviews/Review_2.jpg" alt="Customer review screenshot" loading="lazy" /></div>
+          <div class="review-item"><video src="Reviews/Review_3.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          <div class="review-item"><img src="Reviews/Review_4.jpg" alt="Customer review screenshot" loading="lazy" /></div>
+          <div class="review-item"><img src="Reviews/Review_5.jpg" alt="Customer review screenshot" loading="lazy" /></div>
+          <div class="review-item"><video src="Reviews/Review_6.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          <div class="review-item"><video src="Reviews/Review_7.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+        </div>
+        <button class="rail-btn next" onclick="scrollRail(1)" aria-label="More reviews"><i data-lucide="chevron-right" style="width:20px;height:20px;stroke-width:2.4;"></i></button>
       </div>
     </div>
   </section>
 
-  <!-- ── GALLERY ── -->
+  <!-- ── GALLERY ──
+       Marquee tiles are NOT lazy: they move by transform, so the lazy-loader never
+       fires for off-screen tiles and they cycle in blank. -->
   <section id="gallery">
-    <div class="gallery-inner">
-      <div class="gallery-header">
-        <span class="sig"><span class="spark">✦</span></span>
-        <p class="section-label">Sweet Creations</p>
-        <h2 class="section-title">Cookie Gallery</h2>
-        <p class="section-subtitle">A peek at our cookies — follow us on Instagram for more!</p>
-      </div>
-
-      <!-- Row 1: Cookies — scrolls left. NOTE: marquee tiles are NOT lazy — they move via CSS
-           transform, so loading="lazy" never fires for off-screen tiles and they cycle in blank. -->
-      <div class="marquee-track gs-reveal">
+    <div class="marquee-track gs-reveal">
       <div class="marquee-row">
         <div class="gallery-item"><img src="Gallery/Red Velvet.jpg" alt="Red Velvet Oreo Cream Cheese cookies fresh from the tray" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies.jpg" alt="Packaged cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="All flavours" /></div>
-        <div class="gallery-item"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha White Chocolate cookies" /></div>
-        <div class="gallery-item"><img src="Cookies/Mini Eggs.jpg" alt="Mini Eggs cookies" /></div>
+        <div class="gallery-item"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha white chocolate cookies" /></div>
+        <div class="gallery-item"><img src="Cookies/Mini Eggs.jpg" alt="Mini eggs cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_3.jpg" alt="Matcha cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_4.jpg" alt="Mini eggs cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_5.jpg" alt="Biscoff cookies" /></div>
@@ -670,109 +655,61 @@
         <div class="gallery-item"><img src="Gallery/Red Velvet.jpg" alt="Red Velvet Oreo Cream Cheese cookies fresh from the tray" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies.jpg" alt="Packaged cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="All flavours" /></div>
-        <div class="gallery-item"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha White Chocolate cookies" /></div>
-        <div class="gallery-item"><img src="Cookies/Mini Eggs.jpg" alt="Mini Eggs cookies" /></div>
+        <div class="gallery-item"><img src="Cookies/Matcha Chocolate.jpg" alt="Matcha white chocolate cookies" /></div>
+        <div class="gallery-item"><img src="Cookies/Mini Eggs.jpg" alt="Mini eggs cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_3.jpg" alt="Matcha cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_4.jpg" alt="Mini eggs cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_5.jpg" alt="Biscoff cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_6.jpg" alt="Chocolate chunk cookies" /></div>
       </div>
-      </div>
-
-      <!-- Row 2: Flavours + behind-the-scenes — scrolls right (reverse). fillMarquees() clones at runtime. -->
-      <div class="marquee-track gs-reveal">
+    </div>
+    <div class="marquee-track gs-reveal">
       <div class="marquee-row reverse">
         <div class="gallery-item"><img src="Gallery/BTS.jpg" alt="Behind the scenes — fresh batch" /></div>
         <div class="gallery-item"><img src="Cookies/Bischoff.png" alt="Biscoff cookies close-up" /></div>
         <div class="gallery-item"><img src="Gallery/BTS_2.jpg" alt="Cookie dough prep" /></div>
         <div class="gallery-item"><img src="Cookies/Chocolate Chunk.png" alt="Chocolate chunk sea salt cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="Assorted flavours" /></div>
+        <div class="gallery-item"><img src="Gallery/Red Velvet Interior.jpg" alt="Red Velvet cookie split open, showing the cream cheese filling and Oreo pieces inside" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_5.jpg" alt="Biscoff cookies" /></div>
-        <div class="gallery-item"><img src="Gallery/Red Velvet Interior.jpg" alt="Red Velvet Oreo Cream Cheese cookie split open, showing the cream cheese filling and Oreo pieces inside" /></div>
         <div class="gallery-item"><img src="Gallery/BTS.jpg" alt="Behind the scenes — fresh batch" /></div>
         <div class="gallery-item"><img src="Cookies/Bischoff.png" alt="Biscoff cookies close-up" /></div>
         <div class="gallery-item"><img src="Gallery/BTS_2.jpg" alt="Cookie dough prep" /></div>
         <div class="gallery-item"><img src="Cookies/Chocolate Chunk.png" alt="Chocolate chunk sea salt cookies" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_1.jpg" alt="Assorted flavours" /></div>
+        <div class="gallery-item"><img src="Gallery/Red Velvet Interior.jpg" alt="Red Velvet cookie split open, showing the cream cheese filling and Oreo pieces inside" /></div>
         <div class="gallery-item"><img src="Gallery/Cookies_5.jpg" alt="Biscoff cookies" /></div>
-        <div class="gallery-item"><img src="Gallery/Red Velvet Interior.jpg" alt="Red Velvet Oreo Cream Cheese cookie split open, showing the cream cheese filling and Oreo pieces inside" /></div>
-      </div>
-      </div>
-
-      <div class="gallery-cta">
-        <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener" class="btn-primary"><i data-lucide="instagram" style="width:18px;height:18px;stroke-width:1.5;"></i> See More on Instagram</a>
       </div>
     </div>
   </section>
 
-  <!-- ── REVIEWS ── -->
-  <section id="testimonials">
-    <div class="reviews-inner">
-      <div class="reviews-header">
-        <span class="sig"><span class="spark">✦</span></span>
-        <p class="section-label">Happy Customers</p>
-        <h2 class="section-title">What People Are Saying</h2>
-      </div>
-      <div class="reviews-carousel-wrap gs-reveal">
-        <button class="carousel-btn prev" onclick="scrollCarousel(-1)" aria-label="Previous reviews">&#8592;</button>
-        <div class="reviews-carousel" id="reviewsCarousel">
-          <div class="review-item"><video src="Reviews/Review_1.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          <div class="review-item"><img src="Reviews/Review_2.jpg" alt="Customer review" loading="lazy" /></div>
-          <div class="review-item"><video src="Reviews/Review_3.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          <div class="review-item"><img src="Reviews/Review_4.jpg" alt="Customer review" loading="lazy" /></div>
-          <div class="review-item"><img src="Reviews/Review_5.jpg" alt="Customer review" loading="lazy" /></div>
-          <div class="review-item"><video src="Reviews/Review_6.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          <div class="review-item"><video src="Reviews/Review_7.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-        </div>
-        <button class="carousel-btn next" onclick="scrollCarousel(1)" aria-label="Next reviews">&#8594;</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── HOW TO ORDER ── -->
+  <!-- ── HOW IT WORKS ── -->
   <section id="order">
-    <div class="order-inner">
-      <div class="order-header">
+    <div class="wrap">
+      <div class="section-head center gs-reveal">
         <span class="sig center"><span class="spark">✦</span></span>
-        <p class="section-label">The Process</p>
-        <h2 class="section-title">How to Order</h2>
-        <p class="section-subtitle">Pre-orders only · Pickup in the <strong>Tyndall area</strong> · Minimum 3pc per flavour</p>
+        <p class="eyebrow">The process</p>
+        <h2 class="display">How to <em>order</em></h2>
+        <p class="lede">Pre-orders only · Pickup in the Tyndall area · Minimum 3pc per flavour</p>
       </div>
       <div class="steps">
-        <div class="step gs-reveal">
-          <div class="step-number">1</div>
-          <h3>Choose Your Flavours</h3>
-          <p>Browse the classics and the specialty flavours. Select quantities in multiples of 3 — minimum 3pc per flavour. Need more than 24 pieces? Slide into our DMs on Instagram.</p>
-        </div>
-        <div class="step gs-reveal">
-          <div class="step-number">2</div>
-          <h3>Submit Your Order</h3>
-          <p>Fill out the order form with your details, preferred pickup date, and payment method. <strong>Wednesdays</strong> are our regular pickup day — order cutoff is <strong>Sunday at 7PM</strong> the week before. Orders after cutoff are automatically moved to the following Wednesday.</p>
-        </div>
-        <div class="step gs-reveal">
-          <div class="step-number">3</div>
-          <h3>Get Confirmed</h3>
-          <p>Once your order is in, secure your spot with <strong>e-transfer or cash</strong>. Non-Wednesday pickups are subject to Shai's confirmation. Need it sooner? <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank">DM Shai on Instagram.</a></p>
-        </div>
-        <div class="step gs-reveal">
-          <div class="step-number">4</div>
-          <h3>Pick Up &amp; Enjoy</h3>
-          <p>Shai will reach out <strong>on pickup day</strong> to coordinate a time. Pick up your freshly baked cookies in the <strong>Tyndall area</strong> and enjoy!</p>
-        </div>
+        <div class="step gs-reveal"><p class="step-n">Step 01</p><p class="step-t">Pick your box</p><p class="step-d">12 or 24 pieces, classic or specialty. Mix any flavours inside it.</p></div>
+        <div class="step gs-reveal"><p class="step-n">Step 02</p><p class="step-t">Fill the form</p><p class="step-d">Choose quantities in multiples of 3 and a Wednesday pickup date.</p></div>
+        <div class="step gs-reveal"><p class="step-n">Step 03</p><p class="step-t">Shai confirms</p><p class="step-d">Most orders confirmed within 24–48 hours. Cutoff is Sunday 7PM.</p></div>
+        <div class="step gs-reveal"><p class="step-n">Step 04</p><p class="step-t">Pick up Wednesday</p><p class="step-d">Shai reaches out on pickup day to coordinate a time.</p></div>
       </div>
     </div>
   </section>
 
   <!-- ── ORDER FORM ── -->
   <section id="order-form">
-    <div class="order-form-inner">
-      <div class="order-form-header">
+    <div class="wrap order-form-inner">
+      <div class="section-head center gs-reveal">
         <span class="sig center"><span class="spark">✦</span></span>
-        <p class="section-label">Place Your Order</p>
-        <h2 class="section-title">Ready to Order?</h2>
-        <p class="section-subtitle">Fill out the form below and Shai will get back to you to confirm your spot! Most orders confirmed within 24–48 hours.</p>
+        <p class="eyebrow">Order form</p>
+        <h2 class="display">Reserve your <em>cookies</em></h2>
+        <p class="lede">Fill out the form below and Shai will get back to you to confirm your spot. Most orders confirmed within 24–48 hours.</p>
       </div>
-
       <form class="order-form" id="orderForm">
         <div class="form-row">
           <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="e.g. Sarah M." autocomplete="name" required /></div>
@@ -846,65 +783,54 @@
           <p style="font-size:0.78rem;color:var(--olive);font-weight:600;margin-top:0.25rem;"><i data-lucide="shield-check" style="width:14px;height:14px;stroke-width:2;vertical-align:-2px;margin-right:4px;"></i> No payment taken until Shai confirms your order</p>
         </div>
       </form>
-
-      <div class="form-success" id="formSuccess">
-        <div class="form-success-icon"><i data-lucide="check-circle" style="width:48px;height:48px;stroke-width:1.5;color:var(--olive);"></i></div>
-        <h3>Order Received!</h3>
-        <p>Thanks for reaching out! Shai will confirm your spot within 24–48 hours.<br />Check your email for a reply.</p>
-      </div>
     </div>
   </section>
 
   <!-- ── CONTACT ── -->
   <section id="contact">
-    <div class="contact-inner">
-      <span class="sig center"><span class="spark">✦</span></span>
-      <p class="section-label">Skip the Form</p>
-      <h2 class="section-title">Prefer to Order Your Way?</h2>
-      <p class="section-subtitle">Not a form person? No worries — slide into our DMs or drop us an email and we'll get your order sorted just the same.</p>
-      <div class="contact-methods">
-        <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener" class="contact-method">
-          <span class="contact-method-icon"><i data-lucide="send" style="width:24px;height:24px;stroke-width:1.5;"></i></span>
-          <span class="contact-method-label">DM to Pre-Order</span>
-          <span class="contact-method-value">@sugarandshaicookies</span>
+    <div class="wrap">
+      <div class="section-head center gs-reveal">
+        <span class="sig center"><span class="spark">✦</span></span>
+        <p class="eyebrow">Bigger order?</p>
+        <h2 class="display">Or just <em>say hi</em></h2>
+        <p class="lede">Orders above 24 pieces and custom decorated sets go through Shai directly.</p>
+      </div>
+      <div class="contact-grid gs-reveal">
+        <a class="contact-card" href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener">
+          <span class="contact-icon"><i data-lucide="send" style="width:21px;height:21px;stroke-width:1.9;"></i></span>
+          <span class="contact-k">DM to pre-order</span>
+          <span class="contact-v">@sugarandshaicookies</span>
         </a>
-        <a href="mailto:sugarandshaicookies@gmail.com" class="contact-method">
-          <span class="contact-method-icon"><i data-lucide="mail" style="width:24px;height:24px;stroke-width:1.5;"></i></span>
-          <span class="contact-method-label">Email</span>
-          <span class="contact-method-value">sugarandshaicookies@gmail.com</span>
+        <a class="contact-card" href="mailto:sugarandshaicookies@gmail.com">
+          <span class="contact-icon"><i data-lucide="mail" style="width:21px;height:21px;stroke-width:1.9;"></i></span>
+          <span class="contact-k">Email</span>
+          <span class="contact-v">sugarandshaicookies@gmail.com</span>
         </a>
-        <div class="contact-method" style="cursor:default;">
-          <span class="contact-method-icon"><i data-lucide="map-pin" style="width:24px;height:24px;stroke-width:1.5;"></i></span>
-          <span class="contact-method-label">Pickup Only</span>
-          <span class="contact-method-value">Tyndall area</span>
-        </div>
       </div>
       <p class="contact-note">Home-based bakery · Pre-orders only · Pickup in Tyndall area · Please allow 24–48 hrs for a response</p>
     </div>
   </section>
 
-  <!-- ── STICKY MOBILE CTA ── -->
-  <div class="mobile-cta-bar" id="mobileCta">
-    <a href="#order-form" onclick="gtag('event','order_button_click',{button:'sticky_mobile_cta'})">Order Now</a>
-  </div>
-
   <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo"><img src="Logo.jpg" alt="Sugar & Shai Cookies" /></div>
+      <div class="footer-logo"><img src="Logo.jpg" alt="Sugar &amp; Shai Cookies" /></div>
       <p class="footer-tagline">Handcrafted with love, one cookie at a time.</p>
       <ul class="footer-links">
+        <li><a href="#specialties">Menu</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#specialties">Flavours</a></li>
-        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#order">How to Order</a></li>
         <li><a href="/order">Order Form</a></li>
-        <li><a href="https://www.instagram.com/sugarandshaicookies/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener">Instagram</a></li>
       </ul>
       <p class="footer-copy">&copy; 2026 Sugar &amp; Shai Cookies. All rights reserved.</p>
-      <p style="font-size:0.65rem; opacity:0.45; margin-top:0.5rem;">Powered by <a href="https://fjmedia.ca" target="_blank" style="color: inherit; text-decoration: none; font-weight: 600;">FJMedia</a></p>
+      <p style="font-size:0.65rem; opacity:0.45; margin-top:0.5rem;">Powered by <a href="https://fjmedia.ca" target="_blank" rel="noopener" style="color:inherit; font-weight:600;">FJMedia</a></p>
     </div>
   </footer>
+
+  <div class="mobile-cta-bar" id="mobileCta">
+    <a href="#order-form" onclick="gtag('event','order_button_click',{button:'mobile_bar'})"><i data-lucide="cookie" style="width:17px;height:17px;stroke-width:2;"></i> Order Now</a>
+  </div>
 
   <script>
     // ── Pickup date logic ──
@@ -937,14 +863,14 @@
           selected.setDate(selected.getDate() + 7);
           this.value = localDateStr(selected);
           const nextLabel = selected.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' });
-          pickupNote.style.color = '#c07a2b';
+          pickupNote.style.color = '#96581B';   // 5.66:1 on white (was #c07a2b, 3.47:1 — fails AA)
           pickupNote.textContent = 'Cutoff for this Wednesday has passed — your order will be placed for ' + nextLabel + '.';
         } else {
           pickupNote.style.color = 'var(--olive)';
           pickupNote.textContent = 'Wednesday pickup — order by Sunday at 7PM to lock in your spot.';
         }
       } else {
-        pickupNote.style.color = 'var(--dusty)';
+        pickupNote.style.color = 'var(--rose-ink)';   // 5.23:1 (was --dusty, 3.14:1 — fails AA)
         pickupNote.textContent = 'Non-Wednesday pickup — Shai will reach out to confirm this date works.';
       }
     });
@@ -1074,7 +1000,6 @@
 
     // Order form — submit via Web3Forms
     const orderForm = document.getElementById('orderForm');
-    const formSuccess = document.getElementById('formSuccess');
 
     orderForm.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -1148,18 +1073,7 @@
       });
     });
 
-    // About section slideshow — fade out current, then fade in next
-    const slides = document.querySelectorAll('#aboutSlideshow .about-slide');
-    let current = 0;
-    setInterval(() => {
-      slides[current].classList.add('fading');
-      slides[current].classList.remove('active');
-      setTimeout(() => {
-        slides[current].classList.remove('fading');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
-      }, 1600);
-    }, 5000);
+    // (About slideshow removed — this layout uses a single framed editorial image.)
 
     // Mobile nav toggle with scroll lock
     const hamburger = document.getElementById('hamburger');
@@ -1176,18 +1090,15 @@
     });
 
     // Carousel scroll buttons
-    function scrollCarousel(dir) {
-      const carousel = document.getElementById('reviewsCarousel');
-      // stride = real card width + flex gap — a hardcoded 250 ties between center-snap points and skips one going forward
-      const stride = carousel.querySelector('.review-item').getBoundingClientRect().width + (parseFloat(getComputedStyle(carousel).gap) || 0);
-      carousel.scrollBy({ left: dir * stride, behavior: 'smooth' });
-    }
+    // (scrollCarousel removed — the reviews rail uses scrollRail(), defined at the foot of this page.)
 
     // Specialty cards — click to order
-    document.querySelectorAll('.specialty-card').forEach(function(card) {
-      card.addEventListener('click', function() {
+    // Menu rows are this layout's product surface (the old .specialty-card grid is gone).
+    document.querySelectorAll('.menu-item').forEach(function(row) {
+      row.style.cursor = 'pointer';
+      row.addEventListener('click', function() {
         document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
-        gtag('event', 'order_button_click', { button: 'specialty_card' });
+        gtag('event', 'order_button_click', { button: 'menu_row' });
       });
     });
 
@@ -1265,51 +1176,84 @@
     });
   </script>
 
-  <!-- GSAP -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-
   <script>
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+
+      // Marquee rows must be WIDER than the viewport or the -50% loop runs into
+      // empty space and snaps. Clone each set until it clears the real viewport
+      // and scale the duration by the same factor so speed stays constant.
+      function fillMarquees() {
+        document.querySelectorAll('.marquee-row').forEach(function (row) {
+          if (!row._unit) {
+            var kids = Array.prototype.slice.call(row.children);
+            row._unit = kids.slice(0, Math.floor(kids.length / 2)).map(function (n) { return n.outerHTML; }).join('');
+          }
+          row.innerHTML = row._unit;
+          var unitW = row.scrollWidth || 1;
+          var k = Math.max(1, Math.ceil((window.innerWidth + 160) / unitW));
+          row.innerHTML = new Array(k * 2).fill(row._unit).join('');
+          var base = row.classList.contains('reverse') ? 35 : 30;
+          row.style.animationDuration = (base * k) + 's';
+        });
+      }
+      fillMarquees();
+      var mt; window.addEventListener('resize', function () { clearTimeout(mt); mt = setTimeout(fillMarquees, 200); });
 
       if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
-
-        // NOTE: reveals use Y-translate, not X — a rightward X from-state on a full-width
-        // element overflows the viewport on narrow screens (horizontal scroll until it fires).
-        gsap.fromTo('.hero-content', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out', delay: 0.2 });
-        gsap.fromTo('.hero-image-wrap', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out', delay: 0.4 });
-
-        gsap.fromTo('#about .about-image-wrap', { y: 30, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#about', start: 'top 85%', once: true }, duration: 0.7, ease: 'power1.out' });
-        gsap.fromTo('#about .about-text', { y: 30, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#about', start: 'top 85%', once: true }, duration: 0.7, delay: 0.15, ease: 'power1.out' });
-
-        gsap.fromTo('.fotm-card', { y: 30, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#fotm', start: 'top 85%', once: true }, duration: 0.7, stagger: 0.12, ease: 'power1.out' });
-        gsap.fromTo('.fotm-header', { y: 20, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#fotm', start: 'top 88%', once: true }, duration: 0.6, ease: 'power1.out' });
-
-        // One trigger PER group. There are now two .specialties-grid elements, and a single
-        // selector-trigger binds to the first one only — which would fire the specialty group's
-        // stagger off the classics grid, long before those cards are anywhere near the viewport.
-        document.querySelectorAll('.specialties-grid').forEach(grid => {
-          gsap.fromTo(grid.querySelectorAll('.specialty-card'), { y: 30, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: grid, start: 'top 85%', once: true }, duration: 0.5, stagger: 0.1, ease: 'power1.out' });
+        // Y-axis only. An x-translate on a full-width element parks it past the
+        // viewport edge until its trigger fires and overflows 320/375.
+        document.querySelectorAll('.gs-reveal').forEach(function (el) {
+          // G66: transform-only. An opacity reveal gated on scroll leaves the page
+          // blank for anything that never scrolls — crawlers, print, PDF, screenshots.
+          // A y-translate cannot hide content, so a non-scrolling renderer still gets
+          // the whole page; only a human scrolling sees it move.
+          gsap.fromTo(el, { y: 26 },
+            { y: 0, duration: 0.6, ease: 'power1.out',
+              scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
         });
-        gsap.fromTo('.flavor-group-head', { y: 16, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#specialties', start: 'top 82%', once: true }, duration: 0.5, stagger: 0.12, ease: 'power1.out' });
-        gsap.fromTo('.pricing-banner', { y: 20, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '.pricing-banner', start: 'top 88%', once: true }, duration: 0.6, ease: 'power1.out' });
-        gsap.fromTo('.marquee-track', { y: 20, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#gallery', start: 'top 85%', once: true }, duration: 0.7, stagger: 0.15, ease: 'power1.out' });
-        gsap.fromTo('.reviews-carousel-wrap', { y: 30, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#testimonials', start: 'top 85%', once: true }, duration: 0.7, ease: 'power1.out' });
-        gsap.fromTo('.step', { y: 30, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '.steps', start: 'top 85%', once: true }, duration: 0.5, stagger: 0.1, ease: 'power1.out' });
-        gsap.fromTo('.order-form', { y: 30, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#order-form', start: 'top 85%', once: true }, duration: 0.7, ease: 'power1.out' });
-        gsap.fromTo('.contact-method', { y: 20, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: '#contact', start: 'top 85%', once: true }, duration: 0.5, stagger: 0.1, ease: 'power1.out' });
-
-        document.querySelectorAll('.section-label, .section-title').forEach(function(el) {
-          gsap.fromTo(el, { y: 20, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: el, start: 'top 90%', once: true }, duration: 0.5, ease: 'power1.out' });
-        });
-      } else {
-        // Fallback: if GSAP fails to load, show all elements
-        document.querySelectorAll('.gs-reveal').forEach(function(el) { el.style.opacity = '1'; });
       }
+    });
+
+    // reviews rail — stride from the real card width + gap, never a hardcoded number
+    function scrollRail(dir) {
+      var rail = document.getElementById('reviewsRail');
+      var card = rail.querySelector('.review-item');
+      var stride = card.getBoundingClientRect().width + (parseFloat(getComputedStyle(rail).gap) || 0);
+      rail.scrollBy({ left: dir * stride, behavior: 'smooth' });
+    }
+    // loading="lazy" fires on RENDER, not on existence. Anything parked to the right
+    // inside an overflow-x strip never intersects, because page scroll moves the window
+    // DOWN and never moves this container SIDEWAYS — so those images are never requested
+    // at all: no network entry, no error, at any scroll depth. The visitor swipes the
+    // reviews and watches empty frames fill in. Warm ONLY images whose ancestor is
+    // genuinely scrollable-x, on idle — flipping every image to eager would trade this
+    // for a slower first paint.
+    (function warmSideScrolledImages() {
+      var run = function () {
+        document.querySelectorAll('img[loading="lazy"]').forEach(function (img) {
+          for (var n = img.parentElement; n && n !== document.body; n = n.parentElement) {
+            var ox = getComputedStyle(n).overflowX;
+            if ((ox === 'auto' || ox === 'scroll') && n.scrollWidth > n.clientWidth + 1) {
+              img.loading = 'eager';
+              break;
+            }
+          }
+        });
+      };
+      if ('requestIdleCallback' in window) requestIdleCallback(run, { timeout: 2000 });
+      else setTimeout(run, 900);
+    })();
+
+    document.querySelectorAll('.review-item video').forEach(function (v) {
+      v.parentElement.addEventListener('click', function () {
+        if (v.paused) { v.play(); v.parentElement.classList.add('playing'); }
+        else { v.pause(); v.parentElement.classList.remove('playing'); }
+      });
     });
   </script>
 </body>

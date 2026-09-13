@@ -46,7 +46,7 @@
       /* Surfaces — warm cream ladder */
       --cream:#FDF6EE; --cream-2:#F8EFE2; --cream-3:#F2E6D6; --white:#FFFFFF;
       /* Brand */
-      --blush:#F2C4CE; --blush-soft:#FAE3E8; --rose:#D4849A; --dusty:#C97B8B;
+      --blush:#F2C4CE; --blush-soft:#FAE3E8; --rose:#D4849A; --dusty:#C97B8B; --rose-ink:#B04A66;
       --mocha:#8B5E52; --chocolate:#5C3D35;
       /* Accent (CTA) */
       --olive:#4A5E2A; --olive-dark:#3A4A20; --olive-light:#6B7D45; --sage:#B5C4B1;
@@ -84,9 +84,9 @@
     .sig::after { content:''; width:32px; height:1px; background:linear-gradient(90deg,var(--rose),transparent); }
     .sig .spark { font-size:0.85rem; line-height:1; }
 
-    .section-label { font-family:var(--body); font-weight:700; font-size:0.74rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--rose); display:block; margin-bottom:0.7rem; }
+    .section-label { font-family:var(--body); font-weight:700; font-size:0.74rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--rose-ink); display:block; margin-bottom:0.7rem; }
     .section-title { font-family:var(--display); font-weight:400; font-size:clamp(1.9rem,4.4vw,3rem); line-height:1.12; color:var(--chocolate); letter-spacing:0.005em; }
-    .section-title em { font-family:var(--script); font-style:normal; color:var(--rose); font-size:1.08em; }
+    .section-title em { font-family:var(--script); font-style:normal; color:var(--rose-ink); font-size:1.08em; }
     .section-subtitle { color:var(--text-light); font-size:1.02rem; line-height:1.7; max-width:46ch; margin:1rem auto 0; }
 
     /* ════════════════════ BUTTONS ════════════════════ */
@@ -100,19 +100,19 @@
     .btn-primary:hover { background:var(--olive-dark); transform:translateY(-2px); box-shadow:0 24px 50px -18px rgba(74,94,42,0.45); }
     .btn-primary:active { transform:translateY(0); }
     .btn-primary[disabled] { opacity:0.65; cursor:not-allowed; transform:none; }
-    .btn-outline { background:transparent; color:var(--dusty); border-color:var(--blush); }
-    .btn-outline:hover { background:var(--blush-soft); border-color:var(--rose); color:var(--rose); transform:translateY(-2px); }
+    .btn-outline { background:transparent; color:var(--rose-ink); border-color:var(--blush); }
+    .btn-outline:hover { background:var(--blush-soft); border-color:var(--rose); color:var(--rose-ink); transform:translateY(-2px); }
 
     /* ════════════════════ NAV (slim — single-task page) ════════════════════ */
     nav { position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; gap:1rem; height:72px; padding:0 var(--gutter); background:rgba(253,246,238,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--line-blush); }
     .nav-logo { display:flex; align-items:center; gap:0.7rem; min-width:0; }
     .nav-logo img { flex:none; height:48px; width:48px; object-fit:cover; border-radius:50%; border:2px solid var(--blush); transition:transform var(--dur) var(--ease); }
     .nav-logo:hover img { transform:rotate(-6deg) scale(1.05); }
-    .nav-logo-text { font-family:var(--script); font-size:1.15rem; color:var(--rose); line-height:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .nav-logo-text { font-family:var(--script); font-size:1.15rem; color:var(--rose-ink); line-height:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
     /* 44px tall — this is the only escape hatch on the page, it gets a full tap target */
     .nav-back { flex:none; position:relative; display:inline-flex; align-items:center; min-height:44px; font-size:0.76rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-light); transition:color var(--dur) var(--ease); }
     .nav-back::after { content:''; position:absolute; left:0; right:0; bottom:0.7rem; height:2px; border-radius:2px; background:var(--rose); transform:scaleX(0); transform-origin:left; transition:transform var(--dur) var(--ease); }
-    .nav-back:hover { color:var(--dusty); }
+    .nav-back:hover { color:var(--rose-ink); }
     .nav-back:hover::after { transform:scaleX(1); }
     @media (max-width:420px){ .nav-logo-text { display:none; } }
 
@@ -154,12 +154,12 @@
     .form-group input, .form-group select, .form-group textarea { font-family:var(--body); font-size:0.95rem; color:var(--text); background:var(--cream); border:1.5px solid var(--line-blush); border-radius:var(--r-sm); padding:0.85rem 1rem; transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease); }
     .form-group input::placeholder, .form-group textarea::placeholder { color:var(--text-mut); }
     .form-group input:hover, .form-group select:hover, .form-group textarea:hover { border-color:var(--blush); }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--rose); background:var(--white); box-shadow:0 0 0 3px rgba(212,132,154,0.15); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--olive); background:var(--white); box-shadow:0 0 0 3px rgba(74,94,42,0.12); }
     .form-group select { cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4849A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; background-size:16px; padding-right:2.6rem; }
     .form-group textarea { resize:vertical; min-height:100px; line-height:1.6; }
     .form-note { font-size:0.78rem; margin-top:0.25rem; color:var(--text-light); }
     .form-divider { border:none; border-top:1px dashed var(--line-blush); margin:1.4rem 0 1.8rem; }
-    .form-flavours-label { font-size:0.84rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--rose); margin-bottom:1rem; }
+    .form-flavours-label { font-size:0.84rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--rose-ink); margin-bottom:1rem; }
     .form-flavours-label span { font-weight:400; text-transform:none; letter-spacing:0; font-size:0.78rem; color:var(--text-light); }
 
     .flavor-qty-grid { display:flex; flex-direction:column; gap:0.7rem; }
@@ -173,11 +173,11 @@
     .flavor-qty-desc { display:block; font-size:0.78rem; color:var(--text-light); line-height:1.5; margin-top:0.1rem; }
     .premium-tag { font-size:0.66rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--olive); background:rgba(181,196,177,0.3); padding:0.2rem 0.55rem; border-radius:var(--r-pill); margin-left:0.4rem; white-space:nowrap; }
     .flavor-qty-controls { display:flex; align-items:center; gap:0.5rem; flex:none; }
-    .qty-btn { width:44px; height:44px; border-radius:50%; border:2px solid var(--blush); background:var(--white); color:var(--rose); font-size:1.2rem; font-weight:700; line-height:1; cursor:pointer; display:grid; place-items:center; transition:background var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease), border-color var(--dur) var(--ease); }
-    .qty-btn:hover { background:var(--rose); color:var(--white); border-color:var(--rose); transform:scale(1.08); }
+    .qty-btn { width:44px; height:44px; border-radius:50%; border:2px solid var(--blush); background:var(--white); color:var(--mocha); font-size:1.2rem; font-weight:700; line-height:1; cursor:pointer; display:grid; place-items:center; transition:background var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease), border-color var(--dur) var(--ease); }
+    .qty-btn:hover { background:var(--rose-ink); color:var(--white); border-color:var(--rose-ink); transform:scale(1.08); }
     .qty-btn:active { transform:scale(0.95); }
     .qty-input { width:48px; text-align:center; font-family:var(--display); font-weight:400; font-size:1.1rem; color:var(--chocolate); background:transparent; border:none; }
-    .qty-min-warn { display:none; font-size:0.82rem; font-weight:700; color:var(--dusty); margin-top:0.9rem; }
+    .qty-min-warn { display:none; font-size:0.82rem; font-weight:700; color:var(--rose-ink); margin-top:0.9rem; }
 
     .order-summary { display:none; margin-top:1.6rem; background:var(--cream-2); border:1.5px solid var(--blush); border-radius:var(--r); padding:1.4rem 1.6rem; }
     .order-summary.visible { display:block; }
@@ -187,7 +187,7 @@
     .order-summary-total { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; font-family:var(--display); font-weight:400; color:var(--chocolate); }
     .order-summary-total span:last-child { color:var(--olive); }
     .order-summary-note { font-size:0.8rem; color:var(--olive); font-weight:700; margin-top:0.7rem; }
-    .order-summary-warn { font-size:0.82rem; color:var(--dusty); font-weight:700; margin-top:0.5rem; }
+    .order-summary-warn { font-size:0.82rem; color:var(--rose-ink); font-weight:700; margin-top:0.5rem; }
 
     .form-submit { margin-top:1.8rem; text-align:center; }
     .form-submit .btn-primary { width:100%; }
@@ -471,14 +471,14 @@
           selected.setDate(selected.getDate() + 7);
           this.value = localDateStr(selected);
           const nextLabel = selected.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' });
-          pickupNote.style.color = '#c07a2b';
+          pickupNote.style.color = '#96581B';   // 5.66:1 on white (was #c07a2b, 3.47:1 — fails AA)
           pickupNote.textContent = 'Cutoff for this Wednesday has passed — your order will be placed for ' + nextLabel + '.';
         } else {
           pickupNote.style.color = 'var(--olive)';
           pickupNote.textContent = 'Wednesday pickup — order by Sunday at 7PM to lock in your spot.';
         }
       } else {
-        pickupNote.style.color = 'var(--dusty)';
+        pickupNote.style.color = 'var(--rose-ink)';   // 5.23:1 (was --dusty, 3.14:1 — fails AA)
         pickupNote.textContent = 'Non-Wednesday pickup — Shai will reach out to confirm this date works.';
       }
     });
