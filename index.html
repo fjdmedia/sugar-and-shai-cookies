@@ -1199,25 +1199,13 @@
     window.addEventListener('load', function () {
       if (typeof lucide !== 'undefined') { lucide.createIcons(); }
 
-      // Marquee rows must be WIDER than the viewport or the -50% loop runs into
-      // empty space and snaps. Clone each set until it clears the real viewport
-      // and scale the duration by the same factor so speed stays constant.
-      function fillMarquees() {
-        document.querySelectorAll('.marquee-row').forEach(function (row) {
-          if (!row._unit) {
-            var kids = Array.prototype.slice.call(row.children);
-            row._unit = kids.slice(0, Math.floor(kids.length / 2)).map(function (n) { return n.outerHTML; }).join('');
-          }
-          row.innerHTML = row._unit;
-          var unitW = row.scrollWidth || 1;
-          var k = Math.max(1, Math.ceil((window.innerWidth + 160) / unitW));
-          row.innerHTML = new Array(k * 2).fill(row._unit).join('');
-          var base = row.classList.contains('reverse') ? 35 : 30;
-          row.style.animationDuration = (base * k) + 's';
-        });
-      }
-      fillMarquees();
-      var mt; window.addEventListener('resize', function () { clearTimeout(mt); mt = setTimeout(fillMarquees, 200); });
+      // There used to be a SECOND copy of fillMarquees here, with its own resize
+      // listener. Two implementations of the same job meant the rows were rebuilt
+      // twice on every load and twice on every resize, and the later (unbatched)
+      // pass overwrote the batched one while thrashing layout. Re-running on `load`
+      // is still right — marquee width depends on image dimensions, which are not
+      // final at parse time — so keep the second RUN and drop the second FUNCTION.
+      if (typeof fillMarquees === 'function') fillMarquees();
 
       if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
