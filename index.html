@@ -624,13 +624,13 @@
       <div class="reviews-rail-wrap gs-reveal">
         <button class="rail-btn prev" onclick="scrollRail(-1)" aria-label="Previous reviews"><i data-lucide="chevron-left" style="width:20px;height:20px;stroke-width:2.4;"></i></button>
         <div class="reviews-rail" id="reviewsRail">
-          <div class="review-item"><video src="Reviews/Review_1.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          <div class="review-item"><video src="Reviews/Review_1.mp4" poster="Reviews/posters/Review_1.jpg" loop playsinline preload="none"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           <div class="review-item"><img src="Reviews/Review_2.jpg" alt="Customer review screenshot" loading="lazy" /></div>
-          <div class="review-item"><video src="Reviews/Review_3.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          <div class="review-item"><video src="Reviews/Review_3.mp4" poster="Reviews/posters/Review_3.jpg" loop playsinline preload="none"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
           <div class="review-item"><img src="Reviews/Review_4.jpg" alt="Customer review screenshot" loading="lazy" /></div>
           <div class="review-item"><img src="Reviews/Review_5.jpg" alt="Customer review screenshot" loading="lazy" /></div>
-          <div class="review-item"><video src="Reviews/Review_6.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          <div class="review-item"><video src="Reviews/Review_7.mp4" loop playsinline preload="metadata"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          <div class="review-item"><video src="Reviews/Review_6.mp4" poster="Reviews/posters/Review_6.jpg" loop playsinline preload="none"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          <div class="review-item"><video src="Reviews/Review_7.mp4" poster="Reviews/posters/Review_7.jpg" loop playsinline preload="none"></video><div class="review-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
         </div>
         <button class="rail-btn next" onclick="scrollRail(1)" aria-label="More reviews"><i data-lucide="chevron-right" style="width:20px;height:20px;stroke-width:2.4;"></i></button>
       </div>
@@ -719,8 +719,8 @@
           <div class="form-group"><label for="phone">Phone / Instagram</label><input type="text" id="phone" name="contact" placeholder="Phone # or @handle" autocomplete="tel" /></div>
           <div class="form-group">
             <label for="pickup-date">Pickup Date Needed</label>
-            <input type="date" id="pickup-date" name="pickup_date" required />
-            <span id="pickupDateNote" style="font-size:0.78rem;margin-top:0.25rem;color:var(--text-light);">Wednesdays are our regular pickup day — cutoff is Sunday at 7PM the week before.</span>
+            <select id="pickup-date" name="pickup_date" required><option value="" disabled selected>Choose a Wednesday…</option></select>
+            <span id="pickupDateNote" style="font-size:0.78rem;margin-top:0.25rem;color:var(--text-light);">Pickup is every Wednesday. Order by 7PM the Sunday before.</span>
           </div>
         </div>
 
@@ -824,7 +824,7 @@
         <li><a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener">Instagram</a></li>
       </ul>
       <p class="footer-copy">&copy; 2026 Sugar &amp; Shai Cookies. All rights reserved.</p>
-      <p style="font-size:0.65rem; opacity:0.45; margin-top:0.5rem;">Powered by <a href="https://fjmedia.ca" target="_blank" rel="noopener" style="color:inherit; font-weight:600;">FJMedia</a></p>
+      <p style="font-size:0.65rem; opacity:0.66; margin-top:0.5rem;">Powered by <a href="https://fjmedia.ca" target="_blank" rel="noopener" style="color:inherit; font-weight:600;">FJMedia</a></p>
     </div>
   </footer>
 
@@ -833,46 +833,46 @@
   </div>
 
   <script>
-    // ── Pickup date logic ──
+    // ── Pickup dates ──
+    // Shai bakes for ONE pickup day, so the control offers only real Wednesdays that
+    // are still inside their cutoff. Two states the old free calendar could produce
+    // now cannot exist at all: a non-Wednesday the form accepted and left Shai to
+    // renegotiate by DM, and a past-cutoff Wednesday the form silently rewrote to the
+    // following week. Deleting the states beats handling them.
     const pickupInput = document.getElementById('pickup-date');
-    const pickupNote  = document.getElementById('pickupDateNote');
 
-    // No same-day or past orders — use local date, not UTC
+    // local date, never toISOString — UTC shifts the day for anyone behind GMT
     function localDateStr(d) {
       const y = d.getFullYear();
       const m = String(d.getMonth() + 1).padStart(2, '0');
       const day = String(d.getDate()).padStart(2, '0');
       return `${y}-${m}-${day}`;
     }
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    pickupInput.min = localDateStr(tomorrow);
 
-    pickupInput.addEventListener('change', function() {
-      let selected = new Date(this.value + 'T12:00:00');
+    // A Wednesday stays bookable until 7PM on the Sunday three days before it.
+    function bookableWednesdays(count) {
+      const out = [];
       const now = new Date();
-      const day = selected.getDay();
-
-      if (day === 3) { // Wednesday
-        const cutoff = new Date(selected);
-        cutoff.setDate(cutoff.getDate() - 3); // Sunday before
-        cutoff.setHours(19, 0, 0, 0);         // 7PM
-
-        if (now > cutoff) {
-          // Auto-advance to the following Wednesday
-          selected.setDate(selected.getDate() + 7);
-          this.value = localDateStr(selected);
-          const nextLabel = selected.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric' });
-          pickupNote.style.color = '#96581B';   // 5.66:1 on white (was #c07a2b, 3.47:1 — fails AA)
-          pickupNote.textContent = 'Cutoff for this Wednesday has passed — your order will be placed for ' + nextLabel + '.';
-        } else {
-          pickupNote.style.color = 'var(--olive)';
-          pickupNote.textContent = 'Wednesday pickup — order by Sunday at 7PM to lock in your spot.';
-        }
-      } else {
-        pickupNote.style.color = 'var(--rose-ink)';   // 5.23:1 (was --dusty, 3.14:1 — fails AA)
-        pickupNote.textContent = 'Non-Wednesday pickup — Shai will reach out to confirm this date works.';
+      const d = new Date();
+      d.setHours(12, 0, 0, 0);                              // midday: immune to DST shifts
+      d.setDate(d.getDate() + ((3 - d.getDay() + 7) % 7));  // this week's Wednesday, or today
+      while (out.length < count) {
+        const cutoff = new Date(d);
+        cutoff.setDate(cutoff.getDate() - 3);
+        cutoff.setHours(19, 0, 0, 0);
+        if (now <= cutoff) out.push(new Date(d));
+        d.setDate(d.getDate() + 7);
       }
+      return out;
+    }
+
+    bookableWednesdays(10).forEach(function (d, i) {
+      const o = document.createElement('option');
+      o.value = localDateStr(d);
+      // same en-US shape the thank-you page prints, so the date reads back identically
+      o.textContent = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
+                    + (i === 0 ? ' — next available' : '');
+      pickupInput.appendChild(o);
     });
 
     // ── Payment note ──
@@ -1151,18 +1151,34 @@
     }
 
     // ── Marquee fill ──
+    // Writing innerHTML then reading scrollWidth then writing again — per row — forces
+    // the browser to re-lay-out between every step (2xN layout passes, flagged by
+    // Lighthouse as a forced reflow). Batch the phases instead: write every row down to
+    // one unit, THEN take all the measurements together, THEN write the final content.
+    // Three layout passes total, whatever the row count.
     function fillMarquees() {
-      document.querySelectorAll('.marquee-row').forEach(function(row) {
+      var rows = Array.prototype.slice.call(document.querySelectorAll('.marquee-row'));
+      var vw = window.innerWidth;   // read once, before the write phases
+
+      // phase 1 — WRITE: every row down to a single unit
+      rows.forEach(function (row) {
         if (!row._unit) {
           var kids = Array.prototype.slice.call(row.children);
           var half = kids.slice(0, Math.floor(kids.length / 2));
-          row._unit = half.map(function(n) { return n.outerHTML; }).join('');
-          if (!row._unit) return;
+          row._unit = half.map(function (n) { return n.outerHTML; }).join('');
         }
-        row.innerHTML = row._unit;
-        var unitW = row.scrollWidth;
+        if (row._unit) row.innerHTML = row._unit;
+      });
+
+      // phase 2 — READ: every measurement in one pass, no interleaved writes
+      var widths = rows.map(function (row) { return row._unit ? row.scrollWidth : 0; });
+
+      // phase 3 — WRITE: final content, nothing read back in between
+      rows.forEach(function (row, i) {
+        if (!row._unit) return;
+        var unitW = widths[i];
         if (!unitW) { row.innerHTML = row._unit + row._unit; return; }
-        var k = Math.max(1, Math.ceil((window.innerWidth + 120) / unitW));
+        var k = Math.max(1, Math.ceil((vw + 120) / unitW));
         row.innerHTML = new Array(k * 2).fill(row._unit).join('');
         var base = row.classList.contains('reverse') ? 35 : 30;
         row.style.animationDuration = (base * k) + 's';
