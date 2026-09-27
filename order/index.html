@@ -151,7 +151,7 @@
     .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
     .form-group { display:flex; flex-direction:column; margin-bottom:1.25rem; }
     .form-group label { font-size:0.76rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--mocha); margin-bottom:0.5rem; }
-    .form-group input, .form-group select, .form-group textarea { font-family:var(--body); font-size:0.95rem; color:var(--text); background:var(--cream); border:1.5px solid var(--line-blush); border-radius:var(--r-sm); padding:0.85rem 1rem; transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease); }
+    .form-group input, .form-group select, .form-group textarea { width:100%; font-family:var(--body); font-size:0.95rem; color:var(--text); background:var(--cream); border:1.5px solid var(--line-blush); border-radius:var(--r-sm); padding:0.85rem 1rem; transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease); }
     .form-group input::placeholder, .form-group textarea::placeholder { color:var(--text-mut); }
     .form-group input:hover, .form-group select:hover, .form-group textarea:hover { border-color:var(--blush); }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--olive); background:var(--white); box-shadow:0 0 0 3px rgba(74,94,42,0.12); }
@@ -325,35 +325,35 @@
             <div class="flavor-qty-row" id="row-biscoff">
               <span class="flavor-qty-text">
                 <span class="flavor-qty-name">Biscoff</span>
-                <span class="flavor-qty-desc">Caramelized speculoos baked right in</span>
+                <span class="flavor-qty-desc">Caramelized speculoos baked right in.</span>
               </span>
               <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-biscoff" data-action="minus">−</button><input type="number" class="qty-input" id="qty-biscoff" name="qty_biscoff" value="0" min="0" readonly aria-label="Biscoff quantity" /><button type="button" class="qty-btn" data-target="qty-biscoff" data-action="plus">+</button></div>
             </div>
             <div class="flavor-qty-row" id="row-matcha">
               <span class="flavor-qty-text">
                 <span class="flavor-qty-name">Matcha White Chocolate</span>
-                <span class="flavor-qty-desc">Earthy matcha, creamy white chocolate chips</span>
+                <span class="flavor-qty-desc">Earthy matcha, creamy white chocolate chips.</span>
               </span>
               <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-matcha" data-action="minus">−</button><input type="number" class="qty-input" id="qty-matcha" name="qty_matcha" value="0" min="0" readonly aria-label="Matcha White Chocolate quantity" /><button type="button" class="qty-btn" data-target="qty-matcha" data-action="plus">+</button></div>
             </div>
             <div class="flavor-qty-row" id="row-choco">
               <span class="flavor-qty-text">
                 <span class="flavor-qty-name">Chocolate Chunk Sea Salt</span>
-                <span class="flavor-qty-desc">Gooey dark chocolate chunks, flaky sea salt</span>
+                <span class="flavor-qty-desc">Gooey dark chocolate chunks, flaky sea salt.</span>
               </span>
               <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-choco" data-action="minus">−</button><input type="number" class="qty-input" id="qty-choco" name="qty_choco" value="0" min="0" readonly aria-label="Chocolate Chunk Sea Salt quantity" /><button type="button" class="qty-btn" data-target="qty-choco" data-action="plus">+</button></div>
             </div>
             <div class="flavor-qty-row" id="row-minieggs">
               <span class="flavor-qty-text">
                 <span class="flavor-qty-name">Mini Eggs</span>
-                <span class="flavor-qty-desc">Crunchy mini eggs in a soft, chewy cookie</span>
+                <span class="flavor-qty-desc">Crunchy mini eggs in a soft, chewy cookie.</span>
               </span>
               <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-minieggs" data-action="minus">−</button><input type="number" class="qty-input" id="qty-minieggs" name="qty_minieggs" value="0" min="0" readonly aria-label="Mini Eggs quantity" /><button type="button" class="qty-btn" data-target="qty-minieggs" data-action="plus">+</button></div>
             </div>
             <div class="flavor-qty-row premium-flavor" id="row-redvelvet">
               <span class="flavor-qty-text">
                 <span class="flavor-qty-name">Red Velvet Oreo Cream Cheese <span class="premium-tag">Specialty</span></span>
-                <span class="flavor-qty-desc">Red velvet, crushed Oreos, white chocolate, cream cheese filling</span>
+                <span class="flavor-qty-desc">Red velvet, crushed Oreos, white chocolate, cream cheese filling.</span>
               </span>
               <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-redvelvet" data-action="minus">−</button><input type="number" class="qty-input" id="qty-redvelvet" name="qty_redvelvet" value="0" min="0" readonly aria-label="Red Velvet Oreo Cream Cheese quantity" /><button type="button" class="qty-btn" data-target="qty-redvelvet" data-action="plus">+</button></div>
             </div>
