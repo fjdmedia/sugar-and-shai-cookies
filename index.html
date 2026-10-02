@@ -515,12 +515,12 @@
     <div class="wrap bento">
 
       <article class="tile t-feature gs-reveal">
-        <img src="Cookies/Red Velvet Oreo Cream Cheese.jpg" width="960" height="1280" fetchpriority="high" decoding="async"
-             alt="A tray of Red Velvet Oreo Cream Cheese cookies, each topped with a white drizzle" />
+        <img src="Cookies/Cinnamon Toast Crunch.jpg" width="960" height="1280" fetchpriority="high" decoding="async"
+             alt="A tray of Cinnamon Toast Crunch cookies topped with cereal pieces and an icing drizzle" />
         <div class="t-feature-veil">
-          <span class="t-feature-k">New · always available</span>
-          <h2 class="t-feature-h">Red Velvet Oreo Cream Cheese</h2>
-          <p class="t-feature-p">A rich and soft red velvet cookie loaded with crushed Oreo pieces and white chocolate, stuffed with a smooth and creamy cream cheese filling.</p>
+          <span class="t-feature-k" data-fotm="2026-10">Flavour of the month · October</span>
+          <h2 class="t-feature-h">Cinnamon Toast Crunch</h2>
+          <p class="t-feature-p">Cinnamon sugar cereal baked in, sweet icing drizzled over.</p>
           <span class="t-feature-price"><span>Specialty</span> $25 / 12pc · $45 / 24pc</span>
         </div>
       </article>
@@ -541,7 +541,7 @@
         <div class="tile-pad">
           <p class="tile-k">With a specialty</p>
           <h3 class="tile-h">Specialty Box</h3>
-          <p class="tile-p">Everything in the classic box, plus Red Velvet Oreo Cream Cheese or Cinnamon Toast Crunch.</p>
+          <p class="tile-p">Everything in the classic box, plus Cinnamon Toast Crunch or Red Velvet Oreo Cream Cheese.</p>
           <div class="t-box-prices">
             <div class="t-box-price"><span class="t-box-q">12 pieces</span><span class="t-box-v">$25</span></div>
             <div class="t-box-price"><span class="t-box-q">24 pieces</span><span class="t-box-v">$45</span></div>
@@ -594,8 +594,8 @@
         <div class="t-flavour-body"><p class="t-flavour-n">Chocolate Chunk · Sea Salt</p><p class="t-flavour-d">Gooey dark chocolate chunks, flaky sea salt.</p></div>
       </article>
       <article class="tile t-flavour gs-reveal">
-        <div class="t-flavour-img"><img src="Cookies/Cinnamon Toast Crunch.jpg" alt="Cinnamon Toast Crunch cookies with cereal pieces and icing drizzle" loading="lazy" /></div>
-        <div class="t-flavour-body"><p class="t-flavour-n">Cinnamon Toast Crunch <span class="premium-tag">Specialty</span></p><p class="t-flavour-d">Cinnamon sugar cereal baked in, sweet icing drizzled over.</p></div>
+        <div class="t-flavour-img"><img src="Cookies/Red Velvet Oreo Cream Cheese.jpg" alt="Red Velvet Oreo Cream Cheese cookies with a white drizzle" loading="lazy" /></div>
+        <div class="t-flavour-body"><p class="t-flavour-n">Red Velvet Oreo Cream Cheese <span class="premium-tag">Specialty</span></p><p class="t-flavour-d">Red velvet, crushed Oreos, white chocolate, cream cheese filling.</p></div>
       </article>
       </div>
 
@@ -847,6 +847,19 @@
   </div>
 
   <script>
+    // The flavour-of-the-month eyebrow carries an explicit month, and an explicit
+    // month ROTS: this page sat stamped "July" through September once already.
+    // Auto-naming the current month would be worse - on 1 Nov it would announce
+    // Cinnamon as NOVEMBER's special. So the month is pinned in data-fotm and the
+    // suffix is simply dropped once that month is over, leaving the still-true
+    // "Flavour of the month". Correct in October, correct after, correct if nobody
+    // touches it again. James, 2026-10-02: this flavour LEAVES in November.
+    document.querySelectorAll('[data-fotm]').forEach(function (el) {
+      var now = new Date();
+      var cur = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+      if (cur > el.dataset.fotm) el.textContent = 'Flavour of the month';
+    });
+
     // ── Pickup dates ──
     // Shai bakes for ONE pickup day, so the control offers only real Wednesdays that
     // are still inside their cutoff. Two states the old free calendar could produce
