@@ -275,7 +275,11 @@
     .t-pickup-row b { font-weight:700; }
 
     /* the four classics — small photo tiles */
-    .t-flavour { grid-column:span 3; }
+    /* Five tiles cannot divide the bento's 12 columns (4 x span-3 filled one row
+       exactly; a 5th orphans). Own strip instead: no grow, min-width forces the
+       wrap, centring makes a short row CENTRED rather than orphaned (G32b). */
+    .t-flavours { grid-column:span 12; display:flex; flex-wrap:wrap; justify-content:center; gap:clamp(0.75rem,1.6vw,1.15rem); }
+    .t-flavour { flex:0 1 calc((100% - 4 * clamp(0.75rem,1.6vw,1.15rem)) / 5); min-width:168px; }
     .t-flavour-img { aspect-ratio:16/11; overflow:hidden; background:var(--cream-2); }
     .t-flavour-img img { width:100%; height:100%; object-fit:cover; transition:transform var(--dur-slow) var(--ease); }
     .t-flavour:hover .t-flavour-img img { transform:scale(1.06); }
@@ -304,16 +308,15 @@
       .t-box { grid-column:span 6; }
       .t-rules { grid-column:span 12; }
       .t-pickup { grid-column:span 12; }
-      .t-flavour { grid-column:span 3; }
       .t-about { grid-column:span 12; }
       .t-cta { grid-column:span 12; }
     }
     @media (max-width:760px){
-      .t-flavour { grid-column:span 6; }
+      .t-flavour { flex-basis:calc((100% - clamp(0.75rem,1.6vw,1.15rem)) / 2); }
       .t-box, .t-rules, .t-pickup { grid-column:span 12; }
     }
     @media (max-width:480px){
-      .t-flavour { grid-column:span 12; }
+      .t-flavour { flex-basis:100%; }
       .t-flavour-img { aspect-ratio:16/9; }
     }
     /* ════════════════════ PROOF ════════════════════ */
@@ -526,7 +529,7 @@
         <div class="tile-pad">
           <p class="tile-k">The classics</p>
           <h3 class="tile-h">Classic Box</h3>
-          <p class="tile-p">Any mix of Biscoff, Mini Eggs, Matcha White Chocolate and Chocolate Chunk with Sea Salt.</p>
+          <p class="tile-p">Any mix of Biscoff, Mini Eggs, Cinnamon Toast Crunch, Matcha White Chocolate and Chocolate Chunk with Sea Salt.</p>
           <div class="t-box-prices">
             <div class="t-box-price"><span class="t-box-q">12 pieces</span><span class="t-box-v">$20</span></div>
             <div class="t-box-price"><span class="t-box-q">24 pieces</span><span class="t-box-v">$35</span></div>
@@ -573,6 +576,7 @@
         </div>
       </article>
 
+      <div class="t-flavours">
       <article class="tile t-flavour gs-reveal">
         <div class="t-flavour-img"><img src="Cookies/Bischoff.png" alt="Biscoff cookies" loading="lazy" /></div>
         <div class="t-flavour-body"><p class="t-flavour-n">Biscoff</p><p class="t-flavour-d">Caramelized speculoos baked right in.</p></div>
@@ -589,6 +593,11 @@
         <div class="t-flavour-img"><img src="Cookies/Chocolate Chunk.png" alt="Chocolate chunk sea salt cookies" loading="lazy" /></div>
         <div class="t-flavour-body"><p class="t-flavour-n">Chocolate Chunk · Sea Salt</p><p class="t-flavour-d">Gooey dark chocolate chunks, flaky sea salt.</p></div>
       </article>
+      <article class="tile t-flavour gs-reveal">
+        <div class="t-flavour-img"><img src="Cookies/Cinnamon Toast Crunch.jpg" alt="Cinnamon Toast Crunch cookies with cereal pieces and icing drizzle" loading="lazy" /></div>
+        <div class="t-flavour-body"><p class="t-flavour-n">Cinnamon Toast Crunch</p><p class="t-flavour-d">Cinnamon sugar cereal baked in, sweet icing drizzled over.</p></div>
+      </article>
+      </div>
 
       <article class="tile t-about gs-reveal" id="about">
         <div class="t-about-inner">
@@ -745,6 +754,10 @@
             <div class="flavor-qty-row" id="row-minieggs">
               <span class="flavor-qty-name">Mini Eggs</span>
               <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-minieggs" data-action="minus">−</button><input type="number" class="qty-input" id="qty-minieggs" name="qty_minieggs" value="0" min="0" readonly aria-label="Mini Eggs quantity" /><button type="button" class="qty-btn" data-target="qty-minieggs" data-action="plus">+</button></div>
+            </div>
+            <div class="flavor-qty-row" id="row-cinnamon">
+              <span class="flavor-qty-name">Cinnamon Toast Crunch</span>
+              <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-cinnamon" data-action="minus">−</button><input type="number" class="qty-input" id="qty-cinnamon" name="qty_cinnamon" value="0" min="0" readonly aria-label="Cinnamon Toast Crunch quantity" /><button type="button" class="qty-btn" data-target="qty-cinnamon" data-action="plus">+</button></div>
             </div>
             <div class="flavor-qty-row premium-flavor" id="row-redvelvet">
               <span class="flavor-qty-name">Red Velvet Oreo Cream Cheese <span class="premium-tag">Specialty</span></span>
@@ -905,6 +918,7 @@
       { id: 'qty-matcha',       row: 'row-matcha',       label: 'Matcha White Chocolate',       premium: false },
       { id: 'qty-choco',        row: 'row-choco',        label: 'Chocolate Chunk Sea Salt',     premium: false },
       { id: 'qty-minieggs',     row: 'row-minieggs',     label: 'Mini Eggs',                    premium: false },
+      { id: 'qty-cinnamon',     row: 'row-cinnamon',     label: 'Cinnamon Toast Crunch',        premium: false },
       { id: 'qty-redvelvet',    row: 'row-redvelvet',    label: 'Red Velvet Oreo Cream Cheese', premium: true  },
     ];
 
