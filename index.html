@@ -529,7 +529,7 @@
         <div class="tile-pad">
           <p class="tile-k">The classics</p>
           <h3 class="tile-h">Classic Box</h3>
-          <p class="tile-p">Any mix of Biscoff, Mini Eggs, Cinnamon Toast Crunch, Matcha White Chocolate and Chocolate Chunk with Sea Salt.</p>
+          <p class="tile-p">Any mix of Biscoff, Mini Eggs, Matcha White Chocolate and Chocolate Chunk with Sea Salt.</p>
           <div class="t-box-prices">
             <div class="t-box-price"><span class="t-box-q">12 pieces</span><span class="t-box-v">$20</span></div>
             <div class="t-box-price"><span class="t-box-q">24 pieces</span><span class="t-box-v">$35</span></div>
@@ -541,7 +541,7 @@
         <div class="tile-pad">
           <p class="tile-k">With a specialty</p>
           <h3 class="tile-h">Specialty Box</h3>
-          <p class="tile-p">Everything in the classic box, plus Red Velvet Oreo Cream Cheese — the stuffed one.</p>
+          <p class="tile-p">Everything in the classic box, plus Red Velvet Oreo Cream Cheese or Cinnamon Toast Crunch.</p>
           <div class="t-box-prices">
             <div class="t-box-price"><span class="t-box-q">12 pieces</span><span class="t-box-v">$25</span></div>
             <div class="t-box-price"><span class="t-box-q">24 pieces</span><span class="t-box-v">$45</span></div>
@@ -595,7 +595,7 @@
       </article>
       <article class="tile t-flavour gs-reveal">
         <div class="t-flavour-img"><img src="Cookies/Cinnamon Toast Crunch.jpg" alt="Cinnamon Toast Crunch cookies with cereal pieces and icing drizzle" loading="lazy" /></div>
-        <div class="t-flavour-body"><p class="t-flavour-n">Cinnamon Toast Crunch</p><p class="t-flavour-d">Cinnamon sugar cereal baked in, sweet icing drizzled over.</p></div>
+        <div class="t-flavour-body"><p class="t-flavour-n">Cinnamon Toast Crunch <span class="premium-tag">Specialty</span></p><p class="t-flavour-d">Cinnamon sugar cereal baked in, sweet icing drizzled over.</p></div>
       </article>
       </div>
 
@@ -755,8 +755,8 @@
               <span class="flavor-qty-name">Mini Eggs</span>
               <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-minieggs" data-action="minus">−</button><input type="number" class="qty-input" id="qty-minieggs" name="qty_minieggs" value="0" min="0" readonly aria-label="Mini Eggs quantity" /><button type="button" class="qty-btn" data-target="qty-minieggs" data-action="plus">+</button></div>
             </div>
-            <div class="flavor-qty-row" id="row-cinnamon">
-              <span class="flavor-qty-name">Cinnamon Toast Crunch</span>
+            <div class="flavor-qty-row premium-flavor" id="row-cinnamon">
+              <span class="flavor-qty-name">Cinnamon Toast Crunch <span class="premium-tag">Specialty</span></span>
               <div class="flavor-qty-controls"><button type="button" class="qty-btn" data-target="qty-cinnamon" data-action="minus">−</button><input type="number" class="qty-input" id="qty-cinnamon" name="qty_cinnamon" value="0" min="0" readonly aria-label="Cinnamon Toast Crunch quantity" /><button type="button" class="qty-btn" data-target="qty-cinnamon" data-action="plus">+</button></div>
             </div>
             <div class="flavor-qty-row premium-flavor" id="row-redvelvet">
@@ -918,7 +918,7 @@
       { id: 'qty-matcha',       row: 'row-matcha',       label: 'Matcha White Chocolate',       premium: false },
       { id: 'qty-choco',        row: 'row-choco',        label: 'Chocolate Chunk Sea Salt',     premium: false },
       { id: 'qty-minieggs',     row: 'row-minieggs',     label: 'Mini Eggs',                    premium: false },
-      { id: 'qty-cinnamon',     row: 'row-cinnamon',     label: 'Cinnamon Toast Crunch',        premium: false },
+      { id: 'qty-cinnamon',     row: 'row-cinnamon',     label: 'Cinnamon Toast Crunch',        premium: true  },
       { id: 'qty-redvelvet',    row: 'row-redvelvet',    label: 'Red Velvet Oreo Cream Cheese', premium: true  },
     ];
 
