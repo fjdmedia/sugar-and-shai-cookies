@@ -446,6 +446,17 @@
       *, .marquee-row { animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
       .gs-reveal { opacity:1 !important; transform:none !important; }
     }
+    /* Away mode: class="away" on the body tag closes ordering on this page and the other one.
+       Remove it from both body tags to reopen; nothing else changes. */
+    .away-only { display:none; }
+    body.away .away-only { display:block; }
+    body.away span.away-only { display:inline; }
+    body.away .away-hide, body.away .mobile-cta-bar { display:none !important; }
+    .away-banner { background:var(--olive); color:var(--white); text-align:center; font-size:0.85rem; font-weight:700; line-height:1.5; padding:0.65rem var(--gutter); }
+    .away-note { text-align:center; }
+    .away-note .lede, .away-note .section-subtitle { margin-inline:auto; }
+    .away-note a { color:var(--rose-ink); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+    .away-note a:hover { color:var(--rose-ink); text-decoration-thickness:2px; }
   </style>
   <script type="application/ld+json">
   {
@@ -475,7 +486,9 @@
   }
   </script>
 </head>
-<body>
+<body class="away">
+
+  <p class="away-banner away-only">Shai is away until February 2027. Orders are closed until then.</p>
 
   <!-- ── NAV ── -->
   <nav>
@@ -714,13 +727,19 @@
   <!-- ── ORDER FORM ── -->
   <section id="order-form">
     <div class="wrap order-form-inner">
-      <div class="section-head center gs-reveal">
+      <div class="section-head center away-note away-only">
+        <span class="sig center"><span class="spark">✦</span></span>
+        <p class="eyebrow">Orders closed</p>
+        <h2 class="display">Back in <em>February</em></h2>
+        <p class="lede">Shai is away until February 2027, so the order form is closed for now. Follow <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener">@sugarandshaicookies</a> on Instagram for the date orders open again.</p>
+      </div>
+      <div class="section-head center gs-reveal away-hide">
         <span class="sig center"><span class="spark">✦</span></span>
         <p class="eyebrow">Order form</p>
         <h2 class="display">Reserve your <em>cookies</em></h2>
         <p class="lede">Fill out the form below and Shai will get back to you to confirm your spot. Most orders confirmed within 24–48 hours.</p>
       </div>
-      <form class="order-form" id="orderForm">
+      <form class="order-form away-hide" id="orderForm">
         <div class="form-row">
           <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="e.g. Sarah M." autocomplete="name" required /></div>
           <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" required /></div>
@@ -812,7 +831,7 @@
       <div class="contact-grid gs-reveal">
         <a class="contact-card" href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener">
           <span class="contact-icon"><i data-lucide="send" style="width:21px;height:21px;stroke-width:1.9;"></i></span>
-          <span class="contact-k">DM to pre-order</span>
+          <span class="contact-k"><span class="away-hide">DM to pre-order</span><span class="away-only">Instagram DM</span></span>
           <span class="contact-v">@sugarandshaicookies</span>
         </a>
         <a class="contact-card" href="mailto:sugarandshaicookies@gmail.com">

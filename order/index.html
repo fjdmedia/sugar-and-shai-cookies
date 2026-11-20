@@ -236,6 +236,18 @@
     @media (prefers-reduced-motion: reduce){
       *, *::before, *::after { animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
     }
+    /* Away mode: class="away" on the body tag closes ordering on this page and the other one.
+       Remove it from both body tags to reopen; nothing else changes. */
+    .away-only { display:none; }
+    body.away .away-only { display:block; }
+    body.away span.away-only { display:inline; }
+    body.away .pricing-wrap { padding-bottom:clamp(3.5rem,7vw,5.5rem); }
+    body.away .away-hide, body.away .mobile-cta-bar { display:none !important; }
+    .away-banner { background:var(--olive); color:var(--white); text-align:center; font-size:0.85rem; font-weight:700; line-height:1.5; padding:0.65rem var(--gutter); }
+    .away-note { text-align:center; }
+    .away-note .lede, .away-note .section-subtitle { margin-inline:auto; }
+    .away-note a { color:var(--rose-ink); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+    .away-note a:hover { color:var(--rose-ink); text-decoration-thickness:2px; }
   </style>
   <script type="application/ld+json">
   {
@@ -251,7 +263,9 @@
   }
   </script>
 </head>
-<body>
+<body class="away">
+
+  <p class="away-banner away-only">Shai is away until February 2027. Orders are closed until then.</p>
 
   <!-- ── NAV ── -->
   <nav>
@@ -263,10 +277,15 @@
   <header class="page-head">
     <div class="page-head-inner">
       <span class="sig"><span class="spark">✦</span></span>
-      <p class="section-label">Order Form</p>
-      <h1 class="section-title">Place Your <em>Cookie</em> Order</h1>
-      <p class="section-subtitle">Pick your flavours, choose a pickup date, and Shai will confirm your spot. Most orders confirmed within 24–48 hours.</p>
-      <div class="rule-chips">
+      <p class="section-label away-hide">Order Form</p>
+      <div class="away-note away-only">
+        <p class="section-label">Orders closed</p>
+        <h1 class="section-title">Back in <em>February</em></h1>
+        <p class="section-subtitle">Shai is away until February 2027, so the order form is closed for now. Follow <a href="https://www.instagram.com/sugarandshaicookies/" target="_blank" rel="noopener">@sugarandshaicookies</a> on Instagram for the date orders open again.</p>
+      </div>
+      <h1 class="section-title away-hide">Place Your <em>Cookie</em> Order</h1>
+      <p class="section-subtitle away-hide">Pick your flavours, choose a pickup date, and Shai will confirm your spot. Most orders confirmed within 24–48 hours.</p>
+      <div class="rule-chips away-hide">
         <span class="rule-chip"><i data-lucide="package" style="width:14px;height:14px;stroke-width:2.5;"></i> Pre-order only</span>
         <span class="rule-chip"><i data-lucide="clock" style="width:14px;height:14px;stroke-width:2.5;"></i> Wednesday pickup</span>
         <span class="rule-chip"><i data-lucide="map-pin" style="width:14px;height:14px;stroke-width:2.5;"></i> Tyndall area</span>
@@ -299,10 +318,10 @@
   </div>
 
   <!-- ── ORDER FORM ── -->
-  <section id="order-form">
+  <section id="order-form" class="away-hide">
     <div class="order-form-inner">
 
-      <form class="order-form" id="orderForm">
+      <form class="order-form away-hide" id="orderForm">
         <input type="hidden" name="order_source" value="Order Page (/order)" />
         <div class="form-row">
           <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="e.g. Sarah M." autocomplete="name" required /></div>
@@ -408,7 +427,7 @@
   </section>
 
   <!-- ── ALT ORDER METHODS ── -->
-  <section id="alt-order">
+  <section id="alt-order" class="away-hide">
     <div class="alt-inner">
       <span class="sig"><span class="spark">✦</span></span>
       <p class="section-label">Bigger Order?</p>
